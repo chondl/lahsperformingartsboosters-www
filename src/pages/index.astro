@@ -1,0 +1,36 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+const home = await getEntry('pages', 'home');
+const { Content } = await render(home);
+
+// Drop ensemble photos into public/images/hero/ and list them here. Empty = gradient hero.
+const heroImages: string[] = [];
+---
+<BaseLayout description="Parent-led nonprofit supporting the performing arts at Los Altos High School.">
+  <HeroCarousel
+    images={heroImages}
+    title="Los Altos High School Performing Arts Boosters"
+    subtitle="Supporting Marching Band & Color Guard, Instrumental Music, Choir, and Drama."
+  />
+  <section id="find-your-program" class="container section">
+    <span class="eyebrow">Find your program</span>
+    <h2>Most families care about one thing — start there</h2>
+    <div class="programs-grid">
+      {programs.map((p) => (
+        <ProgramCard href={`/programs/${p.id}/`} title={p.data.title} summary={p.data.summary} icon={p.data.icon} />
+      ))}
+    </div>
+  </section>
+  <section class="container section prose">
+    <Content />
+  </section>
+</BaseLayout>
+<style>
+  .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 22px; }
+  @media (max-width: 820px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
