@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const programs = await getCollection('programs');
+  return programs.map((p) => ({ params: { slug: p.id }, props: { program: p } }));
+}
+
+const { program } = Astro.props;
+const { Content } = await render(program);
+const d = program.data;
+---
+<BaseLayout title={d.title} description={d.summary}>
+  <article class="container section prose">
+    <Content />
+    <div class="program-actions">
+      {d.volunteerSheetUrl && <a class="btn btn-primary" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
+      {d.googleGroupUrl && <a class="btn" href={d.googleGroupUrl}>Join the Google Group</a>}
+      <a class="btn btn-primary" href={`/donate/${d.donateSlug}`}>Donate to {d.title}</a>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .program-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+</style>
