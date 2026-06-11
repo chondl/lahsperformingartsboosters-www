@@ -1,0 +1,17 @@
+{
+  "name": "lahsperformingartsboosters-www",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@fontsource/nunito-sans": "5.2.7",
+    "@fontsource/raleway": "5.2.8",
+    "astro": "6.4.6"
+  }
+}
