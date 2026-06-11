@@ -53,6 +53,7 @@ The Boosters are led by a volunteer board:
 - **VP, Fundraising** — Gerri Bock
 - **Treasurer** — Sangum Desai
 - **Secretary** — Kirsten Leute
+- **MBCG Volunteer Lead** — Sara Mooser
 
 ## Contact
 

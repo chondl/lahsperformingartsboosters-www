@@ -201,8 +201,8 @@ dashboard as part of project setup:
 - Account · **Cloudflare Pages: Edit**
 - Zone · **DNS: Edit** (zone: lahsperformingartsboosters.org)
 - Zone · **Zone: Read**
-- Zone · **Email Routing Rules: Edit** and Account · **Email Routing Addresses: Edit**
-  (for the president@/treasurer@ forwarding)
+- Zone · **Email Routing Rules: Edit** (for the president@/treasurer@ forwarding)
+- Account · **Email Routing Addresses: Edit** (to add the destination inboxes)
 - Account · **Account Settings: Read** (to discover the account ID)
 
 ## 10. Inputs Needed From Owner (at implementation time)
@@ -231,7 +231,8 @@ dashboard as part of project setup:
 - Shared header/footer/nav are defined once; changing the nav touches a single file.
 - The site visually matches the approved mockup (palette, typography, logos, carousel).
 - A non-technical maintainer can update program text, schedules, board members, the MBCG
-  season calendar, and donation links by editing Markdown files in the GitHub web editor.
+  season calendar and volunteer sign-up link, and donation links by editing Markdown files
+  in the GitHub web editor.
 - Email to **president@** and **treasurer@lahsperformingartsboosters.org** forwards to the
   designated inboxes via Cloudflare Email Routing.
 - Running the JotForm sync tool **creates** all four program donation forms from the base
