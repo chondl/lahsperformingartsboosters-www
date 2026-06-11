@@ -17,7 +17,7 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
       <div class="dropdown">
         <button class="dropbtn" aria-haspopup="true">Programs ▾</button>
         <div class="dropdown-content">
-          {programs.map((p) => <a href={`/programs/${p.slug}/`}>{p.data.title}</a>)}
+          {programs.map((p) => <a href={`/programs/${p.id}/`}>{p.data.title}</a>)}
         </div>
       </div>
       <a class="donate" href="/donate/">Donate</a>
