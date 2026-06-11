@@ -6,6 +6,7 @@ import ProgramCard from '../components/ProgramCard.astro';
 
 const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
 const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing content: pages/home');
 const { Content } = await render(home);
 
 // Drop ensemble photos into public/images/hero/ and list them here. Empty = gradient hero.

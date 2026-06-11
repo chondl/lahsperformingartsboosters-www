@@ -1,5 +1,10 @@
 ---
 // images: string[] of /images/hero/*.jpg paths. Empty array → gradient-only hero.
+interface Props {
+  images?: string[];
+  title: string;
+  subtitle?: string;
+}
 const { images = [], title, subtitle } = Astro.props;
 ---
 <section class="hero">
