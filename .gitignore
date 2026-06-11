@@ -16,3 +16,6 @@ dist/
 .env
 .env.*
 .dev.vars
+
+# Git worktrees
+.worktrees/
