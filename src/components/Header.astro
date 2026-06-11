@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">
+      <img src="/images/logo-eagle.png" alt="LAHS eagle" width="46" height="46" />
+      <span class="brand-text">
+        <span class="brand-sub">Los Altos High School</span>
+        <span class="brand-title">Performing Arts Boosters</span>
+      </span>
+    </a>
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <div class="dropdown">
+        <button class="dropbtn" aria-haspopup="true">Programs ▾</button>
+        <div class="dropdown-content">
+          {programs.map((p) => <a href={`/programs/${p.slug}/`}>{p.data.title}</a>)}
+        </div>
+      </div>
+      <a class="donate" href="/donate/">Donate</a>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { background: var(--navy); }
+  .nav { display: flex; align-items: center; gap: 16px; padding: 14px 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { border-radius: 50%; background: #fff; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.12; }
+  .brand-sub { font-size: .72rem; color: #9fb8dd; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-family: "Raleway"; }
+  .brand-title { font-weight: 900; font-size: 1.25rem; color: #fff; font-family: "Raleway"; }
+  .menu { margin-left: auto; display: flex; align-items: center; gap: 22px; font-family: "Raleway"; font-weight: 700; }
+  .menu > a, .dropbtn { color: #dce6f4; background: none; border: none; font: inherit; cursor: pointer; }
+  .menu > a:hover, .dropbtn:hover { color: #fff; text-decoration: none; }
+  .menu .donate { border: 1.5px solid #6f93c4; color: #fff; padding: 8px 18px; border-radius: 6px; }
+  .menu .donate:hover { border-color: var(--gold); }
+  .dropdown { position: relative; }
+  .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 230px; box-shadow: 0 8px 24px rgba(0,0,0,.18); border-radius: 8px; overflow: hidden; z-index: 20; }
+  .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display: block; }
+  .dropdown-content a { display: block; padding: 11px 16px; color: var(--navy); }
+  .dropdown-content a:hover { background: var(--bg); text-decoration: none; }
+</style>

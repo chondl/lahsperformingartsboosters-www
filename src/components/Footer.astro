@@ -1,0 +1,19 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container foot">
+    <img src="/images/logo-seal.png" alt="LAHS seal" width="74" height="74" />
+    <div>
+      <strong>LAHS Performing Arts Boosters</strong><br />
+      201 Almond Avenue, Los Altos, CA 94022 · EIN 77-0525170
+    </div>
+    <div class="spacer">A 501(c)(3) nonprofit · &copy; {year}<br />lahsperformingartsboosters.org</div>
+  </div>
+</footer>
+<style>
+  .site-footer { background: var(--navy-d); color: #cdd9ea; font-size: .88rem; margin-top: 48px; }
+  .foot { display: flex; gap: 20px; align-items: center; padding: 34px 24px; }
+  .foot strong { color: #fff; font-family: "Raleway"; }
+  .foot .spacer { margin-left: auto; text-align: right; color: #9fb3d1; font-size: .8rem; }
+</style>
