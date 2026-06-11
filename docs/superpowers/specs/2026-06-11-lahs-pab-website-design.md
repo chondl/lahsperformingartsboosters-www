@@ -134,8 +134,10 @@ dashboard as part of project setup:
   as custom domains on the Pages project, creating the required DNS records.
 - **HTTPS is mandatory.** Cloudflare issues a free TLS certificate for the custom domains.
   Enable **"Always Use HTTPS"** so any HTTP request is redirected to HTTPS.
-- Decide and implement a single canonical host (apex vs `www`) with the other redirecting
-  to it, so the site has one canonical HTTPS URL.
+- **Canonical host: the apex** `lahsperformingartsboosters.org`. `www.lahsperformingartsboosters.org`
+  redirects to the apex over HTTPS, so the site has one canonical HTTPS URL. (Apex vs
+  `www` redirect is a Cloudflare zone-level redirect rule — distinct from the Pages
+  `_redirects` file used for the `/donate/*` links in §3.)
 
 ### Required Cloudflare API token scopes (owner provides at implementation time)
 
