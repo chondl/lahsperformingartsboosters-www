@@ -1,0 +1,5 @@
+# /donate/<program> short links → JotForm. Plan 2 (JotForm sync) overwrites the targets.
+/donate/mbcg          https://form.jotform.com/REPLACE_MBCG          302
+/donate/instrumental  https://form.jotform.com/REPLACE_INSTRUMENTAL  302
+/donate/choir         https://form.jotform.com/REPLACE_CHOIR         302
+/donate/drama         https://form.jotform.com/REPLACE_DRAMA         302
