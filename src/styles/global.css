@@ -1,0 +1,39 @@
+:root {
+  --navy: #103A6B;
+  --navy-d: #0c2c52;
+  --royal: #2E6DB4;
+  --gold: #F4A81E;        /* subtle accent ONLY */
+  --bg: #F4F6F8;
+  --ink: #222;
+  --line: #e2e7ec;
+  --maxw: 1120px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { font-family: "Raleway", system-ui, sans-serif; color: var(--navy); line-height: 1.2; }
+a { color: var(--royal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.section { padding: 56px 0; }
+.eyebrow {
+  display: inline-block; color: var(--royal); font-family: "Raleway"; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1.6px; font-size: .78rem;
+  border-bottom: 2px solid var(--gold); padding-bottom: 3px; margin-bottom: 10px;
+}
+.btn { display: inline-block; padding: 12px 24px; border-radius: 7px; font-family: "Raleway"; font-weight: 700; }
+.btn-primary { background: var(--royal); color: #fff; }
+.btn-primary:hover { background: #3a86d6; text-decoration: none; }
+/* Markdown content styling */
+.prose h2 { margin: 1.6em 0 .4em; font-size: 1.6rem; }
+.prose h3 { margin: 1.2em 0 .3em; font-size: 1.2rem; }
+.prose p, .prose ul, .prose table { margin: 0 0 1em; }
+.prose ul { padding-left: 1.2em; }
+.prose table { border-collapse: collapse; width: 100%; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: .95rem; }
+.prose th { background: var(--bg); font-family: "Raleway"; }
