@@ -13,6 +13,7 @@ const d = program.data;
 ---
 <BaseLayout title={d.title} description={d.summary}>
   <article class="container section prose">
+    <h1>{d.title}</h1>
     <Content />
     <div class="program-actions">
       {d.volunteerSheetUrl && <a class="btn btn-primary" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}

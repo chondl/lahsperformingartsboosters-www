@@ -7,8 +7,6 @@ icon: "🎻"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-instrumental
 ---
 
-## Instrumental Music
-
 "Instrumental Music" is the umbrella for *all* of Los Altos High School's instrumental
 ensembles — the **concert bands**, the **orchestras**, and **jazz band**. That spans
 groups like Wind Ensemble, Symphonic Band, Chamber and String Orchestras, and Jazz Band.

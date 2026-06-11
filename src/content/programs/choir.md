@@ -7,8 +7,6 @@ icon: "🎤"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-choir
 ---
 
-## Choir
-
 The Choir program brings together singers across several ensembles — from entry-level
 groups to advanced choirs like Bel Canto and Volari. Students grow as vocalists and
 performers throughout the year and represent Los Altos High School at festivals and

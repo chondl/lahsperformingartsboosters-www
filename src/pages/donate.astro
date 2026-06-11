@@ -6,5 +6,5 @@ if (!page) throw new Error('Missing content: pages/donate');
 const { Content } = await render(page);
 ---
 <BaseLayout title="Donate" description="Donate to the LAHS Performing Arts Boosters.">
-  <article class="container section prose"><Content /></article>
+  <article class="container section prose"><h1>{page.data.title}</h1><Content /></article>
 </BaseLayout>

@@ -8,8 +8,6 @@ googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-mbcg
 volunteerSheetUrl: https://docs.google.com/spreadsheets/d/PLACEHOLDER/edit
 ---
 
-## Marching Band & Color Guard
-
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
 program — but with 50-plus students, a full fall competition season, and a major share of
 the activity, it gets a page of its own. Each fall, students build a competitive field
@@ -50,10 +48,9 @@ format.*
 
 ## Volunteer & calendar sheet
 
-We coordinate the full schedule and all volunteer sign-ups through a shared Google Sheet.
-It lists every event and the roles we need filled — pick the spots that work for you:
-
-- **[Marching Band & Color Guard volunteer & calendar sheet »](#)** *(link to be added)*
+We coordinate the full schedule and all volunteer sign-ups through a shared Google Sheet
+that lists every event and the roles we need filled. Use the **Volunteer sign-up sheet**
+button at the bottom of this page to open it and choose the spots that work for you.
 
 ## Get involved
 
@@ -65,9 +62,9 @@ MBCG depends on parent volunteers more than any other program. Families help wit
 - **Props, uniforms, and fittings**
 - **Volunteer coordination** — leading and scheduling the parent crew
 
-To plug in, **sign up on the volunteer sheet above**, **join the Marching Band Google
-Group** for schedules and news, and come to the MBCG portion of the monthly Boosters
-meeting.
+To plug in, **use the volunteer sign-up sheet** (button below), **join the Marching Band
+Google Group** for schedules and news, and come to the MBCG portion of the monthly
+Boosters meeting.
 
 ## Monthly meeting
 

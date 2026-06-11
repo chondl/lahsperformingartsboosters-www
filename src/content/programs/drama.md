@@ -7,8 +7,6 @@ icon: "🎭"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-drama
 ---
 
-## Drama
-
 The Drama program gives students the full theatrical experience, on stage and behind the
 scenes — from acting and directing to sets, tech, and pit orchestra. There's a place for
 every experience level, from introductory classes through the advanced Drama 2 course

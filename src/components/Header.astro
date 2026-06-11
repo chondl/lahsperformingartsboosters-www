@@ -15,7 +15,7 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
       <a href="/">Home</a>
       <a href="/about/">About</a>
       <div class="dropdown">
-        <button class="dropbtn" aria-haspopup="true">Programs ▾</button>
+        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Programs ▾</button>
         <div class="dropdown-content">
           {programs.map((p) => <a href={`/programs/${p.id}/`}>{p.data.title}</a>)}
         </div>
@@ -39,7 +39,29 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
   .menu .donate:hover { border-color: var(--gold); }
   .dropdown { position: relative; }
   .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 230px; box-shadow: 0 8px 24px rgba(0,0,0,.18); border-radius: 8px; overflow: hidden; z-index: 20; }
-  .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content { display: block; }
+  .dropdown:hover .dropdown-content,
+  .dropdown:focus-within .dropdown-content,
+  .dropdown.open .dropdown-content { display: block; }
   .dropdown-content a { display: block; padding: 11px 16px; color: var(--navy); }
   .dropdown-content a:hover { background: var(--bg); text-decoration: none; }
 </style>
+<script>
+  // Click/keyboard toggle for the Programs dropdown (hover still works for mouse).
+  for (const dd of document.querySelectorAll('.dropdown')) {
+    const btn = dd.querySelector('.dropbtn');
+    if (!btn) continue;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = dd.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
+  const closeAll = () => {
+    for (const dd of document.querySelectorAll('.dropdown.open')) {
+      dd.classList.remove('open');
+      dd.querySelector('.dropbtn')?.setAttribute('aria-expanded', 'false');
+    }
+  };
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+</script>
