@@ -8,10 +8,15 @@ draft: true
 
 ## Instrumental Music
 
-The Instrumental Music program is home to Los Altos High School's concert bands and
-orchestras — including Wind Ensemble, Symphonic Band, Chamber and String Orchestras,
-and Jazz Band. Students range from first-year players to advanced musicians preparing
-honor-ensemble and all-state auditions, and the program continues to grow each year.
+"Instrumental Music" is the umbrella for *all* of Los Altos High School's instrumental
+ensembles — the **concert bands**, the **orchestras**, and **jazz band**. That spans
+groups like Wind Ensemble, Symphonic Band, Chamber and String Orchestras, and Jazz Band.
+Students range from first-year players to advanced musicians preparing honor-ensemble and
+all-state auditions, and the program continues to grow each year.
+
+**Marching Band & Color Guard is also part of Instrumental Music.** Because of its size
+and its distinct fall competition season, it has its own page —
+see [Marching Band & Color Guard](/marching-band-color-guard).
 
 *Directors: Ted Ferrucci and Johanna "Jo" Smith-Nilsson.*
 

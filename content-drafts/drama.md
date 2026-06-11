@@ -8,10 +8,10 @@ draft: true
 
 ## Drama
 
-The Drama program — home of LAHS's Broken Box Theater — gives students the full
-theatrical experience, on stage and behind the scenes. From acting and directing to
-sets, tech, and pit orchestra, students of all experience levels find a place, and
-no one who wants to participate is turned away.
+The Drama program gives students the full theatrical experience, on stage and behind the
+scenes — from acting and directing to sets, tech, and pit orchestra. There's a place for
+every experience level, from introductory classes through the advanced Drama 2 course
+(known as Broken Box), and no one who wants to participate is turned away.
 
 *Director: Lisa Battle.*
 
@@ -19,12 +19,13 @@ no one who wants to participate is turned away.
 
 A typical season offers something for everyone:
 
-- A **fall play** produced by the theater company
+- A **fall play** staged by the drama students
 - **Student-directed and one-act productions** that put students in the director's chair
 - **Acting class showcases**, including performances our students bring to local
   elementary schools
 - A **spring musical** — a major, full-department production with cast, crew, and a
-  student pit orchestra — staged in alternating years
+  student pit orchestra — staged every other year (most recently in 2026; the next is
+  expected around February 2028)
 - A **senior showcase** to close out the year
 
 Productions are supported by professional staff stipends and, for the musical, a hired
@@ -34,7 +35,7 @@ accompanist, while students and parents handle much of the rest.
 
 Booster support helps fund production staff, sets and props, costumes, royalties, and
 the equipment that brings each show to life. Drama maintains its own program fund,
-directed by its teacher toward the needs of the students. Mounting an annual musical is
+directed by its teacher toward the needs of the students. Mounting the musical is
 ambitious — and growing parent involvement is key to making it sustainable.
 
 ## Get involved

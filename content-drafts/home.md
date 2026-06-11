@@ -16,11 +16,11 @@ we raise goes directly back to the programs and the students.
 
 ## Find your program
 
-Most families are involved in one program. Start there — each page has what that
-program does, how to get connected, and how to give:
+Most families are involved in one area. Start there — each page has what that group
+does, how to get connected, and how to give:
 
-- **Marching Band & Color Guard**
-- **Instrumental Music** (Band & Orchestra)
+- **Instrumental Music** — the bands, orchestras, and jazz band
+- **Marching Band & Color Guard** — part of Instrumental Music, with its own busy fall season
 - **Choir**
 - **Drama**
 
@@ -40,6 +40,7 @@ on a bigger role.
 
 ## The Fall Festival
 
-Each fall the Boosters host the Fall Festival, our signature community event and
-fundraiser, with performances from across the department. It's a great first taste
-of everything our students do — and proceeds support the programs directly.
+Each fall, Los Altos High School hosts the Fall Festival, a community event with
+performances from across the department. The Boosters pitch in to support it — as we do
+for concerts and shows throughout the year — and it's a great first taste of everything
+our students do.

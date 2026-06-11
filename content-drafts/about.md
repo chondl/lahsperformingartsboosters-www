@@ -7,9 +7,13 @@ draft: true
 ## Who we are
 
 The Los Altos High School Performing Arts Boosters (PAB) is a parent-led nonprofit
-that supports the school's four performing arts programs: Marching Band & Color Guard,
-Instrumental Music, Choir, and Drama. We are a registered 501(c)(3) charitable
-organization, and all parents and guardians of performing arts students are members.
+that supports Los Altos High School's performing arts programs — **Instrumental Music**
+(the bands, orchestras, and jazz band, including Marching Band & Color Guard), **Choir**,
+and **Drama**. We are a registered 501(c)(3) charitable organization, and all parents and
+guardians of performing arts students are members.
+
+The performances, classes, and ensembles belong to the school and its teachers — the
+Boosters are here to *support* them, not to run them.
 
 ## What we do
 
@@ -52,8 +56,8 @@ The Boosters are led by a volunteer board:
 
 ## Contact
 
-- **President:** Chris Hondl — chondl@stanfordalumni.org
-- **Treasurer:** lahsmusictreasurer@gmail.com
+- **President:** president@lahsperformingartsboosters.org
+- **Treasurer:** treasurer@lahsperformingartsboosters.org
 - **Mail:** LAHS Performing Arts Boosters, 201 Almond Avenue, Los Altos, CA 94022
 
 We are a 501(c)(3) nonprofit; donations are tax-deductible. **EIN 77-0525170.**
