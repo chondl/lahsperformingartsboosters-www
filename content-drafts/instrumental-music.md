@@ -13,6 +13,8 @@ orchestras — including Wind Ensemble, Symphonic Band, Chamber and String Orche
 and Jazz Band. Students range from first-year players to advanced musicians preparing
 honor-ensemble and all-state auditions, and the program continues to grow each year.
 
+*Directors: Ted Ferrucci and Johanna "Jo" Smith-Nilsson.*
+
 ## A year of music
 
 The ensembles perform throughout the school year, from fall and winter concerts to a

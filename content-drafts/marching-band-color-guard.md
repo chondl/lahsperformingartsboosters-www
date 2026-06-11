@@ -14,6 +14,9 @@ the ground up and perform it at football games, community events, and Western Ba
 Association competitions across California. Marching Band & Color Guard also satisfies
 the LAHS physical education requirement.
 
+*Directed by band director Ted Ferrucci, with the marching band and color guard
+instructional staff.*
+
 ## The season
 
 The year begins with a **fall band camp**, where students learn the show and come

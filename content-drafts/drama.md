@@ -13,6 +13,8 @@ theatrical experience, on stage and behind the scenes. From acting and directing
 sets, tech, and pit orchestra, students of all experience levels find a place, and
 no one who wants to participate is turned away.
 
+*Director: Lisa Battle.*
+
 ## A year on stage
 
 A typical season offers something for everyone:

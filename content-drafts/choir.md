@@ -13,6 +13,8 @@ groups to advanced choirs like Bel Canto and Volari. Students grow as vocalists 
 performers throughout the year and represent Los Altos High School at festivals and
 competitions across the region.
 
+*Director: Lauren Diez.*
+
 ## A year of singing
 
 Our choirs perform and compete throughout the school year, with a calendar that

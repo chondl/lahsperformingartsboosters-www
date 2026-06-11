@@ -28,7 +28,7 @@ is and does in any year, not a recap of a specific season.
 ## Notes / to confirm
 
 - **Board roster** in `about.md` reflects the next-year slate; update names/emails as needed.
-- **Director names** are intentionally left out of program pages to keep them evergreen
-  (staff change); add them if you'd prefer.
+- **Director names** are credited on each program page (Ferrucci & Smith-Nilsson;
+  Diez; Battle). Update if staff change.
 - **Donate links** (`/donate/<program>`) are placeholders until the JotForm forms exist.
 - Each page is kept under ~500 words of body content per the content brief.
