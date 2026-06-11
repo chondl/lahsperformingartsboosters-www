@@ -1,0 +1,166 @@
+# LAHS Performing Arts Boosters Website — Design
+
+**Date:** 2026-06-11
+**Status:** Approved (pending spec review)
+
+## 1. Purpose
+
+A standalone informational website for the **Los Altos High School Performing Arts
+Boosters (PAB)**, a parent-led 501(c)(3) nonprofit (EIN 77-0525170) supporting the
+school's Marching Band & Color Guard, Instrumental Music, Choir, and Drama programs.
+
+Today the organization's content lives on a page within the high-school website
+(`lahs.mvla.net/performing-arts-boosters`). This project moves it to the organization's
+own domain, **lahsperformingartsboosters.org** (already registered through Cloudflare).
+
+The site is **program-first**: most families are involved in a single program, so the
+primary navigation goal is to get a parent straight to *their* program's information.
+Donations are processed off-site via JotForm and reached through short, clean redirect
+links on the PAB domain.
+
+**Overriding constraint:** the site must be **simple and maintainable enough to hand off
+to a non-technical maintainer** with only minimal ongoing support. Every design choice is
+biased toward that outcome.
+
+## 2. Scope
+
+In scope: a 7-page static marketing/info site, its content model, and its automated
+build-and-deploy pipeline on Cloudflare Pages with the custom domain.
+
+Out of scope (explicitly): donation processing (external JotForm), a CMS admin UI
+(deferred — see §6), event/calendar management systems, user accounts, and any
+server-side/dynamic functionality.
+
+## 3. Sitemap
+
+Seven pages. Top navigation: **Home · About · Programs ▾ · Donate**
+
+1. **Home** — photo carousel hero of ensembles; prominent organization name;
+   "find your program" cards linking to the four program pages; a "Get Involved" band
+   (monthly meeting, Google Groups, give & volunteer); org-wide highlights.
+2. **About & Contact** — mission, 501(c)(3) status and EIN, board members, contact
+   emails, and mailing address (201 Almond Avenue, Los Altos, CA 94022).
+3. **Marching Band & Color Guard** — program page.
+4. **Instrumental Music** (Band & Orchestra) — program page.
+5. **Choir** — program page.
+6. **Drama** — program page.
+7. **Donate** — brief explanation plus the four program donation options, each linking
+   to a clean redirect URL.
+
+**Program page pattern** (pages 3–6 share one template): program description, schedule,
+the program-specific Google Group sign-up link, a reference to the org-wide monthly
+booster meeting, and a "Donate to this program" link.
+
+### Donation redirects
+
+Short URLs on the PAB domain that 302-redirect to the (long, opaque) JotForm links:
+
+- `/donate/mbcg` → Marching Band & Color Guard JotForm
+- `/donate/instrumental` → Instrumental Music JotForm
+- `/donate/choir` → Choir JotForm
+- `/donate/drama` → Drama JotForm
+
+Implemented via a Cloudflare Pages `_redirects` file (a plain text file in the build
+output), so they are version-controlled and editable as text. JotForm URLs are unknown at
+build-time of the first deploy and will be filled in when provided; until then they point
+to placeholder targets.
+
+## 4. Visual Design
+
+Approved via browser mockup during brainstorming.
+
+- **Palette:** navy `#103A6B` (primary), royal blue `#2E6DB4` (secondary/links),
+  gold/amber `#F4A81E` used **only as a subtle accent** (thin section underline, active
+  carousel dot, link hover) — never as a large fill. Backgrounds white / silver-gray
+  `#F4F6F8`; body text charcoal `#222`.
+- **Typography (matches LAHS main site):** **Raleway** for headings, **Nunito Sans** for
+  body. Both loaded from Google Fonts.
+- **Logos:** the standalone eagle-head mark in the header (and footer accent); the
+  circular "Los Altos High School / 1954" seal in the footer. Eagle mark also serves as
+  the favicon.
+- **Hero:** an auto-rotating image carousel of ensemble photos with a navy gradient scrim
+  and the organization name overlaid prominently. Placeholder photos initially; replaced
+  with real photos of PAB ensembles when available.
+- **Consistency:** one unified palette across all programs (programs differentiated by
+  photo/imagery, not by color).
+- Collegiate, clean, generous white space.
+
+## 5. Technical Architecture
+
+- **Framework:** **Astro** (static output). Shared `Layout`, `Header`, `Footer`, and a
+  reusable program-page layout mean site-wide elements (nav, footer, styles) are defined
+  once, not duplicated across seven files.
+- **Content model:** page content lives in **Markdown** via Astro **content collections**.
+  Each program is a Markdown file with simple frontmatter (e.g., title, schedule, Google
+  Group URL, donation slug); the About page is likewise Markdown. Editors change content
+  by editing Markdown, never by touching component or layout code.
+- **Output:** plain static HTML/CSS/JS in `dist/`. No server-side runtime.
+- **Structure favors a future CMS:** content is organized as discrete Markdown files with
+  predictable frontmatter so a Git-based CMS (Decap/Sveltia) can be added later as a
+  drop-in without restructuring content.
+
+## 6. Content Editing Workflow
+
+- **Source of truth:** a public GitHub repository on the maintainer's personal account
+  (`chondl`), named **`lahsperformingartsboosters-www`**. This is a **dedicated repository**
+  for the site — not mixed into any existing personal monorepo/folder.
+- **Editing (initial):** the **GitHub web editor**. A maintainer opens a `.md` file in the
+  browser, edits, and commits. No local toolchain required.
+- **Editing (future, deferred):** a Git-based CMS (Decap or Sveltia) providing a friendly
+  `/admin` UI that commits Markdown to GitHub behind the scenes. Not built now; the content
+  model is structured to allow adding it later without rework.
+
+## 7. Build & Deploy Pipeline
+
+- **Cloudflare Pages with native Git integration.** The Pages project is connected to the
+  GitHub repo. On every push to the production branch (including commits made through the
+  GitHub web editor), Cloudflare pulls the repo, runs the build in its cloud, and deploys.
+  - Build command: `npm run build`. Output directory: `dist`.
+  - Branch pushes / PRs produce preview deployments automatically.
+- **One-time manual step (owner-performed):** authorizing the Cloudflare GitHub app to
+  access the repository. This is a brief click-through in the Cloudflare dashboard and is
+  the only step the owner performs by hand. Everything after is automatic.
+- No local build is required for ongoing maintenance; builds run in Cloudflare's cloud.
+
+## 8. Domain, HTTPS & Cloudflare Configuration
+
+The domain **lahsperformingartsboosters.org** is already registered through Cloudflare and
+its DNS zone is on Cloudflare, so no registrar or nameserver changes are needed.
+
+Configured via the Cloudflare API (using an API token the owner provides) and/or the
+dashboard as part of project setup:
+
+- Attach **lahsperformingartsboosters.org** (apex) and **www.lahsperformingartsboosters.org**
+  as custom domains on the Pages project, creating the required DNS records.
+- **HTTPS is mandatory.** Cloudflare issues a free TLS certificate for the custom domains.
+  Enable **"Always Use HTTPS"** so any HTTP request is redirected to HTTPS.
+- Decide and implement a single canonical host (apex vs `www`) with the other redirecting
+  to it, so the site has one canonical HTTPS URL.
+
+### Required Cloudflare API token scopes (owner provides at implementation time)
+
+- Account · **Cloudflare Pages: Edit**
+- Zone · **DNS: Edit** (zone: lahsperformingartsboosters.org)
+- Zone · **Zone: Read**
+- Account · **Account Settings: Read** (to discover the account ID)
+
+## 9. Inputs Needed From Owner (at implementation time)
+
+- A **Cloudflare API token** with the scopes in §8.
+- The **four JotForm donation URLs** (redirect targets). Placeholders used until provided.
+- Eventually: **real ensemble photos** for the hero carousel and current **board member
+  names / event details** (existing-site content and placeholders used to start).
+
+## 10. Success Criteria
+
+- All 7 pages live and reachable over **HTTPS** at `lahsperformingartsboosters.org`, with a
+  single canonical host and HTTP redirecting to HTTPS.
+- The four `/donate/<program>` short links redirect correctly (to placeholders until the
+  real JotForm URLs are supplied).
+- A content edit committed through the GitHub web editor automatically rebuilds and
+  redeploys the site via Cloudflare, with no local tooling.
+- Shared header/footer/nav are defined once; changing the nav touches a single file.
+- The site visually matches the approved mockup (palette, typography, logos, carousel).
+- A non-technical maintainer can update program text, schedules, board members, and
+  donation links by editing Markdown files in the GitHub web editor.
+```

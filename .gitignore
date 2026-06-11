@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Astro build output
+dist/
+.astro/
+
+# Brainstorm scratch (visual companion)
+.superpowers/
+
+# OS / editor
+.DS_Store
+*.log
+
+# Env / secrets
+.env
+.env.*
+.dev.vars
