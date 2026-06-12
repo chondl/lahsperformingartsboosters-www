@@ -19,3 +19,6 @@ dist/
 
 # Git worktrees
 .worktrees/
+
+# Wrangler local state
+.wrangler/
