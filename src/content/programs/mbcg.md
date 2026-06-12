@@ -72,15 +72,13 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Thu–Sat, Jul 30 – Aug 1 | 9:00 AM – 4:00 PM | Student leadership workshops |
 | **August** |  |  |
 | Mon–Sat, Aug 3 – 8 | TBD | Home band camp (6 days) |
-| Thu, Aug 27 | 6:00 PM | Back to School Night |
+| Thu, Aug 27 | 6:00 PM | Back to School Night Performance|
 | Fri, Aug 28 | Game 7:00 PM | Rehearsal, then home football game |
 | **September** |  |  |
-| Fri–Sat, Sep 4 – 5 | — | No rehearsal |
-| Mon, Sep 7 | — | Labor Day — no rehearsal |
-| Fri–Sun, Sep 25 – 27 | TBD | Away band camp |
+| Fri–Sat, Sep 4 – 7 | — | Labor Day Weekend - no rehearsal |
+| Fri–Sun, Sep 25 – 27 | TBD | Away band camp at Camp Jones Gulch, leave after school on Friday, finish Sunday afternoon |
 | **October** |  |  |
 | Fri, Oct 2 | Game 7:00 PM | Rehearsal, then home football game |
-| Thu, Oct 8 | — | Fall Recess (no school) — no rehearsal |
 | Fri, Oct 9 | Game 7:00 PM | Rehearsal, then home football game |
 | Sat, Oct 10 | 9:00 AM at LAHS | Fremont Unified Expo (WBA exhibition) |
 | Fri, Oct 16 | Game 7:00 PM | Rehearsal, then home football game |
@@ -92,8 +90,8 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Sat, Nov 7 | 9:00 AM at LAHS | Hollister Show — WBA #3 |
 | Wed, Nov 11 | TBD | Veterans Day — rehearsal as scheduled (no day off) |
 | Sat, Nov 14 | 9:00 AM at LAHS | WBA Regional at Logan — WBA #4 |
-| Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (Fresno) |
-| Sat, Nov 21 | 9:00 AM at LAHS | WBA Class Championships — WBA #5 |
+| Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (likely Fresno) |
+| Sat, Nov 21 | TBD | WBA Class Championships — WBA #5 |
 | Sun, Nov 22 | TBD | WBA Grand Championships (if qualified) |
 | Sun, Nov 29 | Meet 3:00 PM · Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
 
