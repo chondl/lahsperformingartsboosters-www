@@ -95,8 +95,10 @@ permission. See `docs/cloudflare-configuration.md` §9.
 
 **Content voice & accuracy**
 - Content is **evergreen** — describe what the org does in any year; avoid specific dates,
-  scores, or one-off show titles (the MBCG season calendar is the only dated content, and
-  it's a clearly-marked sample to be updated each season).
+  scores, or one-off show titles. **Exception: the Marching Band & Color Guard page**
+  (`programs/mbcg.md`) intentionally carries **current-season** detail — the fall show
+  theme + images and the full dated season calendar — refreshed each year. Don't strip that
+  dated content thinking it violates "evergreen"; just update it each season.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its
