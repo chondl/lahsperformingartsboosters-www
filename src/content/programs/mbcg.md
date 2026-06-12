@@ -59,7 +59,7 @@ During the season the regular weekly rehearsal schedule is:
 - **Friday** — full ensemble, 4:00 – 7:00 PM
 - **Saturday** — full ensemble, 9:00 AM – 4:00 PM
 
-(Friday and Saturday rehearsals are skipped on competition weekends.)
+Friday and Saturday rehearsals are shortened as necessary before footbal games or competitions.
 
 The calendar below lists everything *besides* those regular rehearsals — camps, football
 games, competitions, performances, and the days with **no** rehearsal. (Football-game days
