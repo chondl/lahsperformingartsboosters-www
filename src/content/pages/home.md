@@ -7,7 +7,7 @@ title: Los Altos High School Performing Arts Boosters
 The Performing Arts Boosters (PAB) is a parent-led nonprofit that supports every
 performing arts student at Los Altos High School. We fund the staff, equipment,
 travel, and experiences that the school budget alone can't cover — across Marching
-Band & Color Guard, Instrumental Music, Choir, and Drama.
+Band & Color Guard, Band, Orchestra, Choir, and Drama.
 
 We're a 501(c)(3) charitable organization run entirely by volunteers. Every dollar
 we raise goes directly back to the programs and the students.
