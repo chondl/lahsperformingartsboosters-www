@@ -52,109 +52,50 @@ It's an intense, rewarding season — and it only happens with significant paren
 
 ## Season calendar
 
-The 2026 fall season runs from summer leadership workshops and band camp through
-championship weekend in November. The schedule below lists the dates, times, and
-activities; full details are shared through the Google Group and the volunteer sheet.
-Rehearsals are for the **full ensemble** unless a section is noted. Times marked *TBD*
-will be confirmed closer to the date.
+During the season the regular weekly rehearsal schedule is:
 
-### July–August: leadership & camp
+- **Monday** — Brass & Woodwinds, 4:00 – 7:00 PM
+- **Wednesday** — Percussion & Color Guard, 4:00 – 7:00 PM
+- **Friday** — full ensemble, 4:00 – 7:00 PM
+- **Saturday** — full ensemble, 9:00 AM – 4:00 PM
 
-| Date | Time | Activity |
-|------|------|----------|
-| Thu, Jul 30 | 9:00 AM – 4:00 PM | Student Leadership Workshops |
-| Fri, Jul 31 | 9:00 AM – 4:00 PM | Student Leadership Workshops |
-| Sat, Aug 1 | 9:00 AM – 4:00 PM | Student Leadership Workshops (final day) |
-| Mon, Aug 3 | TBD | Home Camp — Day 1 |
-| Tue, Aug 4 | TBD | Home Camp — Day 2 |
-| Wed, Aug 5 | TBD | Home Camp — Day 3 |
-| Thu, Aug 6 | TBD | Home Camp — Day 4 |
-| Fri, Aug 7 | TBD | Home Camp — Day 5 |
-| Sat, Aug 8 | TBD | Home Camp — Day 6 (final day) |
+(Friday and Saturday rehearsals are skipped on competition weekends.)
 
-### August
+The calendar below lists everything *besides* those regular rehearsals — camps, football
+games, competitions, performances, and the days with **no** rehearsal. (Football-game days
+include the usual rehearsal beforehand.) Times marked *TBD* are confirmed closer to the
+date; full details are shared through the Google Group and the volunteer sheet.
 
 | Date | Time | Activity |
 |------|------|----------|
-| Mon, Aug 10 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Aug 12 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Aug 14 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Aug 15 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Aug 17 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Aug 19 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Aug 21 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Aug 22 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Aug 24 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Aug 26 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
+| **July** |  |  |
+| Thu–Sat, Jul 30 – Aug 1 | 9:00 AM – 4:00 PM | Student leadership workshops |
+| **August** |  |  |
+| Mon–Sat, Aug 3 – 8 | TBD | Home band camp (6 days) |
 | Thu, Aug 27 | 6:00 PM | Back to School Night |
-| Fri, Aug 28 | Rehearsal 4:00 – 7:00 PM / Game 7:00 PM | Rehearsal + Home Football Game |
-| Sat, Aug 29 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Aug 31 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-
-### September
-
-| Date | Time | Activity |
-|------|------|----------|
-| Wed, Sep 2 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Sep 4 | — | No rehearsal |
-| Sat, Sep 5 | — | No rehearsal |
+| Fri, Aug 28 | Game 7:00 PM | Rehearsal, then home football game |
+| **September** |  |  |
+| Fri–Sat, Sep 4 – 5 | — | No rehearsal |
 | Mon, Sep 7 | — | Labor Day — no rehearsal |
-| Wed, Sep 9 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Sep 11 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Sep 12 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Sep 14 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Sep 16 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Sep 18 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Sep 19 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Sep 21 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Sep 23 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Sep 25 | Camp TBD / Game 7:00 PM | Away Camp begins + Home Football Game |
-| Sat, Sep 26 | TBD | Away Camp |
-| Sun, Sep 27 | TBD | Away Camp |
-| Mon, Sep 28 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Sep 30 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-
-### October
-
-| Date | Time | Activity |
-|------|------|----------|
-| Fri, Oct 2 | Rehearsal 4:00 – 7:00 PM / Game 7:00 PM | Rehearsal + Home Football Game |
-| Sat, Oct 3 | 9:00 AM – 4:00 PM | Rehearsal |
-| Mon, Oct 5 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Oct 7 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Thu, Oct 8 | — | No School (Fall Recess) — no rehearsal |
-| Fri, Oct 9 | Game 7:00 PM | Home Football Game |
-| Sat, Oct 10 | Rehearse 9:00 AM at LAHS; depart TBD | Fremont Unified Expo — WBA Exhibition |
-| Mon, Oct 12 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Oct 14 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Oct 16 | Rehearsal 4:00 – 7:00 PM / Game 7:00 PM | Rehearsal + Home Football Game |
-| Sat, Oct 17 | Rehearse 9:00 AM at LAHS; depart TBD | Independence Show — WBA #1 |
-| Mon, Oct 19 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Oct 21 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Oct 23 | Rehearsal 4:00 – 7:00 PM / Game 7:00 PM | Rehearsal + Home Football Game |
-| Sat, Oct 24 | Rehearse 9:00 AM at LAHS; depart TBD | Cupertino TOB — WBA #2 |
-| Mon, Oct 26 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Oct 28 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Oct 30 | Parade 1:00 PM / Rehearsal 4:00 PM / Game 7:00 PM | Homecoming Parade + Rehearsal + Home Football Game (Homecoming & Senior Night) |
-
-### November
-
-| Date | Time | Activity |
-|------|------|----------|
-| Mon, Nov 2 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Nov 4 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Nov 6 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Nov 7 | Rehearse 9:00 AM at LAHS; depart TBD | Hollister Show — WBA #3 |
-| Mon, Nov 9 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Nov 11 | TBD | Veterans Day — Rehearsal |
-| Fri, Nov 13 | 4:00 – 7:00 PM | Rehearsal |
-| Sat, Nov 14 | Rehearse 9:00 AM at LAHS; depart TBD | WBA Regional, Logan — WBA #4 |
-| Mon, Nov 16 | 4:00 – 7:00 PM | Rehearsal (Brass & Woodwinds only) |
-| Wed, Nov 18 | 4:00 – 7:00 PM | Rehearsal (Percussion & Guard only) |
-| Fri, Nov 20 | 4:00 – 7:00 PM | Depart for WBA Championships weekend (Fresno) |
-| Sat, Nov 21 | Rehearse 9:00 AM at LAHS; depart TBD | WBA Class Championships — WBA #5 |
+| Fri–Sun, Sep 25 – 27 | TBD | Away band camp |
+| **October** |  |  |
+| Fri, Oct 2 | Game 7:00 PM | Rehearsal, then home football game |
+| Thu, Oct 8 | — | Fall Recess (no school) — no rehearsal |
+| Fri, Oct 9 | Game 7:00 PM | Rehearsal, then home football game |
+| Sat, Oct 10 | 9:00 AM at LAHS | Fremont Unified Expo (WBA exhibition) |
+| Fri, Oct 16 | Game 7:00 PM | Rehearsal, then home football game |
+| Sat, Oct 17 | 9:00 AM at LAHS | Independence Show — WBA #1 |
+| Fri, Oct 23 | Game 7:00 PM | Rehearsal, then home football game |
+| Sat, Oct 24 | 9:00 AM at LAHS | Cupertino TOB — WBA #2 |
+| Fri, Oct 30 | Parade 1:00 PM · Game 7:00 PM | Homecoming parade, rehearsal, then home football game (Homecoming & Senior Night) |
+| **November** |  |  |
+| Sat, Nov 7 | 9:00 AM at LAHS | Hollister Show — WBA #3 |
+| Wed, Nov 11 | TBD | Veterans Day — rehearsal as scheduled (no day off) |
+| Sat, Nov 14 | 9:00 AM at LAHS | WBA Regional at Logan — WBA #4 |
+| Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (Fresno) |
+| Sat, Nov 21 | 9:00 AM at LAHS | WBA Class Championships — WBA #5 |
 | Sun, Nov 22 | TBD | WBA Grand Championships (if qualified) |
-| Sun, Nov 29 | Meet 3:00 PM at LAHS / Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
+| Sun, Nov 29 | Meet 3:00 PM · Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
 
 ## Volunteer & calendar sheet
 

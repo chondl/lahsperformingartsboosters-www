@@ -34,8 +34,10 @@ a:hover { text-decoration: underline; }
 .prose h3 { margin: 1.2em 0 .3em; font-size: 1.2rem; }
 .prose p, .prose ul, .prose table { margin: 0 0 1em; }
 .prose ul { padding-left: 1.2em; }
-.prose table { border-collapse: collapse; width: 100%; }
-.prose th, .prose td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: .95rem; }
+.prose table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: .95rem; word-wrap: break-word; vertical-align: top; }
 .prose th { background: var(--bg); font-family: "Raleway"; }
+/* consistent column widths so the season calendar lines up the whole way down */
+.prose th:first-child, .prose td:first-child { width: 26%; }
+.prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
 .prose img { max-width: 100%; height: auto; border-radius: 10px; margin: .4em 0 1.2em; display: block; }
-.prose table { display: block; overflow-x: auto; }   /* long season-calendar tables scroll on mobile */
