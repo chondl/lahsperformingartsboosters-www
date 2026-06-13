@@ -16,4 +16,8 @@ const year = new Date().getFullYear();
   .foot { display: flex; gap: 20px; align-items: center; padding: 34px 24px; }
   .foot strong { color: #fff; font-family: "Raleway"; }
   .foot .spacer { margin-left: auto; text-align: right; color: #9fb3d1; font-size: .8rem; }
+  @media (max-width: 720px) {
+    .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .foot .spacer { margin-left: 0; text-align: left; }
+  }
 </style>

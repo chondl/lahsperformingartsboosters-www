@@ -41,3 +41,13 @@ a:hover { text-decoration: underline; }
 .prose th:first-child, .prose td:first-child { width: 26%; }
 .prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
 .prose img { max-width: 100%; height: auto; border-radius: 10px; margin: .4em 0 1.2em; display: block; }
+
+/* Mobile: wide tables (e.g. the MBCG season calendar) scroll horizontally
+   inside their own box instead of overflowing the page. */
+@media (max-width: 720px) {
+  .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+  .prose th, .prose td { white-space: nowrap; font-size: .9rem; }
+  /* drop the fixed desktop column widths so cells size to content and scroll */
+  .prose th:first-child, .prose td:first-child,
+  .prose th:nth-child(2), .prose td:nth-child(2) { width: auto; }
+}

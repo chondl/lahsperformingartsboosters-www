@@ -11,11 +11,12 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
         <span class="brand-title">Performing Arts Boosters</span>
       </span>
     </a>
-    <nav class="menu">
+    <button class="hamburger" aria-label="Menu" aria-haspopup="true" aria-expanded="false" aria-controls="primary-menu">☰</button>
+    <nav class="menu" id="primary-menu">
       <a href="/">Home</a>
       <a href="/about/">About</a>
       <div class="dropdown">
-        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Programs ▾</button>
+        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Programs <span class="caret">▾</span></button>
         <div class="dropdown-content">
           {programs.map((p) => <a href={`/programs/${p.id}/`}>{p.data.title}</a>)}
         </div>
@@ -26,7 +27,8 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
 </header>
 <style>
   .site-header { background: var(--navy); }
-  .nav { display: flex; align-items: center; gap: 16px; padding: 14px 24px; }
+  .nav { display: flex; align-items: center; gap: 16px; padding: 14px 24px; flex-wrap: wrap; }
+  .hamburger { display: none; }
   .brand { display: flex; align-items: center; gap: 12px; }
   .brand img { border-radius: 50%; background: #fff; }
   .brand-text { display: flex; flex-direction: column; line-height: 1.12; }
@@ -44,6 +46,41 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
   .dropdown.open .dropdown-content { display: block; }
   .dropdown-content a { display: block; padding: 11px 16px; color: var(--navy); }
   .dropdown-content a:hover { background: var(--bg); text-decoration: none; }
+
+  /* ---- Mobile (≤720px): hamburger toggles a vertical panel ---- */
+  @media (max-width: 720px) {
+    .brand-title { font-size: 1.1rem; }
+    .hamburger {
+      display: flex; align-items: center; justify-content: center;
+      margin-left: auto; width: 44px; height: 44px; font-size: 1.4rem;
+      color: #dce6f4; background: none; border: 1px solid #6f93c4;
+      border-radius: 6px; cursor: pointer;
+    }
+    .hamburger:hover { color: #fff; }
+    /* Collapsed by default; the panel takes its own full-width row when open */
+    .menu {
+      display: none; margin: 8px 0 4px; flex-basis: 100%; width: 100%;
+      flex-direction: column; align-items: stretch; gap: 0;
+    }
+    .nav.open .menu { display: flex; }
+    .menu > a, .dropbtn {
+      width: 100%; text-align: left; padding: 13px 4px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    /* Programs links shown inline as a flat indented list (no hover-dropdown on touch) */
+    .caret { display: none; }
+    .dropdown { position: static; }
+    .dropdown-content {
+      display: block; position: static; background: transparent;
+      box-shadow: none; border-radius: 0; min-width: 0; overflow: visible;
+    }
+    .dropdown-content a { color: #dce6f4; padding: 11px 4px 11px 22px; }
+    .dropdown-content a:hover { background: transparent; color: #fff; }
+    .menu .donate {
+      margin-top: 10px; text-align: center; border: 1.5px solid #6f93c4;
+      border-top: 1.5px solid #6f93c4;
+    }
+  }
 </style>
 <script>
   // Click/keyboard toggle for the Programs dropdown (hover still works for mouse).
@@ -56,12 +93,29 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
       btn.setAttribute('aria-expanded', String(open));
     });
   }
+  // Mobile hamburger: toggles the whole nav panel open/closed.
+  const nav = document.querySelector('.nav');
+  const hamburger = document.querySelector('.hamburger');
+  hamburger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = nav?.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(!!open));
+  });
+  const closeNav = () => {
+    nav?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+  };
+
   const closeAll = () => {
     for (const dd of document.querySelectorAll('.dropdown.open')) {
       dd.classList.remove('open');
       dd.querySelector('.dropbtn')?.setAttribute('aria-expanded', 'false');
     }
   };
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+  // A click outside the header closes both the dropdown and the mobile panel.
+  document.addEventListener('click', (e) => {
+    closeAll();
+    if (!(e.target instanceof Node && nav?.contains(e.target))) closeNav();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeAll(); closeNav(); } });
 </script>

@@ -33,11 +33,17 @@ const { images = [], title, subtitle } = Astro.props;
   .slide.gradient { background: linear-gradient(120deg, #0d2f57, #1c4f8f); opacity: 1; }
   .scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,28,55,.86), rgba(8,28,55,.45) 60%, rgba(8,28,55,.2)); }
   .hero-content { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; color: #fff; }
-  .hero-content h1 { color: #fff; font-size: 2.8rem; font-weight: 900; max-width: 18ch; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+  .hero-content h1 { color: #fff; font-size: clamp(1.7rem, 6vw, 2.8rem); font-weight: 900; max-width: 18ch; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
   .kick { font-family: "Raleway"; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; font-size: .8rem; color: #cdb27a; margin-bottom: 12px; }
   .sub { font-size: 1.12rem; color: #e3ebf6; max-width: 46ch; margin: 14px 0 24px; }
-  .cta { display: flex; gap: 12px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
   .cta .ghost { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.5); }
+  @media (max-width: 720px) {
+    .hero { height: 360px; }
+    .sub { font-size: 1rem; }
+    .cta { flex-direction: column; align-items: stretch; }
+    .cta .btn { text-align: center; }
+  }
 </style>
 <script>
   const slides = [...document.querySelectorAll('.hero .slide')];
