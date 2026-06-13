@@ -20,7 +20,8 @@ h1, h2, h3, h4 { font-family: "Raleway", system-ui, sans-serif; color: var(--nav
 a { color: var(--royal); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.section { padding: 56px 0; }
+/* vertical only — must NOT clobber .container's horizontal gutter when combined */
+.section { padding-block: 56px; }
 .eyebrow {
   display: inline-block; color: var(--royal); font-family: "Raleway"; font-weight: 800;
   text-transform: uppercase; letter-spacing: 1.6px; font-size: .78rem;
@@ -42,12 +43,38 @@ a:hover { text-decoration: underline; }
 .prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
 .prose img { max-width: 100%; height: auto; border-radius: 10px; margin: .4em 0 1.2em; display: block; }
 
-/* Mobile: wide tables (e.g. the MBCG season calendar) scroll horizontally
-   inside their own box instead of overflowing the page. */
+/* Mobile fallback: any wide prose table scrolls horizontally inside its own
+   box instead of overflowing the page. (The MBCG calendar overrides this below
+   with a stacked list view.) */
 @media (max-width: 720px) {
   .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
   .prose th, .prose td { white-space: nowrap; font-size: .9rem; }
   /* drop the fixed desktop column widths so cells size to content and scroll */
   .prose th:first-child, .prose td:first-child,
   .prose th:nth-child(2), .prose td:nth-child(2) { width: auto; }
+}
+
+/* Mobile: the MBCG season calendar (Date | Time | Activity) collapses from a
+   table into a stacked list — each event a card with date/time/activity on
+   their own lines, and each bold month row a gold-underlined divider. Scoped to
+   .prose-mbcg so other tables keep the horizontal-scroll fallback above. */
+@media (max-width: 720px) {
+  .prose-mbcg table, .prose-mbcg tbody, .prose-mbcg tr, .prose-mbcg td { display: block; width: auto; }
+  .prose-mbcg thead { display: none; }
+  .prose-mbcg table { border: 0; overflow: visible; }
+  .prose-mbcg tbody tr {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px 13px; margin: 0 0 10px; background: #fff;
+  }
+  .prose-mbcg td { border: 0; padding: 1px 0; white-space: normal; font-size: .95rem; }
+  .prose-mbcg td:empty { display: none; }
+  .prose-mbcg td:first-child { font-family: "Raleway"; font-weight: 700; color: var(--navy); }
+  .prose-mbcg td:nth-child(2) { color: #5a6672; font-size: .88rem; }
+  /* month rows have empty Time & Activity cells → render as section dividers */
+  .prose-mbcg tbody tr:has(td:nth-child(2):empty):has(td:nth-child(3):empty) {
+    border: 0; border-radius: 0; padding: 0; margin: 22px 0 10px; background: transparent;
+  }
+  .prose-mbcg tbody tr:has(td:nth-child(2):empty):has(td:nth-child(3):empty) td:first-child {
+    font-size: 1.2rem; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 5px;
+  }
 }
