@@ -9,13 +9,13 @@ volunteerSheetUrl: https://docs.google.com/spreadsheets/d/PLACEHOLDER/edit
 ---
 
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
-program — but with 50-plus students, a full fall competition season, and a major share of
+program — but with 70-plus students, a full fall competition season, and a major share of
 the activity, it gets a page of its own. Each fall, students build a competitive field
 show from the ground up and perform it at football games, community events, and Western
 Band Association competitions across California. Marching Band & Color Guard also
 satisfies the LAHS physical education requirement.
 
-*Directed by band director Ted Ferrucci, with the marching band and color guard
+*Directed by band director Ted Ferrucci and assistant director Tim McAfee, with the marching band and color guard
 instructional staff.*
 
 ## This fall's show: *Metamorphosis*
@@ -71,24 +71,24 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | **July** |  |  |
 | Thu–Sat, Jul 30 – Aug 1 | 9:00 AM – 4:00 PM | Student leadership workshops |
 | **August** |  |  |
-| Mon–Sat, Aug 3 – 8 | TBD | Home band camp (6 days) |
+| Mon–Sat, Aug 3 – 8 | 9:00 AM - 4:00 PM | Home band camp (6 days) |
 | Thu, Aug 27 | 6:00 PM | Back to School Night Performance|
-| Fri, Aug 28 | Game 7:00 PM | Rehearsal, then home football game |
+| Fri, Aug 28 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | **September** |  |  |
 | Fri–Sat, Sep 4 – 7 | — | Labor Day Weekend - no rehearsal |
-| Fri–Sun, Sep 25 – 27 | TBD | Away band camp at Camp Jones Gulch, leave after school on Friday, finish Sunday afternoon |
+| Fri–Sun, Sep 25 – 27 | Fri 4:00 PM - Sun - 4:00 PM | Away band camp at Camp Jones Gulch, leave after school on Friday, finish Sunday afternoon |
 | **October** |  |  |
-| Fri, Oct 2 | Game 7:00 PM | Rehearsal, then home football game |
-| Fri, Oct 9 | Game 7:00 PM | Rehearsal, then home football game |
+| Fri, Oct 2 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
+| Fri, Oct 9 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | Sat, Oct 10 | 9:00 AM at LAHS | Fremont Unified Expo (WBA exhibition) |
-| Fri, Oct 16 | Game 7:00 PM | Rehearsal, then home football game |
+| Fri, Oct 16 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | Sat, Oct 17 | 9:00 AM at LAHS | Independence Show — WBA #1 |
-| Fri, Oct 23 | Game 7:00 PM | Rehearsal, then home football game |
+| Fri, Oct 23 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | Sat, Oct 24 | 9:00 AM at LAHS | Cupertino TOB — WBA #2 |
-| Fri, Oct 30 | Parade 1:00 PM · Game 7:00 PM | Homecoming parade, rehearsal, then home football game (Homecoming & Senior Night) |
+| Fri, Oct 30 | Parade 1:00 PM · Game 7:00 PM | Homecoming parade, rehearsal, dinner provided by boosters, then home football game (Homecoming & Senior Night) |
 | **November** |  |  |
 | Sat, Nov 7 | 9:00 AM at LAHS | Hollister Show — WBA #3 |
-| Wed, Nov 11 | TBD | Veterans Day — rehearsal as scheduled (no day off) |
+| Wed, Nov 11 | 4:00 PM - 7:00 PM | Veterans Day — rehearsal as scheduled (no day off) |
 | Sat, Nov 14 | 9:00 AM at LAHS | WBA Regional at Logan — WBA #4 |
 | Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (likely Fresno) |
 | Sat, Nov 21 | TBD | WBA Class Championships — WBA #5 |
@@ -107,7 +107,7 @@ MBCG depends on parent volunteers more than any other program. Families help wit
 
 - **Equipment trucks** — loading and driving gear to performances and competitions
 - **Chaperoning** at camp, games, and overnight competition trips
-- **Meals and hospitality** on the road
+- **Meals and hospitality** at rehearsals, before football games, and at competitions
 - **Props, uniforms, and fittings**
 - **Volunteer coordination** — leading and scheduling the parent crew
 
