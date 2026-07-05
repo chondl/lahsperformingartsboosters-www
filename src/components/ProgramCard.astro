@@ -10,11 +10,11 @@ const { href, title, summary, icon } = Astro.props;
   </div>
 </a>
 <style>
-  .pcard { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; transition: .15s; color: inherit; }
+  .pcard { display: block; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; transition: .15s; color: inherit; }
   .pcard:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,58,107,.13); text-decoration: none; }
   .pcard .top { height: 92px; display: flex; align-items: center; justify-content: center; font-size: 2.1rem; background: linear-gradient(135deg, var(--navy), var(--royal)); }
-  .pcard .body { padding: 16px; }
-  .pcard h3 { font-size: 1.05rem; }
-  .pcard p { font-size: .88rem; color: #5a6672; margin: 5px 0 10px; }
-  .pcard .go { font-family: "Raleway"; font-weight: 700; font-size: .82rem; color: var(--royal); }
+  .pcard .body { padding: var(--space-sm); }
+  .pcard h3 { font-size: var(--fs-md); }
+  .pcard p { font-size: var(--fs-sm); color: var(--muted); margin: var(--space-3xs) 0 var(--space-2xs); }
+  .pcard .go { font-family: "Raleway"; font-weight: var(--fw-bold); font-size: var(--fs-sm); color: var(--royal); }
 </style>

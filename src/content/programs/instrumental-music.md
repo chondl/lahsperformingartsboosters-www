@@ -9,7 +9,7 @@ googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-instrumental
 
 "Instrumental Music" is the umbrella for *all* of Los Altos High School's instrumental
 ensembles — the **concert bands**, the **orchestras**, and **jazz band**. That spans
-groups like Wind Ensemble, Symphonic Band, Chamber and String Orchestras, and Jazz Band.
+groups like Concert Band, Wind Ensemble, Chamber and String Orchestras, and Jazz Band.
 Students range from first-year players to advanced musicians preparing honor-ensemble and
 all-state auditions, and the program continues to grow each year.
 
@@ -18,6 +18,20 @@ and its distinct fall competition season, it has its own page —
 see [Marching Band & Color Guard](/programs/mbcg).
 
 *Directors: Ted Ferrucci and Johanna "Jo" Smith-Nilsson.*
+
+## The ensembles
+
+The school offers a class for every level, open to grades 9–12 unless noted:
+
+- **Concert Band** — the core band; builds instrumental skills, theory, and history
+  through standard band literature.
+- **Wind Ensemble** (grades 10–12) — the most advanced band, by audition or director
+  recommendation; performs at concerts and festivals.
+- **String Orchestra** — for all string players (violin, viola, cello, bass) of any ability.
+- **Chamber Ensemble** (grades 10–12) — advanced string players by audition; performs at
+  concerts and festivals.
+- **Jazz Ensemble** — an advanced group, by audition, exploring swing, funk, rock, Latin,
+  bebop, and improvisation.
 
 ## A year of music
 

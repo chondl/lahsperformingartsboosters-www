@@ -9,10 +9,21 @@ googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-drama
 
 The Drama program gives students the full theatrical experience, on stage and behind the
 scenes — from acting and directing to sets, tech, and pit orchestra. There's a place for
-every experience level, from introductory classes through the advanced Drama 2 course
-(known as Broken Box), and no one who wants to participate is turned away.
+every experience level, from the introductory Acting I class through the advanced Acting II
+company (known as Broken Box), and no one who wants to participate is turned away.
 
 *Director: Lisa Battle.*
+
+## The classes
+
+- **Acting I** (grades 9–12) is the introductory class, open to newcomers. Students build
+  the fundamentals — physical theater, improvisation, and vocal projection and articulation
+  — through scenes, monologues, and short plays, with an introduction to technical theater
+  and design and trips to see live performances.
+- **Acting II** (grades 10–12, by audition and director recommendation) is the advanced
+  class — the theater company known as Broken Box. It works as a company all year, mounting
+  full-length plays with tech weeks, dress rehearsals, and performances outside class. It's
+  an intense, rewarding commitment.
 
 ## A year on stage
 

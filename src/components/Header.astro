@@ -26,45 +26,45 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
   </div>
 </header>
 <style>
-  .site-header { background: var(--navy); }
-  .nav { display: flex; align-items: center; gap: 16px; padding: 14px 24px; flex-wrap: wrap; }
+  .site-header { background: var(--navy); position: sticky; top: 0; z-index: 50; }
+  .nav { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm) var(--space-md); flex-wrap: wrap; }
   .hamburger { display: none; }
-  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: var(--space-xs); }
   .brand img { border-radius: 50%; background: #fff; }
-  .brand-text { display: flex; flex-direction: column; line-height: 1.12; }
-  .brand-sub { font-size: .72rem; color: #9fb8dd; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-family: "Raleway"; }
-  .brand-title { font-weight: 900; font-size: 1.25rem; color: #fff; font-family: "Raleway"; }
-  .menu { margin-left: auto; display: flex; align-items: center; gap: 22px; font-family: "Raleway"; font-weight: 700; }
+  .brand-text { display: flex; flex-direction: column; line-height: var(--lh-tight); }
+  .brand-sub { font-size: var(--fs-eyebrow); color: #9fb8dd; text-transform: uppercase; letter-spacing: 2px; font-weight: var(--fw-bold); font-family: "Raleway"; }
+  .brand-title { font-weight: var(--fw-heading); font-size: var(--fs-lg); color: #fff; font-family: "Raleway"; }
+  .menu { margin-left: auto; display: flex; align-items: center; gap: var(--space-md); font-family: "Raleway"; font-weight: var(--fw-bold); }
   .menu > a, .dropbtn { color: #dce6f4; background: none; border: none; font: inherit; cursor: pointer; }
   .menu > a:hover, .dropbtn:hover { color: #fff; text-decoration: none; }
-  .menu .donate { border: 1.5px solid #6f93c4; color: #fff; padding: 8px 18px; border-radius: 6px; }
+  .menu .donate { border: 1.5px solid #6f93c4; color: #fff; padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-sm); }
   .menu .donate:hover { border-color: var(--gold); }
   .dropdown { position: relative; }
-  .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 230px; box-shadow: 0 8px 24px rgba(0,0,0,.18); border-radius: 8px; overflow: hidden; z-index: 20; }
+  .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: #fff; min-width: 230px; box-shadow: 0 8px 24px rgba(0,0,0,.18); border-radius: var(--radius); overflow: hidden; z-index: 20; }
   .dropdown:hover .dropdown-content,
   .dropdown:focus-within .dropdown-content,
   .dropdown.open .dropdown-content { display: block; }
-  .dropdown-content a { display: block; padding: 11px 16px; color: var(--navy); }
+  .dropdown-content a { display: block; padding: var(--space-xs) var(--space-sm); color: var(--navy); }
   .dropdown-content a:hover { background: var(--bg); text-decoration: none; }
 
   /* ---- Mobile (≤720px): hamburger toggles a vertical panel ---- */
   @media (max-width: 720px) {
-    .brand-title { font-size: 1.1rem; }
+    .brand-title { font-size: var(--fs-md); }
     .hamburger {
       display: flex; align-items: center; justify-content: center;
       margin-left: auto; width: 44px; height: 44px; font-size: 1.4rem;
       color: #dce6f4; background: none; border: 1px solid #6f93c4;
-      border-radius: 6px; cursor: pointer;
+      border-radius: var(--radius-sm); cursor: pointer;
     }
     .hamburger:hover { color: #fff; }
     /* Collapsed by default; the panel takes its own full-width row when open */
     .menu {
-      display: none; margin: 8px 0 4px; flex-basis: 100%; width: 100%;
+      display: none; margin: var(--space-2xs) 0 var(--space-3xs); flex-basis: 100%; width: 100%;
       flex-direction: column; align-items: stretch; gap: 0;
     }
     .nav.open .menu { display: flex; }
     .menu > a, .dropbtn {
-      width: 100%; text-align: left; padding: 13px 4px;
+      width: 100%; text-align: left; padding: var(--space-xs) var(--space-3xs);
       border-top: 1px solid rgba(255,255,255,.12);
     }
     /* Programs links shown inline as a flat indented list (no hover-dropdown on touch) */
@@ -74,10 +74,10 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
       display: block; position: static; background: transparent;
       box-shadow: none; border-radius: 0; min-width: 0; overflow: visible;
     }
-    .dropdown-content a { color: #dce6f4; padding: 11px 4px 11px 22px; }
+    .dropdown-content a { color: #dce6f4; padding: var(--space-xs) var(--space-3xs) var(--space-xs) var(--space-md); }
     .dropdown-content a:hover { background: transparent; color: #fff; }
     .menu .donate {
-      margin-top: 10px; text-align: center; border: 1.5px solid #6f93c4;
+      margin-top: var(--space-2xs); text-align: center; border: 1.5px solid #6f93c4;
       border-top: 1.5px solid #6f93c4;
     }
   }
