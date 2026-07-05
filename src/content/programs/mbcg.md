@@ -2,7 +2,7 @@
 title: Marching Band & Color Guard
 order: 1
 donateSlug: mbcg
-summary: Camp, competitions, and football performances — part of Instrumental Music.
+summary: Competitions, band camp, football performances
 icon: "🎺"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-mbcg
 volunteerSheetUrl: https://docs.google.com/spreadsheets/d/PLACEHOLDER/edit
@@ -14,6 +14,12 @@ the activity, it gets a page of its own. Each fall, students build a competitive
 show from the ground up and perform it at football games, community events, and Western
 Band Association competitions across California. Marching Band & Color Guard also
 satisfies the LAHS physical education requirement.
+
+The program welcomes students in grades 9–12: musicians (some music experience is
+recommended but not required) and color guard members, who don't need any musical
+background. Because the marching season is concentrated in the fall, students are
+encouraged to also enroll in a year-long ensemble — Concert Band, Wind Ensemble, Jazz
+Ensemble, or Orchestra.
 
 *Directed by band director Ted Ferrucci and assistant director Tim McAfee, with the marching band and color guard
 instructional staff.*

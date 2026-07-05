@@ -1,54 +1,105 @@
 :root {
+  /* ---- Brand palette ---- */
   --navy: #103A6B;
   --navy-d: #0c2c52;
   --royal: #2E6DB4;
   --gold: #F4A81E;        /* subtle accent ONLY */
   --bg: #F4F6F8;
   --ink: #222;
+  --muted: #5a6672;       /* secondary / meta text */
   --line: #e2e7ec;
   --maxw: 1120px;
+
+  /* ---- Type scale ----
+     Use ONLY these sizes anywhere on the site. Don't introduce new ones. */
+  --fs-eyebrow: 0.78rem;                  /* micro uppercase labels */
+  --fs-sm:      0.875rem;                 /* meta, captions, table cells, card copy */
+  --fs-base:    1rem;                     /* body text */
+  --fs-md:      1.125rem;                 /* lead paragraphs, subtitles, card titles */
+  --fs-lg:      1.25rem;                  /* h3 / subheads */
+  --fs-xl:      1.6rem;                   /* h2 / section titles */
+  --fs-2xl:     2rem;                      /* page h1 (interior pages) */
+  --fs-hero:    clamp(1.9rem, 6vw, 2.8rem); /* home hero h1 */
+
+  /* ---- Font weights ---- (three only) */
+  --fw-body: 400;
+  --fw-bold: 700;
+  --fw-heading: 800;
+
+  /* ---- Line heights ---- */
+  --lh-body: 1.6;
+  --lh-tight: 1.2;
+
+  /* ---- Spacing scale ----
+     4px base. Use ONLY these steps for margin / padding / gap so the whole
+     site shares one vertical rhythm. */
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+
+  /* ---- Radii ---- */
+  --radius-sm: 6px;
+  --radius: 10px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   font-family: "Nunito Sans", system-ui, sans-serif;
   color: var(--ink);
   background: #fff;
-  line-height: 1.6;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
 }
-h1, h2, h3, h4 { font-family: "Raleway", system-ui, sans-serif; color: var(--navy); line-height: 1.2; }
+h1, h2, h3, h4 {
+  font-family: "Raleway", system-ui, sans-serif;
+  color: var(--navy);
+  font-weight: var(--fw-heading);
+  line-height: var(--lh-tight);
+}
 a { color: var(--royal); text-decoration: none; }
 a:hover { text-decoration: underline; }
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--space-md); }
 /* vertical only — must NOT clobber .container's horizontal gutter when combined */
-.section { padding-block: 56px; }
+.section { padding-block: var(--space-xl); }
 .eyebrow {
-  display: inline-block; color: var(--royal); font-family: "Raleway"; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 1.6px; font-size: .78rem;
-  border-bottom: 2px solid var(--gold); padding-bottom: 3px; margin-bottom: 10px;
+  display: inline-block; color: var(--royal);
+  font-family: "Raleway"; font-weight: var(--fw-heading);
+  text-transform: uppercase; letter-spacing: 1.6px; font-size: var(--fs-eyebrow);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: var(--space-3xs); margin-bottom: var(--space-2xs);
 }
-.btn { display: inline-block; padding: 12px 24px; border-radius: 7px; font-family: "Raleway"; font-weight: 700; }
+.btn {
+  display: inline-block; padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm); font-family: "Raleway"; font-weight: var(--fw-bold);
+}
 .btn-primary { background: var(--royal); color: #fff; }
 .btn-primary:hover { background: #3a86d6; text-decoration: none; }
 /* Markdown content styling */
-.prose h2 { margin: 1.6em 0 .4em; font-size: 1.6rem; }
-.prose h3 { margin: 1.2em 0 .3em; font-size: 1.2rem; }
+.prose h1 { font-size: var(--fs-2xl); margin: 0 0 .6em; }
+.prose h2 { margin: 1.8em 0 .5em; font-size: var(--fs-xl); }
+.prose h3 { margin: 1.4em 0 .4em; font-size: var(--fs-lg); }
 .prose p, .prose ul, .prose table { margin: 0 0 1em; }
 .prose ul { padding-left: 1.2em; }
 .prose table { border-collapse: collapse; width: 100%; table-layout: fixed; }
-.prose th, .prose td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; font-size: .95rem; word-wrap: break-word; vertical-align: top; }
-.prose th { background: var(--bg); font-family: "Raleway"; }
+.prose th, .prose td { border: 1px solid var(--line); padding: var(--space-2xs) var(--space-xs); text-align: left; font-size: var(--fs-sm); word-wrap: break-word; vertical-align: top; }
+.prose th { background: var(--bg); font-family: "Raleway"; font-weight: var(--fw-bold); }
 /* consistent column widths so the season calendar lines up the whole way down */
 .prose th:first-child, .prose td:first-child { width: 26%; }
 .prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
-.prose img { max-width: 100%; height: auto; border-radius: 10px; margin: .4em 0 1.2em; display: block; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: .5em 0 1.25em; display: block; }
 
 /* Mobile fallback: any wide prose table scrolls horizontally inside its own
    box instead of overflowing the page. (The MBCG calendar overrides this below
    with a stacked list view.) */
 @media (max-width: 720px) {
   .prose table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
-  .prose th, .prose td { white-space: nowrap; font-size: .9rem; }
+  .prose th, .prose td { white-space: nowrap; font-size: var(--fs-sm); }
   /* drop the fixed desktop column widths so cells size to content and scroll */
   .prose th:first-child, .prose td:first-child,
   .prose th:nth-child(2), .prose td:nth-child(2) { width: auto; }
@@ -63,18 +114,18 @@ a:hover { text-decoration: underline; }
   .prose-mbcg thead { display: none; }
   .prose-mbcg table { border: 0; overflow: visible; }
   .prose-mbcg tbody tr {
-    border: 1px solid var(--line); border-radius: 10px;
-    padding: 10px 13px; margin: 0 0 10px; background: #fff;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: var(--space-2xs) var(--space-xs); margin: 0 0 var(--space-2xs); background: #fff;
   }
-  .prose-mbcg td { border: 0; padding: 1px 0; white-space: normal; font-size: .95rem; }
+  .prose-mbcg td { border: 0; padding: 1px 0; white-space: normal; font-size: var(--fs-sm); }
   .prose-mbcg td:empty { display: none; }
-  .prose-mbcg td:first-child { font-family: "Raleway"; font-weight: 700; color: var(--navy); }
-  .prose-mbcg td:nth-child(2) { color: #5a6672; font-size: .88rem; }
+  .prose-mbcg td:first-child { font-family: "Raleway"; font-weight: var(--fw-bold); color: var(--navy); }
+  .prose-mbcg td:nth-child(2) { color: var(--muted); font-size: var(--fs-sm); }
   /* month rows have empty Time & Activity cells → render as section dividers */
   .prose-mbcg tbody tr:has(td:nth-child(2):empty):has(td:nth-child(3):empty) {
-    border: 0; border-radius: 0; padding: 0; margin: 22px 0 10px; background: transparent;
+    border: 0; border-radius: 0; padding: 0; margin: var(--space-md) 0 var(--space-2xs); background: transparent;
   }
   .prose-mbcg tbody tr:has(td:nth-child(2):empty):has(td:nth-child(3):empty) td:first-child {
-    font-size: 1.2rem; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 5px;
+    font-size: var(--fs-lg); color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: var(--space-3xs);
   }
 }

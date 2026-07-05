@@ -12,12 +12,12 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 <style>
-  .site-footer { background: var(--navy-d); color: #cdd9ea; font-size: .88rem; margin-top: 48px; }
-  .foot { display: flex; gap: 20px; align-items: center; padding: 34px 24px; }
-  .foot strong { color: #fff; font-family: "Raleway"; }
-  .foot .spacer { margin-left: auto; text-align: right; color: #9fb3d1; font-size: .8rem; }
+  .site-footer { background: var(--navy-d); color: #cdd9ea; font-size: var(--fs-sm); margin-top: var(--space-xl); }
+  .foot { display: flex; gap: var(--space-md); align-items: center; padding: var(--space-lg) var(--space-md); }
+  .foot strong { color: #fff; font-family: "Raleway"; font-weight: var(--fw-bold); }
+  .foot .spacer { margin-left: auto; text-align: right; color: #9fb3d1; }
   @media (max-width: 720px) {
-    .foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .foot { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
     .foot .spacer { margin-left: 0; text-align: left; }
   }
 </style>

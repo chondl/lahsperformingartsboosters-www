@@ -8,11 +8,26 @@ googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-choir
 ---
 
 The Choir program brings together singers across several ensembles — from entry-level
-groups to advanced choirs like Bel Canto and Volari. Students grow as vocalists and
+groups to advanced choirs like Bel Canto and Volare. Students grow as vocalists and
 performers throughout the year and represent Los Altos High School at festivals and
 competitions across the region.
 
 *Director: Lauren Diez.*
+
+## The ensembles
+
+Singers can grow through several choirs, from an open entry-level group up to advanced,
+audition-based ensembles:
+
+- **Chorale** (grades 9–12) — open to all students; the entry-level choir, building
+  healthy vocal technique and music literacy.
+- **Concert Choir** (grades 9–12) — by audition and director recommendation; an
+  intermediate choir for singers with some prior choral experience.
+- **Bel Canto** (grades 10–12) — an advanced treble (upper-voice) chamber choir; by
+  audition and director recommendation, with advanced music reading.
+- **Volare** (grades 10–12) — an advanced mixed chamber choir; by audition and director
+  recommendation, with advanced reading and experienced technique, and sometimes
+  performance tours.
 
 ## A year of singing
 

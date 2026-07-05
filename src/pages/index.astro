@@ -20,7 +20,7 @@ const heroImages: string[] = [];
   />
   <section id="find-your-program" class="container section">
     <span class="eyebrow">Find your program</span>
-    <h2>Most families care about one thing — start there</h2>
+    <h2>Jump to the program your family is part of</h2>
     <div class="programs-grid">
       {programs.map((p) => (
         <ProgramCard href={`/programs/${p.id}/`} title={p.data.title} summary={p.data.summary} icon={p.data.icon} />
@@ -32,7 +32,7 @@ const heroImages: string[] = [];
   </section>
 </BaseLayout>
 <style>
-  .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 22px; }
+  .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); margin-top: var(--space-md); }
   @media (max-width: 820px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 520px) { .programs-grid { grid-template-columns: 1fr; } }
 </style>
