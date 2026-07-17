@@ -50,6 +50,7 @@ api() { curl -sS -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: appl
 | Static-assets + Worker config | `wrangler.jsonc` | **Yes** (repo) |
 | `www` → apex redirect | `worker/index.js` | **Yes** (repo) |
 | `/donate/*` short links | `public/_redirects` | **Yes** (repo) |
+| `/bts` campaign short link | Cloudflare Single Redirect (API/dashboard) | No — see §7b |
 | Custom domains (apex + www) | Cloudflare API | No — see §4 |
 | Always Use HTTPS | Cloudflare API (zone setting) | No — see §5 |
 | Email routing (enable, addresses, rules) | Dashboard + API | No — see §6 |
@@ -172,11 +173,11 @@ and enable".
 
 ### 6b. Destination addresses  *(API)*
 
-**What:** Registered the two forwarding destinations. Cloudflare emails a verification
+**What:** Registered the forwarding destinations. Cloudflare emails a verification
 link to each; an address must be verified before rules can use it.
 
 ```bash
-for E in chondl@gmail.com lahsmusictreasurer@gmail.com; do
+for E in chondl@gmail.com lahsmusictreasurer@gmail.com gerribock@gmail.com sangum_desai@hotmail.com; do
   api -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/email/routing/addresses" \
     --data "{\"email\":\"$E\"}"
 done
@@ -184,8 +185,11 @@ done
 
 - `lahsmusictreasurer@gmail.com` — auto-verified (it's the account owner email).
 - `chondl@gmail.com` — verified by clicking the link Cloudflare emailed.
+- `gerribock@gmail.com` — added 2026-07-16 for the `donate@` alias; **verified 2026-07-17**.
+- `sangum_desai@hotmail.com` — added 2026-07-16 for the `donate@` alias; **still unverified**
+  (must click the link Cloudflare emailed; may be in Junk).
 
-**Verify:** `api ".../accounts/$ACCOUNT_ID/email/routing/addresses"` → both `verified=true`.
+**Verify:** `api ".../accounts/$ACCOUNT_ID/email/routing/addresses"` → all `verified=true`.
 **Undo:** `DELETE /accounts/$ACCOUNT_ID/email/routing/addresses/{id}`.
 
 ### 6c. Routing rules  *(API)*
@@ -206,12 +210,36 @@ api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/r
   "matchers":[{"type":"literal","field":"to","value":"treasurer@lahsperformingartsboosters.org"}],
   "actions":[{"type":"forward","value":["lahsmusictreasurer@gmail.com"]}]
 }'
+
+# donate@ -> gerribock@gmail.com + chondl@gmail.com + sangum_desai@hotmail.com
+# (multi-destination: one forward action with multiple values)
+api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules" --data '{
+  "name":"donate forwarding","enabled":true,
+  "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
+  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","sangum_desai@hotmail.com"]}]
+}'
 ```
 
 | Address | Forwards to |
 |---------|-------------|
 | `president@lahsperformingartsboosters.org` | `chondl@gmail.com` |
 | `treasurer@lahsperformingartsboosters.org` | `lahsmusictreasurer@gmail.com` |
+| `donate@lahsperformingartsboosters.org` | `gerribock@gmail.com`, `chondl@gmail.com`, `sangum_desai@hotmail.com` |
+
+**Note (2026-07-16):** the `donate@` rule (id `676af611aee74964953dfdf56ec9c0ff`) was created
+forwarding only to `chondl@gmail.com` because the other two destinations were still
+unverified (the API rejects rules using unverified addresses, error 2054).
+**2026-07-17:** `gerribock@gmail.com` verified and was added — the rule now forwards to
+`gerribock@gmail.com` + `chondl@gmail.com`. `sangum_desai@hotmail.com` is still unverified;
+once it verifies, update the rule to all three:
+
+```bash
+api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules/676af611aee74964953dfdf56ec9c0ff" --data '{
+  "name":"donate forwarding","enabled":true,
+  "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
+  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","sangum_desai@hotmail.com"]}]
+}'
+```
 
 **Verify:** `api ".../zones/$ZONE_ID/email/routing/rules"`, or send a test email to each
 address. **Undo:** `DELETE /zones/$ZONE_ID/email/routing/rules/{id}`.
@@ -237,24 +265,60 @@ api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
 
 ---
 
+## 7b. Single Redirects (campaign short links)
+
+Some campaign short links are **Cloudflare Single Redirects** (Rules → Redirect Rules,
+the `http_request_dynamic_redirect` ruleset), **not** in `public/_redirects`.
+
+| Path | Redirects to | Status |
+|------|--------------|--------|
+| `/bts` | `https://form.jotform.com/lahsmusictreasurer/bts-2026` (preserves query string) | 302 |
+
+Ruleset id `9afbdc4c0ace4da18463e51fb7dc4be1`; `/bts` rule id `2aff1a15efd64a7484ef0c9546d49403`.
+
+**Editing via API** requires the **Zone → Single Redirect → Edit** scope (labeled
+"Single Redirect" in the token UI, *not* "Dynamic Redirect"). This was added to the token
+on 2026-07-17. Read/patch a rule:
+
+```bash
+# read
+api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/rulesets/phases/http_request_dynamic_redirect/entrypoint"
+# patch the /bts target
+api -X PATCH "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/rulesets/9afbdc4c0ace4da18463e51fb7dc4be1/rules/2aff1a15efd64a7484ef0c9546d49403" --data '{
+  "expression":"(http.request.uri.path eq \"/bts\")","action":"redirect",
+  "action_parameters":{"from_value":{"preserve_query_string":true,"status_code":302,
+    "target_url":{"value":"https://form.jotform.com/lahsmusictreasurer/bts-2026"}}}
+}'
+```
+
+**Or in the dashboard:** Domain → **Rules → Redirect Rules** → open the rule → fix the
+target → **Deploy**.
+
+**Note (2026-07-17):** the `/bts` target had a typo (`bts-20226`); corrected to `bts-2026`
+via the API after the Single Redirect scope was granted.
+
+---
+
 ## 8. API token used
 
 | | |
 |---|---|
 | Token name | `lahsperformingartsboosters-www-claude` |
 | Account scopes | Workers Scripts:Edit · Account Settings:Read · Email Routing Addresses:Edit |
-| Zone scopes (`lahsperformingartsboosters.org`) | DNS:Edit · Email Routing Rules:Edit · Zone:Read · Zone Settings:Edit · Transform Rules:Edit |
+| Zone scopes (`lahsperformingartsboosters.org`) | DNS:Edit · Email Routing Rules:Edit · Single Redirect:Edit · Zone:Read · Zone Settings:Edit · Transform Rules:Edit |
 
 Notes:
 - This is **separate** from the deploy token Cloudflare auto-created for Workers Builds (§3).
 - `Zone Settings:Edit` was used for §5 (Always Use HTTPS). `Transform Rules:Edit` was
   added to try to script the `www`→apex redirect, but it does **not** grant access to the
-  Single-Redirect (dynamic-redirect) ruleset — that call returned `request is not
-  authorized`. The redirect was implemented in the Worker instead (§9), so this scope ended
-  up unused.
-- **This token can be revoked or pared back now** — all ongoing changes deploy via
-  `git push`, not this token. Keep it only if future API-driven Cloudflare changes are
-  expected. Revoke at: My Profile → API Tokens.
+  Single-Redirect ruleset — that call returned `request is not authorized`, so the redirect
+  was implemented in the Worker instead (§9) and this scope is unused.
+- `Single Redirect:Edit` was added 2026-07-17 to edit the `/bts` redirect rule (§7b). Note
+  the token UI labels this permission **"Single Redirect,"** not "Dynamic Redirect."
+- **This token is still active for API-driven Cloudflare changes** (email rules §6, single
+  redirects §7b). Ongoing content/deploy changes go via `git push`, not this token. Pare it
+  back or revoke only if you stop making API-driven config changes. Manage at: My Profile →
+  API Tokens.
 
 ---
 
@@ -299,5 +363,6 @@ curl -sI https://lahsperformingartsboosters.org/            | head -1   # 200
 curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" http://lahsperformingartsboosters.org/        # 301 -> https
 curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" https://www.lahsperformingartsboosters.org/  # 301 -> apex
 curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" https://lahsperformingartsboosters.org/donate/mbcg  # 302 -> jotform
-# email: send a test message to president@ and treasurer@lahsperformingartsboosters.org
+curl -s -o /dev/null -w "%{http_code} %{redirect_url}\n" https://lahsperformingartsboosters.org/bts  # 302 -> jotform bts-2026
+# email: send a test message to president@, treasurer@, and donate@lahsperformingartsboosters.org
 ```

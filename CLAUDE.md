@@ -106,7 +106,8 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Instrumental Music** is the umbrella for the bands, orchestras, and jazz band — say so.
 - The spring **musical is biennial** (most recently 2026; next ~Feb 2028).
 - Program **directors are credited** on each program page (update if staff change).
-- Org emails are domain addresses: `president@` / `treasurer@lahsperformingartsboosters.org`.
+- Org emails are domain addresses: `president@` / `treasurer@` / `donate@lahsperformingartsboosters.org`
+  (forwarding aliases via Cloudflare Email Routing — see [docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §6).
 
 **Design** (matches the approved mockup; see spec §4)
 - Palette: navy `#103A6B`, royal blue `#2E6DB4`, **gold `#F4A81E` only as a subtle accent**
