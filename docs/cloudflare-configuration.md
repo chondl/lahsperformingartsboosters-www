@@ -48,7 +48,8 @@ api() { curl -sS -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: appl
 |---------|----------------|------|
 | Build & deploy commands | Cloudflare Workers Builds (dashboard) | No — see §3 |
 | Static-assets + Worker config | `wrangler.jsonc` | **Yes** (repo) |
-| `www` → apex redirect | `worker/index.js` | **Yes** (repo) |
+| `www` → apex redirect | `worker/index.js` (`fetch`) | **Yes** (repo) |
+| `donate@` recipient list | `worker/index.js` (`email`, `DONATE_FORWARD_TO`) | **Yes** (repo) — see §6d |
 | `/donate/*` short links | `public/_redirects` | **Yes** (repo) |
 | `/bts` campaign short link | Cloudflare Single Redirect (API/dashboard) | No — see §7b |
 | Custom domains (apex + www) | Cloudflare API | No — see §4 |
@@ -223,25 +224,72 @@ api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/r
 |---------|-------------|
 | `president@lahsperformingartsboosters.org` | `chondl@gmail.com` |
 | `treasurer@lahsperformingartsboosters.org` | `lahsmusictreasurer@gmail.com` |
-| `donate@lahsperformingartsboosters.org` | `gerribock@gmail.com`, `chondl@gmail.com`, `lahsmusictreasurer@gmail.com` (`sangum_desai@hotmail.com` pending verify) |
+| `donate@lahsperformingartsboosters.org` | fans out to several people via an Email Worker — recipient list in [`worker/index.js`](../worker/index.js) `DONATE_FORWARD_TO`; see **§6d**. (Interim single-forward to `lahsmusictreasurer@gmail.com` until the Worker cutover completes.) |
 
-**Note (2026-07-16):** the `donate@` rule (id `676af611aee74964953dfdf56ec9c0ff`) was created
-forwarding only to `chondl@gmail.com` because the other destinations were still
-unverified (the API rejects rules using unverified addresses, error 2054).
-**2026-07-17:** `gerribock@gmail.com` verified and was added; `lahsmusictreasurer@gmail.com`
-(already verified, account owner) was also added. The rule now forwards to those three.
-`sangum_desai@hotmail.com` is still unverified; once it verifies, add it too:
+**Note (2026-07-16):** the `donate@` rule was originally created (id
+`676af611aee74964953dfdf56ec9c0ff`) forwarding only to `chondl@gmail.com` because the other
+destinations were still unverified (the API rejects rules using unverified addresses, error
+2054). **2026-07-17:** `gerribock@gmail.com` verified and was added; `lahsmusictreasurer@gmail.com`
+(already verified, account owner) was also added.
 
-```bash
-api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules/676af611aee74964953dfdf56ec9c0ff" --data '{
-  "name":"donate forwarding","enabled":true,
-  "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
-  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","lahsmusictreasurer@gmail.com","sangum_desai@hotmail.com"]}]
-}'
-```
+**2026-07-18 — delivery bug (ROOT CAUSE: multiple destinations):** mail to `donate@`
+bounced with `550 5.1.1 Address does not exist` while `president@`/`treasurer@` worked. The
+difference: `donate@` was configured to forward to **three** destinations in one `forward`
+action (`value: [a, b, c]`). **A single Cloudflare Email Routing rule forwards to exactly
+ONE destination** — the API accepts a multi-value array but the resulting rule is invalid
+and the address is never registered in the mail layer, hence the 550. (Confirmed via
+Cloudflare docs; the dashboard only ever offers one "Send to an email" target per rule.)
+Rule id is now `3152f52582164978bf73dc81ccbb2418` (the original `676af61…` was deleted while
+debugging). **Chosen fix:** because `donate@` needs to reach several people, its rule is
+set to **"Send to a Worker"** and the Worker fans the message out to each recipient — see
+**§6d**. (Interim, before the Worker was wired up, `donate@` forwarded to a single address so
+it delivered. Do NOT list multiple addresses in one `forward` action — the API accepts it but
+the rule never registers.)
 
 **Verify:** `api ".../zones/$ZONE_ID/email/routing/rules"`, or send a test email to each
 address. **Undo:** `DELETE /zones/$ZONE_ID/email/routing/rules/{id}`.
+
+### 6d. `donate@` multi-recipient fan-out (Email Worker)
+
+**Why:** a single Email Routing rule forwards to exactly one destination (§6c note). To send
+`donate@` to several board members, its rule is set to **Send to a Worker**, and the site
+Worker's `email()` handler forwards a copy to each recipient.
+
+**Where the recipient list lives — the ONE place to edit:**
+[`worker/index.js`](../worker/index.js) → the `DONATE_FORWARD_TO` array. The same Worker also
+serves the site (§9); the `email()` handler is independent of the `fetch()` handler.
+
+**➤ To add or remove who receives `donate@`:**
+
+1. **Verify the destination in Cloudflare** (only needed when *adding* someone new).
+   `forward()` to an unverified address fails silently. Register + let them click the link:
+   ```bash
+   api -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/email/routing/addresses" \
+     --data '{"email":"newperson@example.com"}'
+   # confirm verified=true before relying on it:
+   api ".../accounts/$ACCOUNT_ID/email/routing/addresses"
+   ```
+2. **Edit the `DONATE_FORWARD_TO` array** in `worker/index.js` (add/remove the address).
+3. **Commit + push to `main`.** Cloudflare Workers Builds redeploys automatically. Done —
+   no Cloudflare rule change needed for membership edits.
+
+`test/email-worker.test.mjs` covers the fan-out (run `node --test test/email-worker.test.mjs`).
+
+**One-time wiring:** point the `donate@` rule at the Worker. This must happen *after* a
+Worker build that includes the `email()` handler is live, else mail to `donate@` errors —
+so the sequence is: merge/push the `email()` handler → wait for Workers Builds to deploy →
+run the PUT below. (Until then, `donate@` stays on the interim single-address forward.)
+```bash
+# donate@ rule (id 3152f52582164978bf73dc81ccbb2418) -> Send to Worker
+api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules/3152f52582164978bf73dc81ccbb2418" --data '{
+  "name":"donate forwarding","enabled":true,
+  "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
+  "actions":[{"type":"worker","value":["lahsperformingartsboosters-www"]}]
+}'
+```
+**Note:** `sangum_desai@hotmail.com` was requested as a recipient but is still an unverified
+destination, so it is **not** in `DONATE_FORWARD_TO` yet. Verify it, then add it via the
+3-step process above.
 
 ---
 
@@ -347,6 +395,9 @@ export default {
 
 `run_worker_first: true` in `wrangler.jsonc` ensures the Worker runs before static-asset
 matching, so the `www` redirect fires even for paths that exist as assets.
+
+The same Worker also exports an **`email()` handler** used only for `donate@`'s
+multi-recipient fan-out (§6d); it is independent of `fetch()` and does not affect HTTP.
 
 **If you ever prefer a native Cloudflare redirect instead:** Rules → Redirect Rules →
 create `www`→apex (301, dynamic expression

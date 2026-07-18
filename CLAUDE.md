@@ -58,9 +58,10 @@ src/
 public/
   _redirects                  # /donate/* short links (see below)
   images/                     # logos (logo-eagle.png, logo-seal.png); hero/ for photos
-worker/index.js               # entry Worker: www→apex 301, else serve ASSETS
+worker/index.js               # entry Worker: fetch=www→apex 301 + serve ASSETS; email=donate@ fan-out
 wrangler.jsonc                # deploy config (assets, workers_dev:false, run_worker_first)
 test/build.test.mjs           # asserts the 7 pages + _redirects build
+test/email-worker.test.mjs    # asserts donate@ email fan-out (DONATE_FORWARD_TO)
 docs/                         # spec, plan, Cloudflare config record (see References)
 content-drafts/               # original first-pass drafts (source for the content/ files)
 ```
@@ -84,6 +85,14 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
 `/donate/mbcg|instrumental|choir|drama` 302-redirect to JotForm. Targets are currently
 **placeholders** (`https://form.jotform.com/REPLACE_*`). These will be filled by **Plan 2**
 (the JotForm form-sync tool). Workers Static Assets honors `_redirects`.
+
+### Who receives `donate@` email
+
+`donate@lahsperformingartsboosters.org` fans out to several board members via the Worker's
+`email()` handler. **To add/remove a recipient, edit the `DONATE_FORWARD_TO` array in
+`worker/index.js` and push** — but a new address must first be a *verified* Cloudflare Email
+Routing destination. Full steps: [docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §6d.
+(A single Cloudflare rule can only forward to one address, which is why this is done in code.)
 
 ### `www` → apex redirect is in code (not a Cloudflare rule)
 
