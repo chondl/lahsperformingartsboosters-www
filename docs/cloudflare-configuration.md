@@ -211,12 +211,11 @@ api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/r
   "actions":[{"type":"forward","value":["lahsmusictreasurer@gmail.com"]}]
 }'
 
-# donate@ -> gerribock@gmail.com + chondl@gmail.com + sangum_desai@hotmail.com
-# (multi-destination: one forward action with multiple values)
+# donate@ -> multiple board members (one forward action with multiple values)
 api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules" --data '{
   "name":"donate forwarding","enabled":true,
   "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
-  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","sangum_desai@hotmail.com"]}]
+  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","lahsmusictreasurer@gmail.com"]}]
 }'
 ```
 
@@ -224,20 +223,20 @@ api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/r
 |---------|-------------|
 | `president@lahsperformingartsboosters.org` | `chondl@gmail.com` |
 | `treasurer@lahsperformingartsboosters.org` | `lahsmusictreasurer@gmail.com` |
-| `donate@lahsperformingartsboosters.org` | `gerribock@gmail.com`, `chondl@gmail.com`, `sangum_desai@hotmail.com` |
+| `donate@lahsperformingartsboosters.org` | `gerribock@gmail.com`, `chondl@gmail.com`, `lahsmusictreasurer@gmail.com` (`sangum_desai@hotmail.com` pending verify) |
 
 **Note (2026-07-16):** the `donate@` rule (id `676af611aee74964953dfdf56ec9c0ff`) was created
-forwarding only to `chondl@gmail.com` because the other two destinations were still
+forwarding only to `chondl@gmail.com` because the other destinations were still
 unverified (the API rejects rules using unverified addresses, error 2054).
-**2026-07-17:** `gerribock@gmail.com` verified and was added — the rule now forwards to
-`gerribock@gmail.com` + `chondl@gmail.com`. `sangum_desai@hotmail.com` is still unverified;
-once it verifies, update the rule to all three:
+**2026-07-17:** `gerribock@gmail.com` verified and was added; `lahsmusictreasurer@gmail.com`
+(already verified, account owner) was also added. The rule now forwards to those three.
+`sangum_desai@hotmail.com` is still unverified; once it verifies, add it too:
 
 ```bash
 api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules/676af611aee74964953dfdf56ec9c0ff" --data '{
   "name":"donate forwarding","enabled":true,
   "matchers":[{"type":"literal","field":"to","value":"donate@lahsperformingartsboosters.org"}],
-  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","sangum_desai@hotmail.com"]}]
+  "actions":[{"type":"forward","value":["gerribock@gmail.com","chondl@gmail.com","lahsmusictreasurer@gmail.com","sangum_desai@hotmail.com"]}]
 }'
 ```
 
