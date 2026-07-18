@@ -8,5 +8,13 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "run_worker_first": true
+  },
+  // Workers Logs: retain console.log output so email fan-out (and fetch) is
+  // debuggable after the fact. head_sampling_rate 1 = capture 100% of invocations.
+  // Query via POST /accounts/{id}/workers/observability/telemetry/query
+  // (token needs "Workers Observability: Write"). See docs/cloudflare-configuration.md §6d.
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
   }
 }

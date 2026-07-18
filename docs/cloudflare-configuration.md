@@ -291,6 +291,48 @@ api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/ru
 destination, so it is **not** in `DONATE_FORWARD_TO` yet. Verify it, then add it via the
 3-step process above.
 
+### 6e. Debugging `donate@` delivery (observability)
+
+The Worker has **Workers Logs / Observability enabled** (`observability` block in
+`wrangler.jsonc`, `head_sampling_rate: 1` = 100% of invocations). For every message to
+`donate@`, the `email()` handler emits one structured line:
+
+```json
+{"event":"donate_email","from":"…","to":"donate@…","subject":"…","messageId":"…",
+ "rawSize":2048,"delivery":[{"to":"gerribock@gmail.com","forwarded":true,"error":null}, …],
+ "allFailed":false}
+```
+
+This answers both debugging questions for any specific email:
+- **Was it received at Cloudflare from JotForm?** → a `donate_email` record with that
+  `subject`/`from` exists (the handler only runs on a received message).
+- **Was it actually forwarded to each person?** → the `delivery[]` array — one entry per
+  recipient with `forwarded: true/false` and any `error`.
+
+**Query the logs (historical):**
+```bash
+# POST /accounts/{id}/workers/observability/telemetry/query  — needs token scope
+#   "Workers Observability: Write" (see §8).
+api -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/workers/observability/telemetry/query" \
+  --data '{
+    "queryId":"donate-debug",
+    "timeframe":{"from":<epoch_ms>,"to":<epoch_ms>},
+    "parameters":{"datasets":["cloudflare-workers"],
+      "filters":[{"key":"$metadata.message","operation":"includes","value":"donate_email"}]},
+    "limit":50
+  }'
+```
+
+**Live tail (real-time):** `wrangler tail lahsperformingartsboosters-www --format json`
+(needs `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`; scope "Workers Tail: Read", though
+`Workers Scripts: Edit` currently suffices). Note: `wrangler tail` shows only sender/recipient/
+size for email events — the **subject and per-recipient result come from the `console.log`
+record above**, not from tail's built-in email metadata.
+
+**For messages that never reach the Worker** (rejected at SMTP, e.g. spam) there is no
+`console.log`; those show only in the **Email Routing activity log** (dashboard, or GraphQL
+`emailRoutingAdaptiveGroups` — token scope "Account Analytics: Read", §8).
+
 ---
 
 ## 7. DNS records (auto-created)
@@ -351,7 +393,7 @@ via the API after the Single Redirect scope was granted.
 | | |
 |---|---|
 | Token name | `lahsperformingartsboosters-www-claude` |
-| Account scopes | Workers Scripts:Edit · Account Settings:Read · Email Routing Addresses:Edit |
+| Account scopes | Workers Scripts:Edit · Account Settings:Read · Email Routing Addresses:Edit · **Workers Observability:Write** · **Account Analytics:Read** |
 | Zone scopes (`lahsperformingartsboosters.org`) | DNS:Edit · Email Routing Rules:Edit · Single Redirect:Edit · Zone:Read · Zone Settings:Edit · Transform Rules:Edit |
 
 Notes:
@@ -362,6 +404,10 @@ Notes:
   was implemented in the Worker instead (§9) and this scope is unused.
 - `Single Redirect:Edit` was added 2026-07-17 to edit the `/bts` redirect rule (§7b). Note
   the token UI labels this permission **"Single Redirect,"** not "Dynamic Redirect."
+- `Workers Observability:Write` + `Account Analytics:Read` were added 2026-07-18 to debug
+  `donate@` delivery (§6e): the first powers the Workers Logs telemetry query
+  (`/workers/observability/telemetry/query`); the second powers the Email Routing activity
+  log (GraphQL `emailRoutingAdaptiveGroups`). Both verified working 2026-07-18.
 - **This token is still active for API-driven Cloudflare changes** (email rules §6, single
   redirects §7b). Ongoing content/deploy changes go via `git push`, not this token. Pare it
   back or revoke only if you stop making API-driven config changes. Manage at: My Profile →

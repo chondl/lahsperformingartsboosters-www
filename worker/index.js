@@ -49,19 +49,56 @@ export default {
 
   /**
    * Invoked by Cloudflare Email Routing for any address routed "to a Worker"
-   * (currently only donate@). Forwards a copy to each DONATE_FORWARD_TO address.
+   * (currently only donate@). Forwards a copy to each DONATE_FORWARD_TO address
+   * and logs a structured record so delivery is debuggable after the fact via
+   * Workers Logs / Observability (see docs/cloudflare-configuration.md §6d).
    */
   async email(message) {
+    const subject = safeHeader(message, "subject");
+    const messageId = safeHeader(message, "message-id");
+
     const results = await Promise.allSettled(
       DONATE_FORWARD_TO.map((to) => message.forward(to)),
     );
-    // If every forward failed (e.g. all destinations unverified), reject the
-    // message so the sender gets a bounce instead of the mail silently vanishing.
-    if (results.length > 0 && results.every((r) => r.status === "rejected")) {
+    const delivery = results.map((r, i) => ({
+      to: DONATE_FORWARD_TO[i],
+      forwarded: r.status === "fulfilled",
+      error: r.status === "rejected" ? String(r.reason?.message ?? r.reason) : null,
+    }));
+    const allFailed = delivery.every((d) => !d.forwarded);
+
+    // One structured line per message — queryable by `event:"donate_email"` in
+    // Workers Logs. Answers "was it received?" (this record exists) and "was it
+    // sent to each person?" (the `delivery` array).
+    console.log(
+      JSON.stringify({
+        event: "donate_email",
+        from: message.from ?? null,
+        to: message.to ?? null,
+        subject,
+        messageId,
+        rawSize: message.rawSize ?? null,
+        delivery,
+        allFailed,
+      }),
+    );
+
+    if (allFailed) {
+      // Reject so the sender gets a bounce instead of the mail silently vanishing.
       message.setReject("donate@ could not be delivered to any recipient");
     }
   },
 };
+
+// Read a header without assuming the runtime Headers object is present (keeps the
+// handler unit-testable and null-safe if a header is missing).
+function safeHeader(message, name) {
+  try {
+    return message.headers?.get?.(name) ?? null;
+  } catch {
+    return null;
+  }
+}
 
 // Exported for unit tests (test/email-worker.test.mjs). Not used at runtime.
 export { DONATE_FORWARD_TO };
