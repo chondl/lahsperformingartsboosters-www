@@ -10,6 +10,10 @@ that supports Los Altos High School's performing arts programs — **Instrumenta
 and **Drama**. We are a registered 501(c)(3) charitable organization, and all parents and
 guardians of performing arts students are members.
 
+Our legal name is **Los Altos High Eagle Band Boosters**; we do business as the Los Altos
+High School Performing Arts Boosters. You'll see the legal name on checks, donor-advised
+fund grants, and employer matching portals — it's the same organization.
+
 The performances, classes, and ensembles belong to the school and its teachers — the
 Boosters are here to *support* them, not to run them.
 
@@ -60,4 +64,5 @@ The Boosters are led by a volunteer board:
 - **Donations:** donate@lahsperformingartsboosters.org
 - **Mail:** LAHS Performing Arts Boosters, 201 Almond Avenue, Los Altos, CA 94022
 
-We are a 501(c)(3) nonprofit; donations are tax-deductible. **EIN 77-0525170.**
+Los Altos High Eagle Band Boosters, doing business as the Los Altos High School Performing
+Arts Boosters, is a 501(c)(3) nonprofit; donations are tax-deductible. **EIN 77-0525170.**

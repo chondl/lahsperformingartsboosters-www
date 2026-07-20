@@ -33,11 +33,17 @@ The donation form handles all three, so start there whichever way you plan to gi
   94022. Please fill out the form too, so we know to expect it.
 - **Donor-advised fund.** A tax-savvy way to give that we gladly welcome. Fill out the form
   so we know your grant is coming and can assign it to the program you chose, then
-  recommend the grant through your fund.
+  recommend the grant through your fund to *Los Altos High Eagle Band Boosters*
+  (EIN 77-0525170).
 
 If you're giving by check or through a donor-advised fund, **the form acts as a pledge** —
 filling it out is the single most helpful thing you can do, even if the gift itself arrives
 later.
+
+**A note on our name:** *Los Altos High Eagle Band Boosters* is our legal name, and it's
+what banks, donor-advised funds, and employer matching portals know us by. We do business
+as the *Los Altos High School Performing Arts Boosters*. Both are the same organization,
+EIN 77-0525170.
 
 ## Double your gift with employer matching
 
@@ -45,8 +51,9 @@ Many employers match charitable donations dollar for dollar, and some match at t
 times your gift. It is the easiest way to increase your impact, and a large share of
 matching money goes unclaimed every year simply because families don't think to ask.
 
-Check your company's giving portal and search for **LAHS Performing Arts Boosters**
-(EIN 77-0525170). If your employer needs anything from us to complete the match, email
+Check your company's giving portal and search for our legal name, **Los Altos High Eagle
+Band Boosters**, or look us up by **EIN 77-0525170**. If your employer needs anything from
+us to complete the match, email
 donate@lahsperformingartsboosters.org and we'll take care of it.
 
 ## Marching Band & Color Guard
@@ -58,8 +65,9 @@ volunteer and fundraising plans for the season are presented at the end of band 
 
 ## Tax-deductible
 
-The Los Altos High School Performing Arts Boosters is a registered 501(c)(3) nonprofit.
-Your donation is tax-deductible to the extent allowed by law. **EIN 77-0525170.**
+Los Altos High Eagle Band Boosters — doing business as the Los Altos High School Performing
+Arts Boosters — is a registered 501(c)(3) nonprofit. Your donation is tax-deductible to the
+extent allowed by law. **EIN 77-0525170.**
 
 Questions about giving? Email donate@lahsperformingartsboosters.org.
 

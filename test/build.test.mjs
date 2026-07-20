@@ -41,6 +41,25 @@ test('MBCG has no donate button (it runs a separate campaign)', () => {
   assert.doesNotMatch(readFileSync('dist/programs/mbcg/index.html', 'utf8'), /href="\/bts"/);
 });
 
+// "Los Altos High Eagle Band Boosters" is the legal name; "…Performing Arts Boosters" is
+// the DBA. The legal name is what banks, DAFs, and matching portals recognize, so anywhere
+// we state the EIN or tell someone where to send money, it has to appear.
+test('the EIN never appears without the legal name', () => {
+  for (const f of expected.filter((f) => f.endsWith('.html'))) {
+    const html = readFileSync(f, 'utf8');
+    if (!html.includes('EIN 77-0525170')) continue;
+    assert.match(html, /Los Altos High Eagle Band Boosters/, `${f} states the EIN under the DBA alone`);
+  }
+});
+
+test('payment instructions name the legal entity', () => {
+  const donate = readFileSync('dist/donate/index.html', 'utf8');
+  for (const context of [/payable to.{0,40}Los Altos High Eagle Band Boosters/s,
+                         /recommend the grant.{0,80}Los Altos High Eagle Band Boosters/s]) {
+    assert.match(donate, context);
+  }
+});
+
 test('the home hero has a single primary Donate call to action', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);

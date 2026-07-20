@@ -126,6 +126,13 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Instrumental Music** is the umbrella for the bands, orchestras, and jazz band — say so.
 - The spring **musical is biennial** (most recently 2026; next ~Feb 2028).
 - Program **directors are credited** on each program page (update if staff change).
+- **Two org names — use the right one.** *Los Altos High Eagle Band Boosters* is the
+  **legal name**; *Los Altos High School Performing Arts Boosters* (LAHS PAB) is the
+  **DBA** and the name the school community knows. Use the **legal name** wherever money or
+  legal identity is involved — check payees, donor-advised fund grant recipients, employer
+  matching portal lookups, and any statement of the EIN or 501(c)(3) status. Use the **DBA**
+  everywhere else: page titles, nav, headings, and prose. `test/build.test.mjs` asserts the
+  EIN never ships alongside the DBA alone.
 - Org emails are domain addresses: `president@` / `treasurer@` / `donate@lahsperformingartsboosters.org`
   (forwarding aliases via Cloudflare Email Routing — see [docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §6).
 
