@@ -17,9 +17,19 @@ test('all expected pages and redirects are built', () => {
   for (const f of expected) assert.ok(existsSync(f), `missing ${f}`);
 });
 
-test('no placeholder donation URLs ship', () => {
+// PLACEHOLDER caught a live regression: three program pages shipped dead "Join the Google
+// Group" buttons because the placeholder lived in frontmatter, not the body.
+test('no placeholder URLs ship', () => {
   for (const f of expected) {
-    assert.doesNotMatch(readFileSync(f, 'utf8'), /REPLACE_|form\.jotform\.com/, `placeholder in ${f}`);
+    assert.doesNotMatch(readFileSync(f, 'utf8'), /REPLACE_|PLACEHOLDER|form\.jotform\.com/, `placeholder in ${f}`);
+  }
+});
+
+test('no program page links out to a Google Group or volunteer sheet yet', () => {
+  for (const p of ['mbcg', 'instrumental-music', 'choir', 'drama']) {
+    const html = readFileSync(`dist/programs/${p}/index.html`, 'utf8');
+    assert.doesNotMatch(html, /href="[^"]*groups\.google\.com/, `${p} links to a Google Group`);
+    assert.doesNotMatch(html, /href="[^"]*docs\.google\.com/, `${p} links to a volunteer sheet`);
   }
 });
 

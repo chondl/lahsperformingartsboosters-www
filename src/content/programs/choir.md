@@ -3,7 +3,6 @@ title: Choir
 order: 3
 summary: Vocal ensembles, festivals, and Spring Sing.
 icon: "🎤"
-googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-choir
 ---
 
 The Choir program brings together singers across several ensembles — from entry-level

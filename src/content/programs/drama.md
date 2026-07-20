@@ -3,7 +3,6 @@ title: Drama
 order: 4
 summary: Plays, the musical, and student-directed shows.
 icon: "🎭"
-googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-drama
 ---
 
 The Drama program gives students the full theatrical experience, on stage and behind the
