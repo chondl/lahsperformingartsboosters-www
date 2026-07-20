@@ -74,17 +74,28 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
   (rendered as the page `<h1>` for about/donate; Home's h1 is the hero). Don't add a
   duplicate top-level `#`/`##` title in the body.
 - **Programs:** `src/content/programs/<slug>.md`. Frontmatter schema (`src/content.config.ts`):
-  `title`, `order` (nav/card order), `donateSlug`, `summary` (home card text), `icon` (emoji),
-  optional `googleGroupUrl`, optional `volunteerSheetUrl` (MBCG only). The body is the page
+  `title`, `order` (nav/card order), `summary` (home card text), `icon` (emoji),
+  `showDonate` (defaults true), optional `googleGroupUrl`, optional `volunteerSheetUrl`.
+  The last two render buttons at the page bottom; they are **omitted for now** because the
+  real URLs don't exist yet — adding the line back per program restores the button, no code
+  change needed. The body is the page
   prose; **don't repeat the title as a heading** (the template renders `<h1>{title}`).
 - **Nav** is generated from the `programs` collection ordered by `order` — change it in one
   place (`Header.astro` + frontmatter), never in 7 files.
 
-### Donation links — `public/_redirects`
+### Donation links — everything goes to `/bts`
 
-`/donate/mbcg|instrumental|choir|drama` 302-redirect to JotForm. Targets are currently
-**placeholders** (`https://form.jotform.com/REPLACE_*`). These will be filled by **Plan 2**
-(the JotForm form-sync tool). Workers Static Assets honors `_redirects`.
+There is **one** donation destination: `/bts`, a Cloudflare Single Redirect rule (NOT in
+`_redirects`) pointing at the JotForm Back-to-School campaign. See
+[docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §7b. Always link to
+`/bts` — never the JotForm URL directly — so traffic stays on our own domain and the
+target can be changed in one place each year.
+
+The old per-program `/donate/mbcg|instrumental|choir|drama` short links were removed;
+donors pick their program *on the form*. `public/_redirects` is now empty of rules.
+
+**Marching Band & Color Guard is the exception:** it runs its own campaign, separate from
+Back-to-School. Its program page sets `showDonate: false` and carries no donate button.
 
 ### Who receives `donate@` email
 
@@ -136,12 +147,18 @@ permission. See `docs/cloudflare-configuration.md` §9.
 
 ## Roadmap / pending
 
-- **Plan 2 — JotForm form-sync tool** (`docs/superpowers/specs` §8): a config-as-code CLI
-  that clones a base JotForm into the four program donation forms and rewrites the
-  `/donate/*` targets in `public/_redirects`. Not built yet.
+- **Plan 2 — JotForm form-sync tool** (`docs/superpowers/specs` §8): **superseded.** The
+  four per-program forms were collapsed into one Back-to-School form with a program picker,
+  reached via `/bts`, so there is nothing left to sync. Don't build it.
+- **Google Group + volunteer-sheet buttons — coming back.** Both were removed because only
+  `PLACEHOLDER` URLs existed. The schema and template still support them: add
+  `googleGroupUrl:` / `volunteerSheetUrl:` to a program's frontmatter and the button
+  returns. The MBCG volunteer sheet lands after band camp (Aug 8); Google Group links are
+  expected within a few weeks of that.
+- **MBCG campaign launch (Aug 8).** MBCG's own fundraising campaign and volunteer plans are
+  presented at the end of band camp. Its page currently tells families to wait.
 - **Content placeholders to replace** when material is available: real ensemble photos
-  (`public/images/hero/`, list them in `index.astro`); real Google Group + volunteer-sheet
-  URLs (currently `PLACEHOLDER`); the full ~25-entry MBCG season calendar.
+  (`public/images/hero/`, list them in `index.astro`).
 
 ## Process notes
 

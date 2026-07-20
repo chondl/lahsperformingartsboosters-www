@@ -20,8 +20,7 @@ const { images = [], title, subtitle } = Astro.props;
     <h1>{title}</h1>
     {subtitle && <p class="sub">{subtitle}</p>}
     <div class="cta">
-      <a class="btn btn-primary" href="#find-your-program">Find your program</a>
-      <a class="btn ghost" href="/donate/">Donate</a>
+      <a class="btn btn-primary" href="/donate/">Donate</a>
     </div>
   </div>
 </section>
@@ -37,7 +36,6 @@ const { images = [], title, subtitle } = Astro.props;
   .kick { font-family: "Raleway"; font-weight: var(--fw-bold); letter-spacing: 3px; text-transform: uppercase; font-size: var(--fs-eyebrow); color: #cdb27a; margin-bottom: var(--space-xs); }
   .sub { font-size: var(--fs-md); color: #e3ebf6; max-width: 46ch; margin: var(--space-sm) 0 var(--space-md); }
   .cta { display: flex; gap: var(--space-xs); flex-wrap: wrap; }
-  .cta .ghost { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.5); }
   @media (max-width: 720px) {
     .hero { height: 360px; }
     .sub { font-size: var(--fs-base); }

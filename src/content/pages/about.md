@@ -57,6 +57,7 @@ The Boosters are led by a volunteer board:
 
 - **President:** president@lahsperformingartsboosters.org
 - **Treasurer:** treasurer@lahsperformingartsboosters.org
+- **Donations:** donate@lahsperformingartsboosters.org
 - **Mail:** LAHS Performing Arts Boosters, 201 Almond Avenue, Los Altos, CA 94022
 
 We are a 501(c)(3) nonprofit; donations are tax-deductible. **EIN 77-0525170.**
