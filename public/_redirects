@@ -1,5 +1,5 @@
-# /donate/<program> short links → JotForm. Plan 2 (JotForm sync) overwrites the targets.
-/donate/mbcg          https://form.jotform.com/REPLACE_MBCG          302
-/donate/instrumental  https://form.jotform.com/REPLACE_INSTRUMENTAL  302
-/donate/choir         https://form.jotform.com/REPLACE_CHOIR         302
-/donate/drama         https://form.jotform.com/REPLACE_DRAMA         302
+# Reserved for future short links.
+#
+# The /donate/<program> links were removed: all giving now goes to the single
+# Back-to-School campaign at /bts, which is a Cloudflare Single Redirect rule
+# (NOT in this file) — see docs/cloudflare-configuration.md §7b.

@@ -1,11 +1,9 @@
 ---
 title: Marching Band & Color Guard
 order: 1
-donateSlug: mbcg
 summary: Competitions, band camp, football performances
 icon: "🎺"
-googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-mbcg
-volunteerSheetUrl: https://docs.google.com/spreadsheets/d/PLACEHOLDER/edit
+showDonate: false
 ---
 
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
@@ -104,8 +102,9 @@ date; full details are shared through the Google Group and the volunteer sheet.
 ## Volunteer & calendar sheet
 
 We coordinate the full schedule and all volunteer sign-ups through a shared Google Sheet
-that lists every event and the roles we need filled. Use the **Volunteer sign-up sheet**
-button at the bottom of this page to open it and choose the spots that work for you.
+that lists every event and the roles we need filled. The sheet for this season goes out at
+the end of band camp on August 8th, along with the rest of our volunteer and fundraising
+plans.
 
 ## Get involved
 
@@ -117,9 +116,9 @@ MBCG depends on parent volunteers more than any other program. Families help wit
 - **Props, uniforms, and fittings**
 - **Volunteer coordination** — leading and scheduling the parent crew
 
-To plug in, **use the volunteer sign-up sheet** (button below), **join the Marching Band
-Google Group** for schedules and news, and come to the MBCG portion of the monthly
-Boosters meeting.
+To plug in, **join the Marching Band Google Group** for schedules and news, come to the
+MBCG portion of the monthly Boosters meeting, and watch for the volunteer sign-up sheet
+after band camp.
 
 ## Monthly meeting
 
@@ -129,8 +128,9 @@ needs. The link is shared through the Google Group.
 
 ## Support the program
 
-Marching Band & Color Guard is our largest undertaking — covering support staff,
-travel, and equipment for the full competitive season. Your tax-deductible gift makes
-it possible.
-
-[**Donate to Marching Band & Color Guard »**](/donate/mbcg)
+Marching Band & Color Guard is our largest undertaking — covering support staff, travel,
+and equipment for the full competitive season. Because of that, MBCG runs **its own
+fundraising campaign, separate from the Boosters' Back-to-School campaign.** That campaign
+hasn't launched yet: the volunteer and fundraising plans for the season will be presented
+at the end of band camp on **August 8th.** Please hold off until then — we'll share
+everything you need at that point.

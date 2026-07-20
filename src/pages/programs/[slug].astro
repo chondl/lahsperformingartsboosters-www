@@ -16,9 +16,9 @@ const d = program.data;
     <h1>{d.title}</h1>
     <Content />
     <div class="program-actions">
-      {d.volunteerSheetUrl && <a class="btn btn-primary" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
+      {d.volunteerSheetUrl && <a class="btn" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
       {d.googleGroupUrl && <a class="btn" href={d.googleGroupUrl}>Join the Google Group</a>}
-      <a class="btn btn-primary" href={`/donate/${d.donateSlug}`}>Donate to {d.title}</a>
+      {d.showDonate && <a class="btn btn-primary" href="/bts">Give to the Back-to-School campaign</a>}
     </div>
   </article>
 </BaseLayout>

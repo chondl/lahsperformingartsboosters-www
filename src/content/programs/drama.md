@@ -1,7 +1,6 @@
 ---
 title: Drama
 order: 4
-donateSlug: drama
 summary: Plays, the musical, and student-directed shows.
 icon: "🎭"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-drama
@@ -61,4 +60,7 @@ ambitious — and growing parent involvement is key to making it sustainable.
 Your tax-deductible gift directly supports our productions and the students who make
 theater happen at Los Altos.
 
-[**Donate to Drama »**](/donate/drama)
+Drama is supported through the Boosters' **Back-to-School campaign** — choose *Drama* on
+the form when you give.
+
+[**Give to the Back-to-School campaign »**](/bts)

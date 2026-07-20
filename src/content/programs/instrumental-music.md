@@ -1,7 +1,6 @@
 ---
 title: Instrumental Music
 order: 2
-donateSlug: instrumental
 summary: The bands, orchestras, and jazz band.
 icon: "🎻"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-instrumental
@@ -68,4 +67,7 @@ performances feel like a community.
 Your tax-deductible gift directly supports our bands and orchestras and the musicians
 who bring them to life.
 
-[**Donate to Instrumental Music »**](/donate/instrumental)
+Instrumental Music is supported through the Boosters' **Back-to-School campaign** — choose
+*Instrumental Music* on the form when you give.
+
+[**Give to the Back-to-School campaign »**](/bts)

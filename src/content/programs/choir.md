@@ -1,7 +1,6 @@
 ---
 title: Choir
 order: 3
-donateSlug: choir
 summary: Vocal ensembles, festivals, and Spring Sing.
 icon: "🎤"
 googleGroupUrl: https://groups.google.com/g/PLACEHOLDER-choir
@@ -62,4 +61,7 @@ the students.
 Your tax-deductible gift directly supports our singers — the festivals they attend, the
 music they perform, and the experiences they'll remember.
 
-[**Donate to Choir »**](/donate/choir)
+Choir is supported through the Boosters' **Back-to-School campaign** — choose *Choir* on
+the form when you give.
+
+[**Give to the Back-to-School campaign »**](/bts)
