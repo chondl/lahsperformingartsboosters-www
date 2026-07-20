@@ -34,6 +34,7 @@ const DONATE_FORWARD_TO = [
   "gerribock@gmail.com",
   "chondl@gmail.com",
   "lahsmusictreasurer@gmail.com",
+  "sangum_desai@hotmail.com",
 ];
 
 export default {

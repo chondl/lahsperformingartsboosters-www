@@ -187,8 +187,7 @@ done
 - `lahsmusictreasurer@gmail.com` — auto-verified (it's the account owner email).
 - `chondl@gmail.com` — verified by clicking the link Cloudflare emailed.
 - `gerribock@gmail.com` — added 2026-07-16 for the `donate@` alias; **verified 2026-07-17**.
-- `sangum_desai@hotmail.com` — added 2026-07-16 for the `donate@` alias; **still unverified**
-  (must click the link Cloudflare emailed; may be in Junk).
+- `sangum_desai@hotmail.com` — added 2026-07-16 for the `donate@` alias; **verified 2026-07-19**.
 
 **Verify:** `api ".../accounts/$ACCOUNT_ID/email/routing/addresses"` → all `verified=true`.
 **Undo:** `DELETE /accounts/$ACCOUNT_ID/email/routing/addresses/{id}`.
@@ -224,7 +223,7 @@ api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/r
 |---------|-------------|
 | `president@lahsperformingartsboosters.org` | `chondl@gmail.com` |
 | `treasurer@lahsperformingartsboosters.org` | `lahsmusictreasurer@gmail.com` |
-| `donate@lahsperformingartsboosters.org` | fans out to several people via an Email Worker — recipient list in [`worker/index.js`](../worker/index.js) `DONATE_FORWARD_TO`; see **§6d**. (Interim single-forward to `lahsmusictreasurer@gmail.com` until the Worker cutover completes.) |
+| `donate@lahsperformingartsboosters.org` | fans out to several people via an Email Worker — recipient list in [`worker/index.js`](../worker/index.js) `DONATE_FORWARD_TO`; see **§6d**. |
 
 **Note (2026-07-16):** the `donate@` rule was originally created (id
 `676af611aee74964953dfdf56ec9c0ff`) forwarding only to `chondl@gmail.com` because the other
@@ -287,9 +286,9 @@ api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/ru
   "actions":[{"type":"worker","value":["lahsperformingartsboosters-www"]}]
 }'
 ```
-**Note:** `sangum_desai@hotmail.com` was requested as a recipient but is still an unverified
-destination, so it is **not** in `DONATE_FORWARD_TO` yet. Verify it, then add it via the
-3-step process above.
+**Recipients (as of 2026-07-19):** `gerribock@gmail.com`, `chondl@gmail.com`,
+`lahsmusictreasurer@gmail.com`, `sangum_desai@hotmail.com` — all four verified and in
+`DONATE_FORWARD_TO`.
 
 ### 6e. Debugging `donate@` delivery (observability)
 
