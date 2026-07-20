@@ -8,6 +8,10 @@ dist/
 # Brainstorm scratch (visual companion)
 .superpowers/
 
+# Camera originals (tens of MB each). Only the cropped, web-sized derivatives in
+# public/images/ are version-controlled; keep the originals in the photo archive.
+src/images/
+
 # OS / editor
 .DS_Store
 *.log

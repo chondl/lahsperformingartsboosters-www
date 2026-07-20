@@ -2,6 +2,7 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroCarousel from '../components/HeroCarousel.astro';
+import type { HeroImage } from '../components/HeroCarousel.astro';
 import ProgramCard from '../components/ProgramCard.astro';
 
 const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
@@ -9,8 +10,19 @@ const home = await getEntry('pages', 'home');
 if (!home) throw new Error('Missing content: pages/home');
 const { Content } = await render(home);
 
-// Drop ensemble photos into public/images/hero/ and list them here. Empty = gradient hero.
-const heroImages: string[] = [];
+// Hero slides, in rotation order. Photos live in public/images/hero/, cropped to a uniform
+// 16:9. `position` is the focal point — see the note in HeroCarousel.astro before changing
+// one. To swap a photo, drop a new 16:9 JPEG in that folder and edit the src here.
+// Order note: the two conductor portraits are kept apart in the rotation (slots 1 and 4,
+// and the wrap from the last slide back to the first lands on a field shot, not a portrait).
+const heroImages: HeroImage[] = [
+  { src: '/images/hero/band-conductor.jpg', position: 'center 12%' },
+  { src: '/images/hero/marching-band-group.jpg', position: 'center 45%' },
+  { src: '/images/hero/color-guard.jpg', position: 'center 45%' },
+  { src: '/images/hero/orchestra-conductor.jpg', position: 'center 22%' },
+  { src: '/images/hero/drum-major.jpg', position: 'center 40%' },
+  { src: '/images/hero/marching-band-field.jpg', position: 'center 28%' },
+];
 ---
 <BaseLayout description="Parent-led nonprofit supporting the performing arts at Los Altos High School.">
   <HeroCarousel

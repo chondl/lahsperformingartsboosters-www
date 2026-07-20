@@ -1,7 +1,15 @@
 ---
-// images: string[] of /images/hero/*.jpg paths. Empty array → gradient-only hero.
+// images: slides from /images/hero/. Empty array → gradient-only hero.
+// The hero is a `cover` box that is ~4:1 on desktop but nearly square on mobile, so it
+// re-crops per viewport. `position` is the CSS background-position that decides what
+// survives that crop — raise it above 50% when the subject sits high in the frame
+// (a conductor's head, a show title) or centre-cropping will cut it off on desktop.
+export interface HeroImage {
+  src: string;
+  position?: string;
+}
 interface Props {
-  images?: string[];
+  images?: HeroImage[];
   title: string;
   subtitle?: string;
 }
@@ -10,8 +18,11 @@ const { images = [], title, subtitle } = Astro.props;
 <section class="hero">
   <div class="slides">
     {images.length === 0 && <div class="slide on gradient"></div>}
-    {images.map((src, i) => (
-      <div class={`slide ${i === 0 ? 'on' : ''}`} style={`background-image:url('${src}')`}></div>
+    {images.map((img, i) => (
+      <div
+        class={`slide ${i === 0 ? 'on' : ''}`}
+        style={`background-image:url('${img.src}');background-position:${img.position ?? 'center'}`}
+      ></div>
     ))}
   </div>
   <div class="scrim"></div>
@@ -45,7 +56,9 @@ const { images = [], title, subtitle } = Astro.props;
 </style>
 <script>
   const slides = [...document.querySelectorAll('.hero .slide')];
-  if (slides.length > 1) {
+  // Don't auto-advance for visitors who asked for reduced motion; they get the first slide.
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (slides.length > 1 && !still) {
     let cur = 0;
     setInterval(() => {
       slides[cur].classList.remove('on');

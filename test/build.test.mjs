@@ -81,6 +81,15 @@ test('mailing addresses use the DBA, not the legal name', () => {
   }
 });
 
+// The hero references photos by path, so a typo or a deleted file degrades to an invisible
+// blank slide rather than an error. Assert every slide resolves to a file we actually ship.
+test('every hero slide points at a photo that shipped', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  const slides = [...html.matchAll(/background-image:url\('([^']+)'\)/g)].map((m) => m[1]);
+  assert.ok(slides.length > 0, 'hero has no slides');
+  for (const src of slides) assert.ok(existsSync(`dist${src}`), `hero slide missing: ${src}`);
+});
+
 test('the home hero has a single primary Donate call to action', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);
