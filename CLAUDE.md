@@ -83,6 +83,19 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
 - **Nav** is generated from the `programs` collection ordered by `order` — change it in one
   place (`Header.astro` + frontmatter), never in 7 files.
 
+### Home hero photos
+
+The home hero is a rotating carousel of real ensemble photos. The human drops camera
+originals into `src/images/<year>/<Program>/` and expects **you to look at them, choose
+the crop and focal point per image, and wire them in** — that is the job, don't hand it
+back. Full procedure, including the ffmpeg recipes and why each slide needs its own
+focal point: **[docs/hero-images.md](docs/hero-images.md)**. Read it before touching hero images.
+
+Short version: uniform 16:9 at 2400×1350 into `public/images/hero/`; each slide carries a
+`position` (CSS `background-position`) because the hero is ~4:1 on desktop and only ~43%
+of the image height is visible there; show the human a review page in Chrome and get
+approval before pushing; originals are gitignored.
+
 ### Donation links — everything goes to `/bts`
 
 There is **one** donation destination: `/bts`, a Cloudflare Single Redirect rule (NOT in
@@ -166,8 +179,9 @@ permission. See `docs/cloudflare-configuration.md` §9.
   expected within a few weeks of that.
 - **MBCG campaign launch (Aug 8).** MBCG's own fundraising campaign and volunteer plans are
   presented at the end of band camp. Its page currently tells families to wait.
-- **Content placeholders to replace** when material is available: real ensemble photos
-  (`public/images/hero/`, list them in `index.astro`).
+- **Hero photos — ongoing.** The first six shipped (2026 season). More originals will be
+  dropped into `src/images/` for cropping; see [docs/hero-images.md](docs/hero-images.md).
+  The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
 
 ## Process notes
 
