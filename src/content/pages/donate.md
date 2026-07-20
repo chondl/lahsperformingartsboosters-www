@@ -28,9 +28,10 @@ membership level.
 The donation form handles all three, so start there whichever way you plan to give:
 
 - **Credit card.** Complete your gift right on the form.
-- **Check.** Make checks payable to *Los Altos High Eagle Band Boosters*, note the donor's
-  name and the program in the memo line, and mail to 201 Almond Avenue, Los Altos, CA
-  94022. Please fill out the form too, so we know to expect it.
+- **Check.** Make checks payable to *Los Altos High Eagle Band Boosters* — our legal name —
+  and note the donor's name and the program in the memo line. Address the envelope to
+  **LAHS Performing Arts Boosters, 201 Almond Avenue, Los Altos, CA 94022**, which is how
+  the school office knows us. Please fill out the form too, so we know to expect it.
 - **Donor-advised fund.** A tax-savvy way to give that we gladly welcome. Fill out the form
   so we know your grant is coming and can assign it to the program you chose, then
   recommend the grant through your fund to *Los Altos High Eagle Band Boosters*

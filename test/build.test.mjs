@@ -60,6 +60,17 @@ test('payment instructions name the legal entity', () => {
   }
 });
 
+// Mail is the one money context that takes the DBA: the school office routes by the name
+// it knows. A mailed check is payable to the legal name but addressed to the DBA.
+test('mailing addresses use the DBA, not the legal name', () => {
+  for (const f of expected.filter((f) => f.endsWith('.html'))) {
+    const html = readFileSync(f, 'utf8');
+    if (!html.includes('201 Almond Avenue')) continue;
+    assert.doesNotMatch(html, /Eagle Band Boosters,? 201 Almond/, `${f} addresses mail to the legal name`);
+    assert.match(html, /Performing Arts Boosters(<[^>]*>|,|\s)*\s*201 Almond/, `${f} address lacks the DBA`);
+  }
+});
+
 test('the home hero has a single primary Donate call to action', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);

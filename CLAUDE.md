@@ -131,8 +131,10 @@ permission. See `docs/cloudflare-configuration.md` §9.
   **DBA** and the name the school community knows. Use the **legal name** wherever money or
   legal identity is involved — check payees, donor-advised fund grant recipients, employer
   matching portal lookups, and any statement of the EIN or 501(c)(3) status. Use the **DBA**
-  everywhere else: page titles, nav, headings, and prose. `test/build.test.mjs` asserts the
-  EIN never ships alongside the DBA alone.
+  everywhere else: page titles, nav, headings, prose, **and the mailing address** — school
+  staff route mail by the DBA, so an envelope addressed to the legal name may not reach us.
+  A mailed check therefore carries *both*: payable to the legal name, addressed to the DBA.
+  `test/build.test.mjs` asserts the EIN never ships alongside the DBA alone.
 - Org emails are domain addresses: `president@` / `treasurer@` / `donate@lahsperformingartsboosters.org`
   (forwarding aliases via Cloudflare Email Routing — see [docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §6).
 
