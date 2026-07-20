@@ -1,54 +1,66 @@
 ---
 title: Donate to the Performing Arts Boosters
+ctaHref: /bts
+ctaLabel: Give to the Back-to-School campaign
+reasons:
+  - Family contributions fund nearly everything the school budget can't — instructional
+    staff, travel to festivals and competitions, instrument repair, uniforms, and props.
+  - We're an all-volunteer 501(c)(3), so nearly every dollar goes straight to the students.
+  - A gift of $350 or more a year is a full membership, which includes family admission to
+    all regular concerts at Eagle Theater.
+  - One form covers every program — give by credit card, check, or donor-advised fund.
 ---
 
-## Give to the programs your student loves
+## Membership and concert admission
 
-The Performing Arts Boosters are funded almost entirely by family contributions. Your
-gift pays for the staff, travel, equipment, and experiences that make our programs
-exceptional — things the school budget alone can't cover. We're an all-volunteer
-501(c)(3), so nearly every dollar goes straight to the students.
+A gift of **$350 or more per year** makes you a **full member** of the Performing Arts
+Boosters. Full membership includes **family admission to all regular concerts at Eagle
+Theater**, the theater on the Los Altos High School campus.
 
-Most families give during our **Back-to-School campaign** at the start of each year, but
-gifts are welcome anytime.
+Family admission means immediate family: parents and siblings. Full members receive an
+email confirming membership — present that email at the door for admittance.
 
-## Start with the form — however you give
-
-However you plan to give — **credit card, check, or donor-advised fund** — please begin by
-filling out your program's donation form. It only takes a minute. Paying by card? You can
-complete your gift right there. Giving another way? The form lets us know your gift is on
-the way so we can look out for it — think of it as a pledge. **The single most helpful
-thing you can do is fill out the form, even if you'll fulfill your gift later.**
-
-## Choose a program
-
-Donations go directly to the program you choose. Pick yours below — each link opens our
-secure donation form.
-
-- [**Marching Band & Color Guard**](/donate/mbcg)
-- [**Instrumental Music**](/donate/instrumental)
-- [**Choir**](/donate/choir)
-- [**Drama**](/donate/drama)
-
-Not sure which to choose, or want to support the department as a whole? Any program gift
-helps — or contact us and we'll point you the right way.
+Gifts of any size are welcome and make a difference, whether or not they reach the
+membership level.
 
 ## Ways to give
 
-- **Donor-advised fund (DAF).** We gladly welcome gifts from donor-advised funds — a
-  tax-savvy way to give that we fully support. Fill out the form to record your pledge,
-  then recommend the grant through your fund to *LAHS Performing Arts Boosters*
-  (EIN 77-0525170). Telling us it's coming lets us match your grant to the right program
-  when it arrives.
-- **Check.** Make checks payable to *LAHS Performing Arts Boosters*, note your student's
-  program in the memo, and mail to 201 Almond Avenue, Los Altos, CA 94022. Please fill out
-  the form too, so we know to expect it.
-- **Employer matching.** Many employers match charitable gifts and can double your impact.
-  Check your company's giving program and list us as **LAHS Performing Arts Boosters**.
+The donation form handles all three, so start there whichever way you plan to give:
+
+- **Credit card.** Complete your gift right on the form.
+- **Check.** Make checks payable to *Los Altos High Eagle Band Boosters*, note the donor's
+  name and the program in the memo line, and mail to 201 Almond Avenue, Los Altos, CA
+  94022. Please fill out the form too, so we know to expect it.
+- **Donor-advised fund.** A tax-savvy way to give that we gladly welcome. Fill out the form
+  so we know your grant is coming and can assign it to the program you chose, then
+  recommend the grant through your fund.
+
+If you're giving by check or through a donor-advised fund, **the form acts as a pledge** —
+filling it out is the single most helpful thing you can do, even if the gift itself arrives
+later.
+
+## Double your gift with employer matching
+
+Many employers match charitable donations dollar for dollar, and some match at two or three
+times your gift. It is the easiest way to increase your impact, and a large share of
+matching money goes unclaimed every year simply because families don't think to ask.
+
+Check your company's giving portal and search for **LAHS Performing Arts Boosters**
+(EIN 77-0525170). If your employer needs anything from us to complete the match, email
+donate@lahsperformingartsboosters.org and we'll take care of it.
+
+## Marching Band & Color Guard
+
+Marching Band & Color Guard runs **its own fundraising campaign, separate from the
+Back-to-School campaign** on this page. That campaign hasn't launched yet — MBCG's
+volunteer and fundraising plans for the season are presented at the end of band camp on
+**August 8th.** See the [Marching Band & Color Guard page](/programs/mbcg/) for details.
 
 ## Tax-deductible
 
 The Los Altos High School Performing Arts Boosters is a registered 501(c)(3) nonprofit.
 Your donation is tax-deductible to the extent allowed by law. **EIN 77-0525170.**
+
+Questions about giving? Email donate@lahsperformingartsboosters.org.
 
 Thank you for supporting the arts at Los Altos High School.
