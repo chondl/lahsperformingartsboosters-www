@@ -3,6 +3,7 @@ title: Choir
 order: 3
 summary: Vocal ensembles, festivals, and Spring Sing.
 icon: "🎤"
+cardImage: /images/programs/choir.jpg
 ---
 
 The Choir program brings together singers across several ensembles — from entry-level

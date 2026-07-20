@@ -3,6 +3,7 @@ title: Marching Band & Color Guard
 order: 1
 summary: Competitions, band camp, football performances
 icon: "🎺"
+cardImage: /images/programs/mbcg.jpg
 showDonate: false
 ---
 

@@ -3,6 +3,7 @@ title: Drama
 order: 4
 summary: Plays, the musical, and student-directed shows.
 icon: "🎭"
+cardImage: /images/programs/drama.jpg
 ---
 
 The Drama program gives students the full theatrical experience, on stage and behind the

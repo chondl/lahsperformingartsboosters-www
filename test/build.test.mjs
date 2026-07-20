@@ -90,6 +90,24 @@ test('every hero slide points at a photo that shipped', () => {
   for (const src of slides) assert.ok(existsSync(`dist${src}`), `hero slide missing: ${src}`);
 });
 
+// Same failure mode as the hero slides: a card photo is referenced by path, so a typo or a
+// deleted file degrades to a broken image rather than a build error.
+test('every program card photo that shipped resolves to a file', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  const cards = [...html.matchAll(/<img[^>]*class="top-img"[^>]*src="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(cards.length, 4, 'expected a photo on all four program cards');
+  for (const src of cards) assert.ok(existsSync(`dist${src}`), `card photo missing: ${src}`);
+});
+
+// The photos are decorative — each card already carries its program name as text — so an
+// alt describing them would be read out as noise.
+test('program card photos are marked decorative', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  for (const tag of html.match(/<img[^>]*class="top-img"[^>]*>/g) ?? []) {
+    assert.match(tag, /alt=""/, `card photo lacks an empty alt: ${tag}`);
+  }
+});
+
 test('the home hero has a single primary Donate call to action', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);

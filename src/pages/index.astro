@@ -35,7 +35,7 @@ const heroImages: HeroImage[] = [
     <h2>Jump to the program your family is part of</h2>
     <div class="programs-grid">
       {programs.map((p) => (
-        <ProgramCard href={`/programs/${p.id}/`} title={p.data.title} summary={p.data.summary} icon={p.data.icon} />
+        <ProgramCard href={`/programs/${p.id}/`} title={p.data.title} summary={p.data.summary} icon={p.data.icon} cardImage={p.data.cardImage} />
       ))}
     </div>
   </section>

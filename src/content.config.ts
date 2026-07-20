@@ -8,6 +8,9 @@ const programs = defineCollection({
     order: z.number(),
     summary: z.string(),
     icon: z.string().optional(),
+    // Home-page card photo, e.g. /images/programs/choir.jpg. Falls back to `icon` when
+    // absent, so a program without a photo still builds. See docs/program-card-images.md.
+    cardImage: z.string().optional(),
     // false hides the Donate button (a program running its own separate campaign).
     showDonate: z.boolean().default(true),
     // Both render a button at the bottom of the program page when set. Omitted for now —

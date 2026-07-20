@@ -3,6 +3,7 @@ title: Instrumental Music
 order: 2
 summary: The bands, orchestras, and jazz band.
 icon: "🎻"
+cardImage: /images/programs/instrumental-music.jpg
 ---
 
 "Instrumental Music" is the umbrella for *all* of Los Altos High School's instrumental

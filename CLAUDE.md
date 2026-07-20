@@ -96,6 +96,18 @@ Short version: uniform 16:9 at 2400×1350 into `public/images/hero/`; each slide
 of the image height is visible there; show the human a review page in Chrome and get
 approval before pushing; originals are gitignored.
 
+### Home program-card photos
+
+Each program card on the home page shows a cropped photo, set by `cardImage:` in that
+program's frontmatter. Swapping one is a one-line frontmatter edit plus a file in
+`public/images/programs/` — no code change. Remove the line and the card falls back to the
+`icon:` emoji. Full procedure, the 92px-band constraint, and the ffmpeg recipes:
+**[docs/program-card-images.md](docs/program-card-images.md)**.
+
+Short version: uniform 1200×400; tight horizontal detail only (texture survives the crop,
+smooth silhouettes don't); no identifiable students; colour-correct in the crop, never as a
+CSS filter. **Drama is a placeholder** pending photos from the drama teacher.
+
 ### Donation links — everything goes to `/bts`
 
 There is **one** donation destination: `/bts`, a Cloudflare Single Redirect rule (NOT in
@@ -182,6 +194,11 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Hero photos — ongoing.** The first six shipped (2026 season). More originals will be
   dropped into `src/images/` for cropping; see [docs/hero-images.md](docs/hero-images.md).
   The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
+- **Drama card photo — placeholder.** The home card uses a lit-stage crop from a curtain
+  call; it reads flat at 92px and its source is the lowest-resolution of the four. Ask the
+  drama teacher for production photos — stage lighting, rigging, or a lit set, not posed
+  cast shots (all faces at this crop). See
+  [docs/program-card-images.md](docs/program-card-images.md).
 
 ## Process notes
 
