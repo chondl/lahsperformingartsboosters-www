@@ -108,6 +108,17 @@ test('program card photos are marked decorative', () => {
   }
 });
 
+test('the donate page keeps its reasons box and its call to action', () => {
+  const html = readFileSync('dist/donate/index.html', 'utf8');
+  assert.match(html, /class="give"/, 'donate lost the reasons box');
+  assert.match(html, /Reasons to give/);
+  assert.match(html, /Family contributions fund nearly everything/);
+  assert.match(html, /all-volunteer 501\(c\)\(3\)/);
+  assert.match(html, /full membership, which includes family admission/);
+  assert.match(html, /One form covers every program/);
+  assert.match(html, /<a [^>]*href="\/bts"[^>]*>Give to the Back-to-School campaign<\/a>/);
+});
+
 test('the find-your-program block renders its heading and every program card', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /id="find-your-program"/);

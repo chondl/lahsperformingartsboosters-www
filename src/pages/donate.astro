@@ -1,34 +1,17 @@
 ---
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Reasons from '../components/content/Reasons.astro';
+import CTAButton from '../components/content/CTAButton.astro';
+
+// Page structure lives in src/content/pages/donate.mdx; this route only supplies the palette.
 const page = await getEntry('pages', 'donate');
 if (!page) throw new Error('Missing content: pages/donate');
 const { Content } = await render(page);
-const { title, ctaHref, ctaLabel, reasons = [] } = page.data;
 ---
 <BaseLayout title="Donate" description="Donate to the LAHS Performing Arts Boosters.">
   <article class="container section prose">
-    <h1>{title}</h1>
-    {ctaHref && (
-      <section class="give">
-        <span class="eyebrow">Reasons to give</span>
-        {reasons.length > 0 && <ul>{reasons.map((r) => <li>{r}</li>)}</ul>}
-        <a class="btn btn-primary give-cta" href={ctaHref}>{ctaLabel}</a>
-      </section>
-    )}
-    <Content />
+    <h1>{page.data.title}</h1>
+    <Content components={{ Reasons, CTAButton }} />
   </article>
 </BaseLayout>
-<style>
-  .give {
-    margin: var(--space-md) 0 var(--space-lg);
-    padding: var(--space-md);
-    background: #f5f8fc;
-    border: 1px solid var(--line);
-    border-radius: 8px;
-  }
-  .give ul { margin: var(--space-sm) 0 var(--space-md); padding-left: 1.15rem; }
-  .give li { margin-bottom: var(--space-2xs); }
-  .give-cta { font-size: var(--fs-md); padding: var(--space-sm) var(--space-md); }
-  @media (max-width: 520px) { .give-cta { display: block; text-align: center; } }
-</style>

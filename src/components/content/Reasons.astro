@@ -1,0 +1,26 @@
+---
+// Tinted callout box: an eyebrow label plus whatever Markdown you put inside it (today a bullet
+// list and the donate button).
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+---
+<section class="give">
+  {title && <span class="eyebrow">{title}</span>}
+  <slot />
+</section>
+<style is:global>
+  /* is:global because the list arrives as slotted Markdown, which carries no scope hash and so
+     cannot be matched by a scoped selector. The `.prose` prefix is load-bearing: it lifts these
+     above global.css's `.prose ul` rules, which would otherwise tie on specificity. */
+  .give {
+    margin: var(--space-md) 0 var(--space-lg);
+    padding: var(--space-md);
+    background: #f5f8fc;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .prose .give ul { margin: var(--space-sm) 0 var(--space-md); padding-left: 1.15rem; }
+  .prose .give li { margin-bottom: var(--space-2xs); }
+</style>
