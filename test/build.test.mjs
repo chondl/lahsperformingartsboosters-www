@@ -108,6 +108,15 @@ test('program card photos are marked decorative', () => {
   }
 });
 
+// The home page is a flat MDX flow: blocks plus body prose. These assertions fail loudly if a
+// block silently disappears from the content file — the one regression this refactor can cause.
+test('the home body prose renders inside the prose container', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  assert.match(html, /class="container section prose"/, 'home lost its prose section');
+  assert.match(html, /Supporting the arts at Los Altos High School/);
+  assert.match(html, /The Fall Festival/);
+});
+
 test('the home hero has a single primary Donate call to action', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);
