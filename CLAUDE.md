@@ -33,6 +33,8 @@ Deploy is automatic: **push to `main` → Cloudflare Workers Builds runs `npm ru
   collections are defined in `src/content.config.ts` with `glob()` loaders; render with
   `import { render } from 'astro:content'` and `await render(entry)` (NOT `entry.render()`);
   entry identifier is **`entry.id`** (NOT `entry.slug`). The legacy API is removed in Astro 6.
+  Page bodies are **MDX** (`@astrojs/mdx`), which is what lets content files use the block
+  palette; program pages stay plain Markdown.
 - **Node 24+.** The test script must use a glob (`node --test "test/**/*.test.mjs"`); bare
   `node --test test/` is broken on Node 24.
 - **Cloudflare Workers + Static Assets** (not classic Pages). Hosting/deploy contract is
@@ -46,21 +48,24 @@ Deploy is automatic: **push to `main` → Cloudflare Workers Builds runs `npm ru
 src/
   content.config.ts          # collection schemas (programs, pages) — Content Layer API
   content/
-    pages/{home,about,donate}.md     # singleton page bodies (Markdown)
+    pages/{home,donate}.mdx  # singleton page bodies (Markdown + content blocks)
+    pages/about.md           # plain Markdown — needs no blocks
     programs/{mbcg,instrumental-music,choir,drama}.md  # one file per program
   pages/
-    index.astro              # Home (hero + program cards + home.md body)
-    about.astro, donate.astro# render pages/*.md
+    index.astro              # Home — a thin shell; structure lives in home.mdx
+    about.astro, donate.astro# render pages/*.{md,mdx}
     programs/[slug].astro     # ONE route renders all four program pages
   layouts/BaseLayout.astro    # <head>, fonts, header+footer wrapper; renders <h1> per page
   components/                 # Header (nav), Footer, HeroCarousel, ProgramCard
+    content/                  # THE BLOCK PALETTE — tags usable in content files
   styles/global.css           # design tokens + base styles
 public/
   _redirects                  # /donate/* short links (see below)
   images/                     # logos (logo-eagle.png, logo-seal.png); hero/ for photos
 worker/index.js               # entry Worker: fetch=www→apex 301 + serve ASSETS; email=donate@ fan-out
 wrangler.jsonc                # deploy config (assets, workers_dev:false, run_worker_first)
-test/build.test.mjs           # asserts the 7 pages + _redirects build
+test/build.test.mjs           # asserts the 7 pages + _redirects build, and that no block dropped
+test/content-purity.test.mjs  # asserts content files stay pure Markdown + palette tags
 test/email-worker.test.mjs    # asserts donate@ email fan-out (DONATE_FORWARD_TO)
 docs/                         # spec, plan, Cloudflare config record (see References)
 content-drafts/               # original first-pass drafts (source for the content/ files)
@@ -70,9 +75,9 @@ content-drafts/               # original first-pass drafts (source for the conte
 
 Content lives in Markdown so non-technical maintainers can edit it in GitHub's web editor.
 
-- **Page copy:** `src/content/pages/{home,about,donate}.md`. Each has `title` frontmatter
-  (rendered as the page `<h1>` for about/donate; Home's h1 is the hero). Don't add a
-  duplicate top-level `#`/`##` title in the body.
+- **Page copy:** `src/content/pages/{home,donate}.mdx` and `about.md`. Each has `title`
+  frontmatter (rendered as the page `<h1>` for about/donate; Home's h1 is the hero). Don't add
+  a duplicate top-level `#`/`##` title in the body.
 - **Programs:** `src/content/programs/<slug>.md`. Frontmatter schema (`src/content.config.ts`):
   `title`, `order` (nav/card order), `summary` (home card text), `icon` (emoji),
   `showDonate` (defaults true), optional `googleGroupUrl`, optional `volunteerSheetUrl`.
@@ -82,6 +87,37 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
   prose; **don't repeat the title as a heading** (the template renders `<h1>{title}`).
 - **Nav** is generated from the `programs` collection ordered by `order` — change it in one
   place (`Header.astro` + frontmatter), never in 7 files.
+
+### Content blocks — the MDX palette
+
+`home.mdx` and `donate.mdx` are Markdown *plus a small set of block tags*. The tags are the
+page's structure: **delete a tag and that block disappears; put it back and it returns; move it
+and the page reorders.** No code change either way.
+
+The palette is exactly the files in **`src/components/content/`** — that directory *is* the list
+of allowed tags:
+
+| Tag | What it renders | Attributes |
+|---|---|---|
+| `<Hero title="…" subtitle="…" />` | Home hero: rotating photos + headline. Photos are code-side (see below). | `title` (required), `subtitle` |
+| `<FindYourProgram eyebrow="…" heading="…" />` | The four program cards. The grid comes from the `programs` collection — never hand-listed. | `eyebrow`, `heading` |
+| `<Prose>` … `</Prose>` | A body-copy section. Wraps home's Markdown; other pages get it from their template. | none |
+| `<Reasons title="…">` … `</Reasons>` | The tinted "reasons to give" box on donate. Children are Markdown. | `title` |
+| `<CTAButton href="/bts" label="…" />` | The primary donate button. | `href`, `label` (both required) |
+
+Rules for content files — a test ([test/content-purity.test.mjs](test/content-purity.test.mjs))
+enforces them:
+
+- **Attributes are quoted strings.** No `{…}` expressions anywhere.
+- **No `import` or `export`.** The route injects the components
+  (`<Content components={{ Hero, … }} />`); content files never reach for them.
+- **Only palette tags.** A tag with no matching `src/components/content/<Tag>.astro` fails the test.
+- **Blank lines around Markdown children.** `<Reasons title="…">` needs an empty line before and
+  after its bullet list, or MDX treats the children as raw text.
+
+Adding a *new* block type is a developer task: create the component in `src/components/content/`,
+add it to the route's `components={{…}}` map, and document it in the table above. Design record:
+[docs/superpowers/specs/2026-07-24-content-blocks-mdx-design.md](docs/superpowers/specs/2026-07-24-content-blocks-mdx-design.md).
 
 ### Home hero photos
 

@@ -21,14 +21,11 @@ const programs = defineCollection({
 });
 
 const pages = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  // {md,mdx}: page bodies may use the content-block palette (src/components/content/).
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    // Donate page only: the call-to-action panel above the fold.
-    ctaHref: z.string().optional(),
-    ctaLabel: z.string().optional(),
-    reasons: z.array(z.string()).optional(),
   }),
 });
 
