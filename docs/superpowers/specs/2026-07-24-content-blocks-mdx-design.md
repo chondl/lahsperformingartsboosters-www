@@ -1,6 +1,9 @@
 # Content blocks — making page structure editable through content files
 
-**Status:** Approved design (2026-07-24)
+**Status:** Implemented and shipped to production 2026-07-24. Plan:
+[../plans/2026-07-24-content-blocks-mdx.md](../plans/2026-07-24-content-blocks-mdx.md).
+One deviation: a fifth block, `<Prose>`, was needed — see the plan's
+"Deviation from the spec" section.
 **Author:** Chris Hondl + Claude
 **Origin:** side project identified during the chat-cms design
 (`~/learn/chat-cms/docs/superpowers/specs/2026-07-23-chat-cms-design.md`, §5
