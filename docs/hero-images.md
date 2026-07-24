@@ -13,7 +13,7 @@ Related: [CLAUDE.md](../CLAUDE.md) · [cloudflare-configuration.md](cloudflare-c
 |---|---|---|
 | Camera originals | `src/images/<year>/<Program>/` | **No** — gitignored, tens of MB each |
 | Cropped web slides | `public/images/hero/*.jpg` | Yes — ~100–550 KB each |
-| The slide list | `src/pages/index.astro` (`heroImages`) | Yes |
+| The slide list | `src/components/content/Hero.astro` (`heroImages`) | Yes |
 | The component | `src/components/HeroCarousel.astro` | Yes |
 
 Originals stay on the human's disk and in the photo archive. Only derivatives ship.
@@ -126,7 +126,7 @@ Say plainly what is not yet committed.
 
 ## Step 5 — wire it up
 
-Add to `heroImages` in `src/pages/index.astro`:
+Add to `heroImages` in `src/components/content/Hero.astro`:
 
 ```ts
 { src: '/images/hero/<name>.jpg', position: 'center 28%' },
