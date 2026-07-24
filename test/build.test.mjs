@@ -108,6 +108,30 @@ test('program card photos are marked decorative', () => {
   }
 });
 
+test('the find-your-program block renders its heading and every program card', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  assert.match(html, /id="find-your-program"/);
+  assert.match(html, /Find your program/);
+  assert.match(html, /Jump to the program your family is part of/);
+  assert.equal((html.match(/class="pcard"/g) ?? []).length, 4, 'expected four program cards');
+});
+
+test('the home hero renders its title and subtitle', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  assert.match(html, /<h1[^>]*>Los Altos High School Performing Arts Boosters<\/h1>/);
+  assert.match(html, /Supporting Marching Band/);
+  assert.match(html, /Choir, and Drama\./);
+});
+
+// One h1 per page: the hero owns the home page's, route templates own the rest. MDX makes it
+// easy to add a second by accident (a stray `# Heading` in a body), so assert it.
+test('every page has exactly one h1', () => {
+  for (const f of expected.filter((f) => f.endsWith('.html'))) {
+    const count = (readFileSync(f, 'utf8').match(/<h1[\s>]/g) ?? []).length;
+    assert.equal(count, 1, `${f} has ${count} <h1> elements`);
+  }
+});
+
 // The home page is a flat MDX flow: blocks plus body prose. These assertions fail loudly if a
 // block silently disappears from the content file — the one regression this refactor can cause.
 test('the home body prose renders inside the prose container', () => {
