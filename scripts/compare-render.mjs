@@ -17,6 +17,9 @@ const normalise = (html) =>
     .replace(/ data-astro-cid-[a-z0-9]+(="[^"]*")?/g, '')
     .replace(/astro-cid-[a-z0-9]+/g, 'astro-cid')
     .replace(/_astro\/[^"' ]+\.(css|js)/g, '_astro/BUNDLE.$1')
+    // MDX spells the ampersand entity &amp; where the Markdown pipeline spelled it &#x26;.
+    // Both decode to "&" — same rendered text, so fold them together.
+    .replace(/&#x26;/g, '&amp;')
     .replace(/>\s+</g, '><')
     .replace(/[ \t]+/g, ' ')
     .trim();

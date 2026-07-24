@@ -10,6 +10,7 @@
     "test": "node --test \"test/**/*.test.mjs\""
   },
   "dependencies": {
+    "@astrojs/mdx": "6.0.3",
     "@fontsource/nunito-sans": "5.2.7",
     "@fontsource/raleway": "5.2.8",
     "astro": "6.4.6"
