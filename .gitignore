@@ -26,3 +26,6 @@ src/images/
 
 # Wrangler local state
 .wrangler/
+
+# clearance (Markdown viewer) rendered previews — never commit
+.clearance-rendered-preview*/
