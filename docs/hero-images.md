@@ -160,13 +160,18 @@ curl -s -o /dev/null -w '%{http_code}\n' https://lahsperformingartsboosters.org/
 ## Photos from the MVHS gallery
 
 Not every photo starts as a camera original on the human's disk. LAHS and MVHS are both MVLA
-district schools and share concerts, so **MVHS Spartan Music's SmugMug** carries usable LAHS
-material — the fall orchestras concert is a joint event and many frames are our ensembles.
+district schools and share concerts, so **MVHS Spartan Music's SmugMug** can carry usable LAHS
+material — the fall orchestras concert is a joint event, so its gallery mixes both schools.
 
 - **Rights are fine.** Same district, same organization; the human has confirmed this. The
   gallery's "all rights reserved" footer is SmugMug boilerplate aimed at the public.
-- **Find LAHS ensembles by the stand placards.** Music stands carry a school card reading
-  `LAHS`. That is the reliable tell — the gallery title says MVHS, but the contents are mixed.
+- **You cannot tell which school's ensemble it is from the photo.** Do not try. In particular
+  the `LAHS` card on a music stand is an **ownership marking on the stand** — it says who owns
+  the furniture, not who is sitting behind it. At a joint concert either school plays on the
+  host's stands, so the placard is worthless as an ensemble tell. Uniforms are concert black at
+  both schools and the gallery has no per-photo captions.
+- **So ask the human before using a frame.** They know the students and the directors on the
+  podium. Getting this wrong puts another school's kids on our program pages.
 - **Resolution is the real limit.** SmugMug serves sized derivatives, not originals. Walk the
   size suffix up (`/L/`, `/XL/`, `/X2/`, `/X3/`) until it 302s; `X3` topped out at 1600×1067.
   That is below the 2400×1350 standard and there is no way around it short of asking MVHS for
