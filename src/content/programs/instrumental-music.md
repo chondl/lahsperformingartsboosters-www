@@ -18,6 +18,8 @@ see [Marching Band & Color Guard](/programs/mbcg).
 
 *Directors: Ted Ferrucci and Johanna "Jo" Smith-Nilsson.*
 
+![The cello section at the fall orchestras concert](/images/instrumental-music-cellos.jpg)
+
 ## The ensembles
 
 The school offers a class for every level, open to grades 9–12 unless noted:
