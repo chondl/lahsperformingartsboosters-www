@@ -31,6 +31,10 @@ frame. That is why every slide carries its own focal point.
 
 **Standard output: 16:9 at 2400×1350.** Keep it uniform.
 
+**Exception — district photo galleries.** `orchestra-violins.jpg` is 1310×737, well under the
+standard, because it did not come from a camera original. See
+[Photos from the MVHS gallery](#photos-from-the-mvhs-gallery) below.
+
 ## Step 1 — actually look at the photos
 
 Originals are 6000×4000 and too large to read directly. Downscale to a preview, then use
@@ -152,6 +156,24 @@ Cloudflare auto-deploys in about a minute. Confirm live rather than assuming:
 curl -s https://lahsperformingartsboosters.org/ | grep -o "url('/images/hero/[^']*')"
 curl -s -o /dev/null -w '%{http_code}\n' https://lahsperformingartsboosters.org/images/hero/<name>.jpg
 ```
+
+## Photos from the MVHS gallery
+
+Not every photo starts as a camera original on the human's disk. LAHS and MVHS are both MVLA
+district schools and share concerts, so **MVHS Spartan Music's SmugMug** carries usable LAHS
+material — the fall orchestras concert is a joint event and many frames are our ensembles.
+
+- **Rights are fine.** Same district, same organization; the human has confirmed this. The
+  gallery's "all rights reserved" footer is SmugMug boilerplate aimed at the public.
+- **Find LAHS ensembles by the stand placards.** Music stands carry a school card reading
+  `LAHS`. That is the reliable tell — the gallery title says MVHS, but the contents are mixed.
+- **Resolution is the real limit.** SmugMug serves sized derivatives, not originals. Walk the
+  size suffix up (`/L/`, `/XL/`, `/X2/`, `/X3/`) until it 302s; `X3` topped out at 1600×1067.
+  That is below the 2400×1350 standard and there is no way around it short of asking MVHS for
+  the original file. Accept the softness or ask.
+- **Getting the URLs:** load the album, scroll to the bottom to force lazy-loading, then collect
+  `img[src*="photos.smugmug"]`. Build a numbered HTML contact sheet (25/page) and screenshot it
+  — `ffmpeg`'s `tile` filter truncates silently and this build has no `drawtext` for labels.
 
 ## Gotchas
 
