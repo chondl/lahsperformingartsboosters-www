@@ -230,10 +230,16 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Hero photos — ongoing.** The first six shipped (2026 season). More originals will be
   dropped into `src/images/` for cropping; see [docs/hero-images.md](docs/hero-images.md).
   The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
+- **Drama photos — waiting on the teacher.** The 2026 batch was audited and mostly failed on
+  resolution (nine of ten files are screen grabs, 393–1048px wide). There is still **no drama
+  hero slide** and no photo on the drama program page. A request went out for high-resolution
+  originals. Per-file verdicts, the crops that survived with their exact ffmpeg recipes and
+  focal points, and what to do when new images arrive: **[docs/drama-photos.md](docs/drama-photos.md)**
+  — read it before touching drama images.
 - **Drama card photo — placeholder.** The home card uses a lit-stage crop from a curtain
   call; it reads flat at 92px and its source is the lowest-resolution of the four. Ask the
   drama teacher for production photos — stage lighting, rigging, or a lit set, not posed
-  cast shots (all faces at this crop). See
+  cast shots (all faces at this crop). Nothing in the 2026 batch beats it. See
   [docs/program-card-images.md](docs/program-card-images.md).
 
 ## Process notes

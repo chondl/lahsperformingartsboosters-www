@@ -5,7 +5,8 @@ AI session: **you can look at the photos yourself and choose the crops — do th
 hand the job back to the human.** They will drop source images in and expect you to
 select the focal point and crop for each one.
 
-Related: [CLAUDE.md](../CLAUDE.md) · [cloudflare-configuration.md](cloudflare-configuration.md)
+Related: [CLAUDE.md](../CLAUDE.md) · [cloudflare-configuration.md](cloudflare-configuration.md) ·
+[drama-photos.md](drama-photos.md) — per-program state for the 2026 drama batch, still open
 
 ## Where things live
 
