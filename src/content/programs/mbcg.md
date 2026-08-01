@@ -87,17 +87,17 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Fri, Oct 9 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | Sat, Oct 10 | 9:00 AM at LAHS | Fremont Unified Expo (WBA exhibition) |
 | Fri, Oct 16 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
-| Sat, Oct 17 | 9:00 AM at LAHS | Independence Show — WBA #1 |
+| Sat, Oct 17 | 9:00 AM at LAHS | [Independence Show](https://www.westernbands.org/events/details.php?ID=1517) — WBA #1 |
 | Fri, Oct 23 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
-| Sat, Oct 24 | 9:00 AM at LAHS | Cupertino TOB — WBA #2 |
+| Sat, Oct 24 | 9:00 AM at LAHS | [Cupertino TOB](https://www.westernbands.org/events/details.php?ID=1537) — WBA #2 |
 | Fri, Oct 30 | Parade 1:00 PM · Game 7:00 PM | Homecoming parade, rehearsal, dinner provided by boosters, then home football game (Homecoming & Senior Night) |
 | **November** |  |  |
-| Sat, Nov 7 | 9:00 AM at LAHS | Hollister Show — WBA #3 |
+| Sat, Nov 7 | 9:00 AM at LAHS | [Hollister Show](https://www.westernbands.org/events/details.php?ID=1527) — WBA #3 |
 | Wed, Nov 11 | 4:00 PM - 7:00 PM | Veterans Day — rehearsal as scheduled (no day off) |
-| Sat, Nov 14 | 9:00 AM at LAHS | WBA Regional at Logan — WBA #4 |
+| Sat, Nov 14 | 9:00 AM at LAHS | [WBA Regional at Logan](https://www.westernbands.org/events/details.php?ID=1529) — WBA #4 |
 | Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (likely Fresno) |
-| Sat, Nov 21 | TBD | WBA Class Championships — WBA #5 |
-| Sun, Nov 22 | TBD | WBA Grand Championships (if qualified) |
+| Sat, Nov 21 | TBD | [WBA Class Championships](https://www.westernbands.org/events/details.php?ID=1533) — WBA #5 |
+| Sun, Nov 22 | TBD | [WBA Grand Championships](https://www.westernbands.org/events/details.php?ID=1536) (if qualified) |
 | Sun, Nov 29 | Meet 3:00 PM · Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
 
 ## Volunteer & calendar sheet
