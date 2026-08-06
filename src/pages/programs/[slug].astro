@@ -15,11 +15,13 @@ const d = program.data;
   <article class={`container section prose prose-${program.id}`}>
     <h1>{d.title}</h1>
     <Content />
-    <div class="program-actions">
-      {d.volunteerSheetUrl && <a class="btn" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
-      {d.googleGroupUrl && <a class="btn" href={d.googleGroupUrl}>Join the Google Group</a>}
-      {d.showDonate && <a class="btn btn-primary" href="/bts">Give to the Back-to-School campaign</a>}
-    </div>
+    {(d.volunteerSheetUrl || d.googleGroupUrl || d.showDonate) && (
+      <div class="program-actions">
+        {d.volunteerSheetUrl && <a class="btn" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
+        {d.googleGroupUrl && <a class="btn" href={d.googleGroupUrl}>Join the Google Group</a>}
+        {d.showDonate && <a class="btn btn-primary" href="/bts">Give to the Back-to-School campaign</a>}
+      </div>
+    )}
   </article>
 </BaseLayout>
 <style>

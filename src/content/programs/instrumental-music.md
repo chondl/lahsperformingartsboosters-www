@@ -71,5 +71,3 @@ who bring them to life.
 
 Instrumental Music is supported through the Boosters' **Back-to-School campaign** — choose
 *Instrumental Music* on the form when you give.
-
-[**Give to the Back-to-School campaign »**](/bts)

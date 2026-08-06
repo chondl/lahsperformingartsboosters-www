@@ -10,7 +10,8 @@ The LAHS Choir program brings together singers across several ensembles at all l
 experience. Students grow as musicians throughout the year and represent LAHS at
 performances and festivals across the region.
 
-*Director: Lauren Diez. Piano accompanist: Amanda Ku.*
+*Director: Lauren Diez.*\
+*Piano accompanist: Amanda Ku.*
 
 ![The LAHS choirs in concert](/images/choir-concert.jpg)
 
@@ -84,5 +85,3 @@ music they perform, and the experiences they'll remember.
 
 Choir is supported through the Boosters' **Back-to-School campaign** — choose *Choir* on
 the form when you give.
-
-[**Give to the Back-to-School campaign »**](/bts)

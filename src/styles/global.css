@@ -92,7 +92,9 @@ a:hover { text-decoration: underline; }
 /* consistent column widths so the season calendar lines up the whole way down */
 .prose th:first-child, .prose td:first-child { width: 26%; }
 .prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
-.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: .5em 0 1.25em; display: block; }
+/* Section-illustration photos: a full spacing step above and below so they sit in the
+   same vertical rhythm as headings, not tight against the previous paragraph. */
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: var(--space-lg) 0; display: block; }
 
 /* Mobile fallback: any wide prose table scrolls horizontally inside its own
    box instead of overflowing the page. (The MBCG calendar overrides this below

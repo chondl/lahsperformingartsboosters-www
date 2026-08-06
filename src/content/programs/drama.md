@@ -76,5 +76,3 @@ theater happen at Los Altos.
 
 Drama is supported through the Boosters' **Back-to-School campaign** — choose *Drama* on
 the form when you give.
-
-[**Give to the Back-to-School campaign »**](/bts)
