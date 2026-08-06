@@ -192,6 +192,8 @@ permission. See `docs/cloudflare-configuration.md` §9.
   (`programs/mbcg.md`) intentionally carries **current-season** detail — the fall show
   theme + images and the full dated season calendar — refreshed each year. Don't strip that
   dated content thinking it violates "evergreen"; just update it each season.
+  **Second exception: the Choir page** (`programs/choir.md`) carries a short dated
+  concert list ("2026–27 concerts", from the choir teacher) — refresh it each season too.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its

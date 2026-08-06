@@ -6,41 +6,58 @@ icon: "🎤"
 cardImage: /images/programs/choir.jpg
 ---
 
-The Choir program brings together singers across several ensembles — from entry-level
-groups to advanced choirs like Bel Canto and Volare. Students grow as vocalists and
-performers throughout the year and represent Los Altos High School at festivals and
-competitions across the region.
+The LAHS Choir program brings together singers across several ensembles at all levels of
+experience. Students grow as musicians throughout the year and represent LAHS at
+performances and festivals across the region.
 
-*Director: Lauren Diez.*
+*Director: Lauren Diez. Piano accompanist: Amanda Ku.*
+
+![The LAHS choirs in concert](/images/choir-concert.jpg)
 
 ## The ensembles
 
-Singers can grow through several choirs, from an open entry-level group up to advanced,
-audition-based ensembles:
+There is a choir for everyone at LAHS! From students who have never sung in a choir
+before, to seasoned musicians with years of experience (and everyone in between), all are
+welcome in our Choir community.
 
-- **Chorale** (grades 9–12) — open to all students; the entry-level choir, building
-  healthy vocal technique and music literacy.
-- **Concert Choir** (grades 9–12) — by audition and director recommendation; an
-  intermediate choir for singers with some prior choral experience.
-- **Bel Canto** (grades 10–12) — an advanced treble (upper-voice) chamber choir; by
-  audition and director recommendation, with advanced music reading.
-- **Volare** (grades 10–12) — an advanced mixed chamber choir; by audition and director
-  recommendation, with advanced reading and experienced technique, and sometimes
-  performance tours.
+Singers can grow through several choirs, from an open group for all levels of experience
+up to advanced, audition-based ensembles:
+
+- **Chorale** (grades 9–12) — open to all students without an audition; suited for all
+  levels of experience.
+- **Concert Choir** (grades 10–12) — intermediate mixed choir; by placement audition and
+  director recommendation; for singers with some prior choral music experience.
+- **Bel Canto** (grades 10–12) — advanced treble (upper-voice) chamber choir; by
+  placement audition and director recommendation.
+- **Volare** (grades 10–12) — advanced mixed chamber choir; by audition and director
+  recommendation; for experienced singers.
+
+Placement auditions for the next year's ensembles take place in the spring. Look out for
+more information early in the spring semester during the LAHS Course Selection process.
 
 ## A year of singing
 
-Our choirs perform and compete throughout the school year, with a calendar that
-typically includes:
+Our choirs perform throughout the school year, with a calendar that typically includes:
 
-- **Community performances**, including the district choral showcase that connects our
-  singers with younger students
-- **Festivals and competitions** — invitationals, regional choral festivals, and
-  honor-choir selections such as the ACDA Honor Choir
+- **Concerts on campus** to share our music with friends and family
+- **Community performances**, including a district choral showcase that connects our
+  singers with our neighboring school choir programs
+- **Festivals and competitions** — invitationals, regional choral festivals, and honor
+  choir opportunities
 - **Spring Sing**, a student-led concert that's a favorite tradition
-- **Seasonal traditions** like Valentine serenades that bring music across campus
+- **Seasonal traditions** like holiday caroling and Valentine Serenades that bring music
+  across campus
 
-Auditions for the next year's ensembles take place in the spring.
+![A soloist with the choir at the winter concert](/images/choir-season-of-song.jpg)
+
+### 2026–27 concerts
+
+All concerts are in the LAHS Eagle Theater:
+
+- **Fall Festival** — date TBD
+- **A Season of Song** — Monday, December 14, 2026, 7:00 PM
+- **Spring Sing** — Monday, March 15, 2027, 7:00 PM
+- **Finale Concert** — Wednesday, May 19, 2027, 7:00 PM
 
 ## What the Boosters provide
 
@@ -49,12 +66,16 @@ clinicians, music and supplies, and the performance experiences that make our ch
 shine. Choir maintains its own program fund, directed by its teacher toward the needs of
 the students.
 
+![An LAHS choir after a festival win](/images/choir-festival.jpg)
+
 ## Get involved
 
 - **Join the Choir Google Group** for concert dates, volunteer opportunities, and news.
 - **Volunteer** to help with performances, festival travel, and events.
 - **Come to the monthly Boosters meeting** on Zoom to hear from the director and lend a
   hand. The link is shared in the Google Group.
+
+![Choir students dressed up for Valentine Serenades](/images/choir-valentine-serenades.jpg)
 
 ## Support the program
 
