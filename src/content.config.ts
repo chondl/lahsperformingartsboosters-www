@@ -17,6 +17,11 @@ const programs = defineCollection({
     // table: it anchors the table's year-less dates for the .ics feed (Jul–Dec = this year,
     // Jan–Jun = the next). Bump it with each season refresh. See docs/mbcg-calendar-feed.md.
     seasonYear: z.number().int().optional(),
+    // Span of the generated weekly-rehearsal events in the .ics feed (inclusive). The
+    // rehearsal times come from the page's bullet list; days a table event covers are
+    // skipped. Omit both to turn rehearsal generation off. Update each season.
+    rehearsalsFrom: z.coerce.date().optional(),
+    rehearsalsThrough: z.coerce.date().optional(),
     // Both render a button at the bottom of the program page when set. Omitted for now —
     // add the line back per program once the real URLs exist.
     googleGroupUrl: z.string().url().optional(),
