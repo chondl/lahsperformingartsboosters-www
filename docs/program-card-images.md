@@ -57,11 +57,12 @@ Learned the hard way while choosing the current four:
 |---|---|---|
 | MBCG | Blue sticks over chrome snare rims | `DSC_0464.JPG` — ours |
 | Instrumental Music | Tuba bell flare | `janosch-jost-jLhpu4-UL9I-unsplash.jpg` |
-| Choir | Microphone grille | `robinson-recalde-sT0n-Ie8OKo-unsplash.jpg` |
+| Choir | Soloist's mic and clasped hands, plaid scarves either side (winter concert) | `Choir/DSC03480 JimFung.jpg` — ours |
 | Drama | Velour valance over a lit cyclorama | `IMG_9464.jpg` — ours |
 
-The two Unsplash images are under the Unsplash licence: free for commercial use, no
-attribution required.
+The Unsplash image is under the Unsplash licence: free for commercial use, no
+attribution required. (Choir used a second Unsplash photo — a stock mic grille — until
+August 2026, when a photo of our own stage replaced it.)
 
 **Drama is a placeholder.** The cyclorama reads flat at 92px, and its source is the
 lowest-resolution of the four. Replace it when the drama teacher supplies production
@@ -79,9 +80,9 @@ ffmpeg -i src/images/2026/MBCG/DSC_0464.JPG \
 ffmpeg -i src/images/2026/Unsplash/janosch-jost-jLhpu4-UL9I-unsplash.jpg \
   -vf "crop=2575:858:219:1500,scale=1200:400" -q:v 5 public/images/programs/instrumental-music.jpg
 
-# Choir — microphone grille
-ffmpeg -i src/images/2026/Unsplash/robinson-recalde-sT0n-Ie8OKo-unsplash.jpg \
-  -vf "crop=2000:667:1150:1200,scale=1200:400" -q:v 5 public/images/programs/choir.jpg
+# Choir — soloist's mic + hands, scarves (band framed below every face)
+ffmpeg -i "src/images/2026/Choir/DSC03480 JimFung.jpg" \
+  -vf "crop=2048:683:0:330,scale=1200:400:flags=lanczos" -q:v 5 public/images/programs/choir.jpg
 
 # Drama — lit stage
 ffmpeg -i src/images/2026/Drama/IMG_9464.jpg \
