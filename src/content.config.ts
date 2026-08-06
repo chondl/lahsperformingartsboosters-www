@@ -13,6 +13,10 @@ const programs = defineCollection({
     cardImage: z.string().optional(),
     // false hides the Donate button (a program running its own separate campaign).
     showDonate: z.boolean().default(true),
+    // The year the fall season starts. Required by pages that carry a "## Season calendar"
+    // table: it anchors the table's year-less dates for the .ics feed (Jul–Dec = this year,
+    // Jan–Jun = the next). Bump it with each season refresh. See docs/mbcg-calendar-feed.md.
+    seasonYear: z.number().int().optional(),
     // Both render a button at the bottom of the program page when set. Omitted for now —
     // add the line back per program once the real URLs exist.
     googleGroupUrl: z.string().url().optional(),

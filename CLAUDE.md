@@ -51,10 +51,12 @@ src/
     pages/{home,donate}.mdx  # singleton page bodies (Markdown + content blocks)
     pages/about.md           # plain Markdown — needs no blocks
     programs/{mbcg,instrumental-music,choir,drama}.md  # one file per program
+  lib/season-calendar.mjs    # parses mbcg.md's season table → iCalendar feed (docs/mbcg-calendar-feed.md)
   pages/
     index.astro              # Home — a thin shell; structure lives in home.mdx
     about.astro, donate.astro# render pages/*.{md,mdx}
     programs/[slug].astro     # ONE route renders all four program pages
+    calendar/mbcg.ics.js      # static endpoint: builds /calendar/mbcg.ics from mbcg.md
   layouts/BaseLayout.astro    # <head>, fonts, header+footer wrapper; renders <h1> per page
   components/                 # Header (nav), Footer, HeroCarousel, ProgramCard
     content/                  # THE BLOCK PALETTE — tags usable in content files
@@ -65,6 +67,7 @@ public/
 worker/index.js               # entry Worker: fetch=www→apex 301 + serve ASSETS; email=donate@ fan-out
 wrangler.jsonc                # deploy config (assets, workers_dev:false, run_worker_first)
 test/build.test.mjs           # asserts the 7 pages + _redirects build, and that no block dropped
+test/mbcg-calendar.test.mjs   # asserts the season table parses into the /calendar/mbcg.ics feed
 test/content-purity.test.mjs  # asserts content files stay pure Markdown + palette tags
 test/email-worker.test.mjs    # asserts donate@ email fan-out (DONATE_FORWARD_TO)
 docs/                         # spec, plan, Cloudflare config record (see References)
@@ -143,6 +146,15 @@ program's frontmatter. Swapping one is a one-line frontmatter edit plus a file i
 Short version: uniform 1200×400; tight horizontal detail only (texture survives the crop,
 smooth silhouettes don't); no identifiable students; colour-correct in the crop, never as a
 CSS filter. **Drama is a placeholder** pending photos from the drama teacher.
+
+### MBCG season calendar — the table feeds `/calendar/mbcg.ics`
+
+The season-calendar table in `programs/mbcg.md` is parsed at build time into a
+subscribable iCalendar feed (the Google/Apple subscribe links below the table). **The
+table's format is load-bearing:** date cells must parse and their weekday labels must
+match the date, or the build fails on purpose; odd time cells safely degrade to all-day
+events. `seasonYear:` frontmatter anchors the year-less dates — bump it each season.
+Full contract: [docs/mbcg-calendar-feed.md](docs/mbcg-calendar-feed.md).
 
 ### Donation links — everything goes to `/bts`
 

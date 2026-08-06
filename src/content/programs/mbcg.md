@@ -5,6 +5,7 @@ summary: Competitions, band camp, football performances
 icon: "🎺"
 cardImage: /images/programs/mbcg.jpg
 showDonate: false
+seasonYear: 2026
 ---
 
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
@@ -99,6 +100,13 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Sat, Nov 21 | TBD | [WBA Class Championships](https://www.westernbands.org/events/details.php?ID=1533) — WBA #5 |
 | Sun, Nov 22 | TBD | [WBA Grand Championships](https://www.westernbands.org/events/details.php?ID=1536) (if qualified) |
 | Sun, Nov 29 | Meet 3:00 PM · Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
+
+**Put the season on your own calendar:** subscribe in
+[Google Calendar](https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Flahsperformingartsboosters.org%2Fcalendar%2Fmbcg.ics)
+or [Apple Calendar](webcal://lahsperformingartsboosters.org/calendar/mbcg.ics) and the
+events above will appear alongside your own — including any schedule changes, which flow
+through automatically. Other calendar apps can subscribe to
+`https://lahsperformingartsboosters.org/calendar/mbcg.ics`.
 
 ## Volunteer & calendar sheet
 
