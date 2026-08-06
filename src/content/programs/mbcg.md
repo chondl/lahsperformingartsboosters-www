@@ -6,6 +6,8 @@ icon: "🎺"
 cardImage: /images/programs/mbcg.jpg
 showDonate: false
 seasonYear: 2026
+rehearsalsFrom: 2026-08-10
+rehearsalsThrough: 2026-11-20
 ---
 
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
@@ -69,7 +71,7 @@ Friday and Saturday rehearsals are shortened as necessary before footbal games o
 
 The calendar below lists everything *besides* those regular rehearsals — camps, football
 games, competitions, performances, and the days with **no** rehearsal. (Football-game days
-include the usual rehearsal beforehand.) Times marked *TBD* are confirmed closer to the
+include the usual rehearsal beforehand.) Competition-day times firm up closer to each
 date; full details are shared through the Google Group and the volunteer sheet.
 
 | Date | Time | Activity |
@@ -82,31 +84,31 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Fri, Aug 28 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | **September** |  |  |
 | Fri–Sat, Sep 4 – 7 | — | Labor Day Weekend - no rehearsal |
-| Fri–Sun, Sep 25 – 27 | Fri 4:00 PM - Sun - 4:00 PM | Away band camp at Camp Jones Gulch, leave after school on Friday, finish Sunday afternoon |
+| Fri–Sun, Sep 25 – 27 | Fri 4:00 PM – Sun 4:00 PM | Away band camp at Camp Jones Gulch, leave after school on Friday, finish Sunday afternoon |
 | **October** |  |  |
 | Fri, Oct 2 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
 | Fri, Oct 9 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
-| Sat, Oct 10 | 9:00 AM at LAHS | Fremont Unified Expo (WBA exhibition) |
+| Sat, Oct 10 | 9:00 AM – 9:00 PM at LAHS | Fremont Unified Expo (WBA exhibition) |
 | Fri, Oct 16 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
-| Sat, Oct 17 | 9:00 AM at LAHS | [Independence Show](https://www.westernbands.org/events/details.php?ID=1517) — WBA #1 |
+| Sat, Oct 17 | 9:00 AM – 9:00 PM at LAHS | [Independence Show](https://www.westernbands.org/events/details.php?ID=1517) — WBA #1 |
 | Fri, Oct 23 | 4:00 PM - 9:00 PM | Rehearsal, dinner provided by boosters, then home football game |
-| Sat, Oct 24 | 9:00 AM at LAHS | [Cupertino TOB](https://www.westernbands.org/events/details.php?ID=1537) — WBA #2 |
-| Fri, Oct 30 | Parade 1:00 PM · Game 7:00 PM | Homecoming parade, rehearsal, dinner provided by boosters, then home football game (Homecoming & Senior Night) |
+| Sat, Oct 24 | 9:00 AM – 9:00 PM at LAHS | [Cupertino TOB](https://www.westernbands.org/events/details.php?ID=1537) — WBA #2 |
+| Fri, Oct 30 | 1:00 – 2:00 PM | Homecoming parade |
+| Fri, Oct 30 | 4:00 PM – 9:00 PM | Rehearsal, dinner provided by boosters, then homecoming football game |
 | **November** |  |  |
-| Sat, Nov 7 | 9:00 AM at LAHS | [Hollister Show](https://www.westernbands.org/events/details.php?ID=1527) — WBA #3 |
+| Sat, Nov 7 | 9:00 AM – 9:00 PM at LAHS | [Hollister Show](https://www.westernbands.org/events/details.php?ID=1527) — WBA #3 |
 | Wed, Nov 11 | 4:00 PM - 7:00 PM | Veterans Day — rehearsal as scheduled (no day off) |
-| Sat, Nov 14 | 9:00 AM at LAHS | [WBA Regional at Logan](https://www.westernbands.org/events/details.php?ID=1529) — WBA #4 |
+| Sat, Nov 14 | 9:00 AM – 9:00 PM at LAHS | [WBA Regional at Logan](https://www.westernbands.org/events/details.php?ID=1529) — WBA #4 |
 | Fri, Nov 20 | 4:00 – 7:00 PM | Rehearsal, then depart for championships (likely Fresno) |
-| Sat, Nov 21 | TBD | [WBA Class Championships](https://www.westernbands.org/events/details.php?ID=1533) — WBA #5 |
-| Sun, Nov 22 | TBD | [WBA Grand Championships](https://www.westernbands.org/events/details.php?ID=1536) (if qualified) |
-| Sun, Nov 29 | Meet 3:00 PM · Parade 6:00 PM | Festival of Lights Parade — Downtown Los Altos |
+| Sat, Nov 21 | 9:00 AM – 9:00 PM | [WBA Class Championships](https://www.westernbands.org/events/details.php?ID=1533) — WBA #5 |
+| Sun, Nov 22 | 9:00 AM – 9:00 PM | [WBA Grand Championships](https://www.westernbands.org/events/details.php?ID=1536) (if qualified) |
+| Sun, Nov 29 | 3:00 – 8:00 PM (meet 3:00, parade at 6:00) | Festival of Lights Parade — Downtown Los Altos |
 
 **Put the season on your own calendar:** subscribe in
 [Google Calendar](https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Flahsperformingartsboosters.org%2Fcalendar%2Fmbcg.ics)
-or [Apple Calendar](webcal://lahsperformingartsboosters.org/calendar/mbcg.ics) and the
-events above will appear alongside your own — including any schedule changes, which flow
-through automatically. Other calendar apps can subscribe to
-`https://lahsperformingartsboosters.org/calendar/mbcg.ics`.
+or [Apple Calendar](webcal://lahsperformingartsboosters.org/calendar/mbcg.ics) and
+everything here — the events above *and* the weekly rehearsals — will appear alongside
+your own, with any schedule changes flowing through automatically.
 
 ## Volunteer & calendar sheet
 

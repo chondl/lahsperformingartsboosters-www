@@ -150,10 +150,14 @@ CSS filter. **Drama is a placeholder** pending photos from the drama teacher.
 ### MBCG season calendar — the table feeds `/calendar/mbcg.ics`
 
 The season-calendar table in `programs/mbcg.md` is parsed at build time into a
-subscribable iCalendar feed (the Google/Apple subscribe links below the table). **The
-table's format is load-bearing:** date cells must parse and their weekday labels must
-match the date, or the build fails on purpose; odd time cells safely degrade to all-day
-events. `seasonYear:` frontmatter anchors the year-less dates — bump it each season.
+subscribable iCalendar feed (the Google/Apple subscribe links below the table), and the
+weekly rehearsals are generated into the feed from the page's rehearsal bullet list —
+never listed as table rows. **The table's and bullet list's formats are load-bearing:**
+date cells must parse and their weekday labels must match the date, or the build fails on
+purpose; odd time cells safely degrade to all-day events. Frontmatter anchors:
+`seasonYear:` (year for the year-less dates), `rehearsalsFrom:`/`rehearsalsThrough:`
+(rehearsal span; skipped on days a table event covers) — bump all three each season.
+Every feed title is prefixed `MBCG:`.
 Full contract: [docs/mbcg-calendar-feed.md](docs/mbcg-calendar-feed.md).
 
 ### Donation links — everything goes to `/bts`

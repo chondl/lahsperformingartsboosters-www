@@ -1,11 +1,13 @@
 # The MBCG calendar feed (`/calendar/mbcg.ics`)
 
 The Marching Band & Color Guard page offers a **subscribable calendar** built from the
-season-calendar table in [src/content/programs/mbcg.md](../src/content/programs/mbcg.md).
-There is no second copy of the schedule to maintain: at build time the table is parsed
-into an iCalendar feed, so **editing the table updates the web page and every subscriber's
-calendar in the same deploy** (Google refreshes subscribed calendars on its own schedule,
-typically within a day).
+season-calendar table in [src/content/programs/mbcg.md](../src/content/programs/mbcg.md),
+plus the weekly rehearsals generated from the page's rehearsal bullet list (rehearsals are
+deliberately **not** table rows — that would overwhelm the page). There is no second copy
+of the schedule to maintain: at build time the page is parsed into an iCalendar feed, so
+**editing it updates the web page and every subscriber's calendar in the same deploy**
+(Google refreshes subscribed calendars on its own schedule, typically within a day).
+Every event title is prefixed `MBCG:` so entries are recognizable on a family calendar.
 
 - Feed URL: `https://lahsperformingartsboosters.org/calendar/mbcg.ics`
 - Subscribe links live at the bottom of the page's *Season calendar* section: a Google
@@ -35,19 +37,35 @@ Anything else — or a weekday label that contradicts the date — **fails the b
 purpose**: a wrong date pushed to subscribers' calendars is worse than a failed deploy.
 If a deploy fails after a calendar edit, check the build log; the error names the bad row.
 
-**Time cells are forgiving.** `6:00 PM`, `4:00 PM - 9:00 PM`, and `4:00 – 7:00 PM`
-(start inherits PM from the end) become timed events; a lone start time gets a one-hour
-block; trailing text like `at LAHS` moves to the event description. Any other time text —
-`TBD`, `Parade 1:00 PM · Game 7:00 PM`, a multi-day range — produces an **all-day event
-with the original time text in the description**. So a "weird" time never breaks the
-build; it just degrades to all-day.
+**Time cells are forgiving.** Recognized shapes:
+
+- `6:00 PM` — timed event, one-hour block by default
+- `4:00 PM - 9:00 PM`, or `4:00 – 7:00 PM` (start inherits PM from the end) — timed event
+- `9:00 AM – 9:00 PM at LAHS` — trailing text moves to the event description
+- On a **date range**: `9:00 AM – 4:00 PM` repeats as one timed event per day (camps);
+  `Fri 4:00 PM – Sun 4:00 PM` (weekday-prefixed) becomes one continuous event (overnight
+  trips)
+
+Any other time text — `TBD`, `—`, prose — produces an **all-day event with the original
+time text in the description**. So a "weird" time never breaks the build; it just
+degrades to all-day.
 
 **Years come from frontmatter.** The table's dates carry no year, so `mbcg.md` declares
 `seasonYear: 2026`. Months July–December belong to that year, January–June to the next.
 
+## Weekly rehearsals are generated, not listed
+
+The feed adds Mon/Wed/Fri/Sat rehearsal events built from the page's
+"regular weekly rehearsal schedule" bullet list (`- **Monday** — Brass & Woodwinds,
+4:00 – 7:00 PM` — that exact shape). They run from `rehearsalsFrom:` through
+`rehearsalsThrough:` (frontmatter dates, inclusive) and are **skipped on any day a table
+event covers** — a football Friday, a competition Saturday, a camp day, or a
+"no rehearsal" span. Editing the bullet list changes the generated events; removing both
+frontmatter dates turns rehearsal generation off entirely.
+
 ## Each season's refresh
 
-1. Update the table in `mbcg.md` as usual.
-2. Bump `seasonYear:` in the same file's frontmatter.
+1. Update the table (and, if changed, the rehearsal bullet list) in `mbcg.md` as usual.
+2. Bump `seasonYear:`, `rehearsalsFrom:`, and `rehearsalsThrough:` in the frontmatter.
 3. Push. The build regenerates the feed; subscribers keep their subscription — events are
    identified by date + title, so edits update rather than duplicate.
