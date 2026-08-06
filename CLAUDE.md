@@ -250,12 +250,14 @@ permission. See `docs/cloudflare-configuration.md` §9.
   The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
 - **Drama photos — August 2026 batch landed.** Six camera originals arrived 2026-08-05 and
   the resolution problem is gone: the home hero now carries a drama slide (`drama-oz-cast.jpg`,
-  mirrored left–right by design) and the drama program page carries two photos. Per-file verdicts, recipes, and the two benched frames:
-  **[docs/drama-photos.md](docs/drama-photos.md)** — read it before touching drama images.
-- **Drama card photo — placeholder, but a candidate exists.** The home card still uses the
-  flat lit-stage crop. A 1200×400 slice of the hand-painted porch backdrop (from `IMG_3906.JPG`,
-  recipe in [docs/drama-photos.md](docs/drama-photos.md)) was cut and reviewed as an option but
-  not shipped. See [docs/program-card-images.md](docs/program-card-images.md).
+  mirrored left–right by design) and the drama program page carries three photos. Per-file
+  verdicts and recipes: **[docs/drama-photos.md](docs/drama-photos.md)** — read it before
+  touching drama images.
+- **Drama card photo — placeholder, by choice.** The home card still uses the flat
+  lit-stage crop. A 1200×400 slice of the hand-painted porch backdrop was cut and reviewed
+  in Aug 2026 and **declined — don't re-propose it** (recipe kept in
+  [docs/drama-photos.md](docs/drama-photos.md)). See
+  [docs/program-card-images.md](docs/program-card-images.md).
 
 ## Process notes
 

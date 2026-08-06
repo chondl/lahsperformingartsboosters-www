@@ -10,9 +10,9 @@ Related: [hero-images.md](hero-images.md) · [program-card-images.md](program-ca
 
 **The teacher came through.** Six camera originals (4032×3024 to 6000×4000) arrived
 2026-08-05 — see [The August 2026 batch](#the-august-2026-batch). The home hero now has a
-drama slide (`drama-oz-cast.jpg`) and the drama program page carries two photos. The
-**program card is still the placeholder**; a candidate slice was cut and reviewed but not
-shipped (recipe below). The July screenshot batch, kept below as history, never shipped —
+drama slide (`drama-oz-cast.jpg`) and the drama program page carries three photos. The
+**program card is still the placeholder** — a candidate slice was cut, reviewed, and
+**declined**; don't re-propose it (recipe kept below). The July screenshot batch, kept below as history, never shipped —
 its crop A (curtain call) is superseded by the new hero slide.
 
 ## The August 2026 batch
@@ -25,7 +25,7 @@ camera files, so the resolution problem that sank the July batch is gone.
 | `IMG_2061.JPG` | 6000×4000 | **Hero slide.** Wizard of Oz cast — Tin Man, Dorothy, Lion, Toto puppet — against the painted Oz backdrop. Best colour, unmistakably theatre. |
 | `IMG_4232.JPG` | 6000×4000 | **Program page.** Six performers mid-gesture in a comedy scene, eye-chart poster behind, one performer flat on the floor. The most energy in the batch. |
 | `IMG_3906.JPG` | 6000×4000 | **Program page + card candidate.** Two students on ladders flanking a hand-painted sepia porch backdrop (*Our Town* — the shirts carry character names, not student names). The tech-theater frame. |
-| `IMG_4020.JPG` | 6000×4000 | **Benched.** *Our Town* graveyard scene — atmospheric and well composed, but dimmer and more somber than the two chosen. First substitute. |
+| `IMG_4020.JPG` | 6000×4000 | **Program page.** *Our Town* graveyard scene — the quiet counterweight to the comedy frame. Added as the third page photo at the human's request. |
 | `IMG_0518.HEIC` | 4032×3024 | **No.** Bare-stage scene, ghost costume at a folding table; subjects small in a mostly black frame. |
 | `IMG_5443.HEIC` | 5712×4284 | **No.** Students painting character-name shirts — charming behind-the-scenes moment, but classroom fluorescent light. |
 
@@ -47,23 +47,28 @@ through Dorothy kneeling at mid-frame) and gives up the feet, per the usual trad
 Like the "Hexed" field slide, this is dated show content (the 2025-26 *Wizard of Oz*) kept
 by choice — swap it when a newer production photo exists.
 
-### Program page — two inline photos, 1600×900
+### Program page — three inline photos, 1600×900
 
 ```bash
 ffmpeg -y -i src/images/2026/Drama/IMG_4232.JPG \
   -vf "crop=6000:3375:0:330,scale=1600:900:flags=lanczos" -q:v 4 \
   public/images/drama-broken-box-scene.jpg
+ffmpeg -y -i src/images/2026/Drama/IMG_4020.JPG \
+  -vf "crop=6000:3375:0:200,scale=1600:900:flags=lanczos" -q:v 4 \
+  public/images/drama-graveyard-scene.jpg
 ffmpeg -y -i src/images/2026/Drama/IMG_3906.JPG \
   -vf "crop=6000:3375:0:440,scale=1600:900:flags=lanczos" -q:v 4 \
   public/images/drama-set-backdrop.jpg
 ```
 
-Placement in `src/content/programs/drama.md`: the comedy scene sits after the intro/director
-line (mirroring the cello photo on the Instrumental Music page); the backdrop-and-ladders
-frame closes "A year on stage", directly above "What the Boosters provide" — it shows exactly
-what booster money buys.
+Placement in `src/content/programs/drama.md`, one photo per stretch of prose: the comedy
+scene sits after the intro/director line (mirroring the cello photo on the Instrumental
+Music page); the graveyard scene closes "The classes" (it is a Broken Box production shot);
+the backdrop-and-ladders frame closes "A year on stage", directly above "What the Boosters
+provide" — it shows exactly what booster money buys. The graveyard cast's grey shirts carry
+*Our Town* **character** names (Julia Gibbs, Simon Stimson…), not student names.
 
-### Card candidate — cut, reviewed, NOT shipped
+### Card candidate — cut, reviewed, DECLINED
 
 ```bash
 ffmpeg -y -i src/images/2026/Drama/IMG_3906.JPG \
@@ -74,8 +79,9 @@ ffmpeg -y -i src/images/2026/Drama/IMG_3906.JPG \
 A slice of the painted porch backdrop taken *between* the two students — nothing but
 drawing in frame, warm sepia that sits with the card set's warm palette, real pen texture
 at 92px. `X=1480` and `W=2850` matter: wider or further left pulls in a student on a
-ladder at either edge. If approved, run the recipe and the card is done — `cardImage:`
-already points at `/images/programs/drama.jpg`.
+ladder at either edge. **The human reviewed it on 2026-08-05 and chose to keep the current
+card — don't re-propose this slice.** The recipe stays here in case that changes;
+`cardImage:` already points at `/images/programs/drama.jpg`.
 
 ### Review page for this batch
 
