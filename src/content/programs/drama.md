@@ -13,32 +13,40 @@ company (known as Broken Box), and no one who wants to participate is turned awa
 
 *Director: Lisa Battle.*
 
+![Drama students mid-scene in a comedy performance](/images/drama-broken-box-scene.jpg)
+
 ## The classes
 
-- **Acting I** (grades 9–12) is the introductory class, open to newcomers. Students build
-  the fundamentals — physical theater, improvisation, and vocal projection and articulation
-  — through scenes, monologues, and short plays, with an introduction to technical theater
-  and design and trips to see live performances.
+- **Acting I** (grades 9–12) is a multi-level acting class open to all levels. Students
+  build the fundamentals — physical theater, improvisation, and vocal projection and
+  articulation — through scenes, monologues, and short plays, with an introduction to
+  technical theater and design. Students present short plays to elementary schools and
+  have the chance to perform in a full production in the spring.
 - **Acting II** (grades 10–12, by audition and director recommendation) is the advanced
   class — the theater company known as Broken Box. It works as a company all year, mounting
-  full-length plays with tech weeks, dress rehearsals, and performances outside class. It's
-  an intense, rewarding commitment.
+  three full-length plays with tech weeks, dress rehearsals, and performances outside
+  class. It's an intense, rewarding commitment.
 
 ## A year on stage
 
 A typical season offers something for everyone:
 
-- A **fall play** staged by the drama students
-- **Student-directed and one-act productions** that put students in the director's chair
-- **Acting class showcases**, including performances our students bring to local
-  elementary schools
-- A **spring musical** — a major, full-department production with cast, crew, and a
-  student pit orchestra — staged every other year (most recently in 2026; the next is
-  expected around February 2028)
-- A **senior showcase** to close out the year
+- An **Instant Play Festival** where Broken Box produces plays from conception to
+  production in just one week
+- A **fall play** staged by Broken Box that welcomes elementary school students into
+  the audience
+- A student-directed **Anthology Play** produced by Broken Box in the winter
+- An **Acting I play** where both sections of Acting I get the chance to shine on stage
+  in the spring
+- A **spring play** produced by Broken Box where the advanced class gets a chance to
+  show what they've learned
+- A **senior showcase** where our seniors take one last bow and are honored by their
+  classmates
 
 Productions are supported by professional staff stipends and, for the musical, a hired
 accompanist, while students and parents handle much of the rest.
+
+![Students on ladders at work in front of a hand-painted backdrop](/images/drama-set-backdrop.jpg)
 
 ## What the Boosters provide
 

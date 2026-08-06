@@ -1,19 +1,94 @@
-# Drama photos — 2026 batch audit
+# Drama photos — batch audits and what shipped
 
-Record of what was in `src/images/2026/Drama/`, what survived review, and what was requested
-from the drama teacher. **Read this first if new drama images arrive** — it says which frames
-we already asked for and what to do with them.
+Record of the drama photo batches: what arrived, what survived review, and the exact recipes
+for everything that shipped. **Read this first if new drama images arrive.**
 
 Related: [hero-images.md](hero-images.md) · [program-card-images.md](program-card-images.md) ·
 [CLAUDE.md](../CLAUDE.md)
 
-Audited 2026-07-28. Nothing from this batch has been committed.
-
 ## Status
 
-**Waiting on the drama teacher.** The request went out for high-resolution originals (see
-[What we asked for](#what-we-asked-for)). Until it comes back, the home hero carousel still has
-**no drama slide** and the drama program page has **no photo**.
+**The teacher came through.** Six camera originals (4032×3024 to 6000×4000) arrived
+2026-08-05 — see [The August 2026 batch](#the-august-2026-batch). The home hero now has a
+drama slide (`drama-oz-cast.jpg`) and the drama program page carries two photos. The
+**program card is still the placeholder**; a candidate slice was cut and reviewed but not
+shipped (recipe below). The July screenshot batch, kept below as history, never shipped —
+its crop A (curtain call) is superseded by the new hero slide.
+
+## The August 2026 batch
+
+Six files in `src/images/2026/Drama/` (copied from `~/Downloads/drama 2026`) — all real
+camera files, so the resolution problem that sank the July batch is gone.
+
+| File | Native | Verdict |
+|---|---|---|
+| `IMG_2061.JPG` | 6000×4000 | **Hero slide.** Wizard of Oz cast — Tin Man, Dorothy, Lion, Toto puppet — against the painted Oz backdrop. Best colour, unmistakably theatre. |
+| `IMG_4232.JPG` | 6000×4000 | **Program page.** Six performers mid-gesture in a comedy scene, eye-chart poster behind, one performer flat on the floor. The most energy in the batch. |
+| `IMG_3906.JPG` | 6000×4000 | **Program page + card candidate.** Two students on ladders flanking a hand-painted sepia porch backdrop (*Our Town* — the shirts carry character names, not student names). The tech-theater frame. |
+| `IMG_4020.JPG` | 6000×4000 | **Benched.** *Our Town* graveyard scene — atmospheric and well composed, but dimmer and more somber than the two chosen. First substitute. |
+| `IMG_0518.HEIC` | 4032×3024 | **No.** Bare-stage scene, ghost costume at a folding table; subjects small in a mostly black frame. |
+| `IMG_5443.HEIC` | 5712×4284 | **No.** Students painting character-name shirts — charming behind-the-scenes moment, but classroom fluorescent light. |
+
+### Hero — Oz cast, mirrored
+
+```bash
+ffmpeg -y -i src/images/2026/Drama/IMG_2061.JPG \
+  -vf "hflip,crop=6000:3375:0:480,scale=2400:1350:flags=lanczos" -q:v 4 \
+  public/images/hero/drama-oz-cast.jpg
+# → 2400×1350. In heroImages: { src: '/images/hero/drama-oz-cast.jpg', position: 'center 30%' }
+```
+
+The `hflip` is deliberate: unmirrored, the cast sits centre-left and the leftmost performer
+drowns under the headline scrim; flipped, the dark stage-right becomes the text zone and the
+cast lands centre-right. No readable text or logos in frame. Focal `center 30%` starts the
+43% desktop band at ~17% of image height — it holds every face (Tin Man's head near the top
+through Dorothy kneeling at mid-frame) and gives up the feet, per the usual trade.
+
+Like the "Hexed" field slide, this is dated show content (the 2025-26 *Wizard of Oz*) kept
+by choice — swap it when a newer production photo exists.
+
+### Program page — two inline photos, 1600×900
+
+```bash
+ffmpeg -y -i src/images/2026/Drama/IMG_4232.JPG \
+  -vf "crop=6000:3375:0:330,scale=1600:900:flags=lanczos" -q:v 4 \
+  public/images/drama-broken-box-scene.jpg
+ffmpeg -y -i src/images/2026/Drama/IMG_3906.JPG \
+  -vf "crop=6000:3375:0:440,scale=1600:900:flags=lanczos" -q:v 4 \
+  public/images/drama-set-backdrop.jpg
+```
+
+Placement in `src/content/programs/drama.md`: the comedy scene sits after the intro/director
+line (mirroring the cello photo on the Instrumental Music page); the backdrop-and-ladders
+frame closes "A year on stage", directly above "What the Boosters provide" — it shows exactly
+what booster money buys.
+
+### Card candidate — cut, reviewed, NOT shipped
+
+```bash
+ffmpeg -y -i src/images/2026/Drama/IMG_3906.JPG \
+  -vf "crop=2850:950:1480:1950,scale=1200:400:flags=lanczos" -q:v 5 \
+  public/images/programs/drama.jpg
+```
+
+A slice of the painted porch backdrop taken *between* the two students — nothing but
+drawing in frame, warm sepia that sits with the card set's warm palette, real pen texture
+at 92px. `X=1480` and `W=2850` matter: wider or further left pulls in a student on a
+ladder at either edge. If approved, run the recipe and the card is done — `cardImage:`
+already points at `/images/programs/drama.jpg`.
+
+### Review page for this batch
+
+`src/images/2026/Drama/_review/drama-review-2026-08.html` (gitignored) — hero simulated at
+real desktop width and in a 390px phone frame with the scrim applied, both inline crops, and
+the card candidate against the current card in a real 92px band.
+
+---
+
+# History — the July 2026 screenshot batch
+
+Audited 2026-07-28. Nothing from this batch was ever committed; it is kept here because its
+size analysis is what produced the request that brought in the August batch.
 
 ## The finding that drives everything
 
