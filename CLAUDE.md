@@ -203,7 +203,8 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its
   own page due to its size; the two pages cross-reference each other.
 - **Instrumental Music** is the umbrella for the bands, orchestras, and jazz band — say so.
-- The spring **musical is biennial** (most recently 2026; next ~Feb 2028).
+- The **musical is biennial** (most recently 2026; next expected in 2027–28). It is not
+  necessarily in the spring — don't call it the "spring musical".
 - Program **directors are credited** on each program page (update if staff change).
 - **Two org names — use the right one.** *Los Altos High Eagle Band Boosters* is the
   **legal name**; *Los Altos High School Performing Arts Boosters* (LAHS PAB) is the

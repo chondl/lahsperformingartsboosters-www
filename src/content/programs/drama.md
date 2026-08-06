@@ -45,9 +45,9 @@ A typical season offers something for everyone:
 - A **senior showcase** where our seniors take one last bow and are honored by their
   classmates
 
-Every other year, the season also includes a **spring musical** — a major, full-department
+Every other year, the season also includes a **musical** — a major, full-department
 production with cast, crew, and a student pit orchestra. There is no musical in the 2026–27
-school year; the next is expected in spring 2028.
+school year; the next is expected in 2027–28.
 
 Productions are supported by professional staff stipends and, for the musical, a hired
 accompanist, while students and parents handle much of the rest.
