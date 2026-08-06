@@ -54,6 +54,26 @@ accompanist, while students and parents handle much of the rest.
 
 ![Students on ladders at work in front of a hand-painted backdrop](/images/drama-set-backdrop.jpg)
 
+### Broken Box: the 2026–27 season
+
+- **Thursday, August 20, 2026, 6:00 PM** — *In Her Own Words — Instant Play Festival*.
+  Broken Box presents plays created in one week — written, directed, and acted within
+  seven days of receiving a prompt.
+- **November 6–7, 2026, 7:00 PM** — *Cinderella: A Dream Come True* by Kristi Cunningham.
+  The classic rags-to-riches fairytale, narrated by Jacques — "master storyteller,
+  juggler and jester extraordinaire" — with a forgetful Fairy Godmother thrown in for
+  an evening of classic fairytale fun.
+- **February 5–6, 2027, 7:00 PM** — *Two Classic Tales: Anne of Green Gables and Little
+  Women*, adapted by Jon Jory and Marisha Chamberlain. A double bill of beloved novels:
+  irrepressible orphan Anne turns quiet Green Gables upside down, and the four March
+  sisters hold their family together while Father is away in the Civil War.
+- **April 16–17, 2027, 7:00 PM** — *One Wife Too Many* by Tony Howell. TV star James
+  Holden returns from his honeymoon with wife number four, only to find his first three
+  wives are not nearly as gone as he thought.
+- **Thursday, May 14, 2027, 6:00 PM** — *Senior Showcase*. Broken Box seniors take the
+  stage one last time in a variety and awards show, welcoming new members and
+  celebrating a year of hard work.
+
 ## What the Boosters provide
 
 Booster support helps fund production staff, sets and props, costumes, royalties, and

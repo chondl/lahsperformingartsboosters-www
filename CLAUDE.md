@@ -198,6 +198,9 @@ permission. See `docs/cloudflare-configuration.md` §9.
   dated content thinking it violates "evergreen"; just update it each season.
   **Second exception: the Choir page** (`programs/choir.md`) carries a short dated
   concert list ("2026–27 concerts", from the choir teacher) — refresh it each season too.
+  **Third exception: the Drama page** (`programs/drama.md`) carries a dated Broken Box
+  season list ("Broken Box: the 2026–27 season", from the drama teacher) — bold-lead
+  bullets with dates and a one-sentence description per show; refresh it each season.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its
