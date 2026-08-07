@@ -26,5 +26,7 @@ const d = program.data;
   </article>
 </BaseLayout>
 <style>
-  .program-actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--line); }
+  /* No divider: the buttons belong to the page's closing section, so they sit right
+     under its prose (the paragraph's own 1em bottom margin provides the gap). */
+  .program-actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 </style>

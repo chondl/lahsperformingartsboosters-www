@@ -77,9 +77,11 @@ a:hover { text-decoration: underline; }
 .btn {
   display: inline-block; padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-sm); font-family: "Raleway"; font-weight: var(--fw-bold);
+  border: 2px solid var(--royal); color: var(--royal);
 }
+.btn:hover { background: var(--royal); color: #fff; text-decoration: none; }
 .btn-primary { background: var(--royal); color: #fff; }
-.btn-primary:hover { background: #3a86d6; text-decoration: none; }
+.btn-primary:hover { background: #3a86d6; border-color: #3a86d6; text-decoration: none; }
 /* Markdown content styling */
 .prose h1 { font-size: var(--fs-2xl); margin: 0 0 .6em; }
 .prose h2 { margin: 1.8em 0 .5em; font-size: var(--fs-xl); }
