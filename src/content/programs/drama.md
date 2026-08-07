@@ -54,9 +54,9 @@ accompanist, while students and parents handle much of the rest.
 
 ![Students on ladders at work in front of a hand-painted backdrop](/images/drama-set-backdrop.jpg)
 
-### Broken Box: the 2026–27 season
+### Broken Box: the 2026–27 season — *In Her Own Words*
 
-- **Thursday, August 20, 2026, 6:00 PM** — *In Her Own Words — Instant Play Festival*.
+- **Thursday, August 20, 2026, 6:00 PM** — *Instant Play Festival*.
   Broken Box presents plays created in one week — written, directed, and acted within
   seven days of receiving a prompt.
 - **November 6–7, 2026, 7:00 PM** — *Cinderella: A Dream Come True* by Kristi Cunningham.
