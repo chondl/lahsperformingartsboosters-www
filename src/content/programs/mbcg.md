@@ -8,6 +8,8 @@ showDonate: false
 seasonYear: 2026
 rehearsalsFrom: 2026-08-10
 rehearsalsThrough: 2026-11-20
+updatesFormUrl: https://docs.google.com/forms/d/e/1FAIpQLSfKPEEGyDl7_iVhjaRIJjVA1__C3pEfyIekrs4A_1RisLFgVQ/viewform
+updatesFormLabel: Sign up for MBCG updates
 ---
 
 Marching Band & Color Guard (MBCG) is part of Los Altos High School's Instrumental Music
@@ -145,3 +147,8 @@ fundraising campaign, separate from the Boosters' Back-to-School campaign.** Tha
 hasn't launched yet: the volunteer and fundraising plans for the season will be presented
 at the end of band camp on **August 8th.** Please hold off until then — we'll share
 everything you need at that point.
+
+## Stay in the loop
+
+Sign up for MBCG updates — it's the best way to hear about schedule changes, get details
+on specific performances, and find out when the program needs volunteers.

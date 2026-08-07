@@ -15,8 +15,9 @@ const d = program.data;
   <article class={`container section prose prose-${program.id}`}>
     <h1>{d.title}</h1>
     <Content />
-    {(d.volunteerSheetUrl || d.googleGroupUrl || d.showDonate) && (
+    {(d.updatesFormUrl || d.volunteerSheetUrl || d.googleGroupUrl || d.showDonate) && (
       <div class="program-actions">
+        {d.updatesFormUrl && <a class="btn" href={d.updatesFormUrl}>{d.updatesFormLabel}</a>}
         {d.volunteerSheetUrl && <a class="btn" href={d.volunteerSheetUrl}>Volunteer sign-up sheet</a>}
         {d.googleGroupUrl && <a class="btn" href={d.googleGroupUrl}>Join the Google Group</a>}
         {d.showDonate && <a class="btn btn-primary" href="/bts">Give to the Back-to-School campaign</a>}

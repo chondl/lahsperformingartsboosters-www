@@ -29,8 +29,15 @@ test('no program page links out to a Google Group or volunteer sheet yet', () =>
   for (const p of ['mbcg', 'instrumental-music', 'choir', 'drama']) {
     const html = readFileSync(`dist/programs/${p}/index.html`, 'utf8');
     assert.doesNotMatch(html, /href="[^"]*groups\.google\.com/, `${p} links to a Google Group`);
-    assert.doesNotMatch(html, /href="[^"]*docs\.google\.com/, `${p} links to a volunteer sheet`);
+    // Volunteer sheets are Google Sheets; docs.google.com/forms (the updates form) is fine.
+    assert.doesNotMatch(html, /href="[^"]*docs\.google\.com\/spreadsheets/, `${p} links to a volunteer sheet`);
   }
+});
+
+test('MBCG carries the updates sign-up form button', () => {
+  const html = readFileSync('dist/programs/mbcg/index.html', 'utf8');
+  assert.match(html, /<a class="btn" href="https:\/\/docs\.google\.com\/forms\/[^"]+"[^>]*>Sign up for MBCG updates<\/a>/);
+  assert.match(html, /Stay in the loop/);
 });
 
 test('the per-program /donate/* short links are gone', () => {

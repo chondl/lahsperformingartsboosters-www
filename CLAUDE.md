@@ -83,10 +83,11 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
   a duplicate top-level `#`/`##` title in the body.
 - **Programs:** `src/content/programs/<slug>.md`. Frontmatter schema (`src/content.config.ts`):
   `title`, `order` (nav/card order), `summary` (home card text), `icon` (emoji),
-  `showDonate` (defaults true), optional `googleGroupUrl`, optional `volunteerSheetUrl`.
-  The last two render buttons at the page bottom; they are **omitted for now** because the
-  real URLs don't exist yet — adding the line back per program restores the button, no code
-  change needed. The body is the page
+  `showDonate` (defaults true), optional `googleGroupUrl`, optional `volunteerSheetUrl`,
+  optional `updatesFormUrl` + `updatesFormLabel` (a program-news sign-up form; MBCG uses it).
+  The URL fields render buttons at the page bottom; `googleGroupUrl`/`volunteerSheetUrl` are
+  **omitted for now** because the real URLs don't exist yet — adding the line back per
+  program restores the button, no code change needed. The body is the page
   prose; **don't repeat the title as a heading** (the template renders `<h1>{title}`).
 - **Nav** is generated from the `programs` collection ordered by `order` — change it in one
   place (`Header.astro` + frontmatter), never in 7 files.

@@ -26,6 +26,11 @@ const programs = defineCollection({
     // add the line back per program once the real URLs exist.
     googleGroupUrl: z.string().url().optional(),
     volunteerSheetUrl: z.string().url().optional(),
+    // Sign-up form for program news (schedule changes, performances, volunteer calls).
+    // Renders a button at the bottom of the page when set; the label is per-program so
+    // the button can name the program (e.g. "Sign up for MBCG updates").
+    updatesFormUrl: z.string().url().optional(),
+    updatesFormLabel: z.string().default('Sign up for updates'),
   }),
 });
 
