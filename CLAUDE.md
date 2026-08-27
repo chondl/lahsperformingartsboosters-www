@@ -83,7 +83,9 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
   a duplicate top-level `#`/`##` title in the body.
 - **Programs:** `src/content/programs/<slug>.md`. Frontmatter schema (`src/content.config.ts`):
   `title`, `order` (nav/card order), `summary` (home card text), `icon` (emoji),
-  `showDonate` (defaults true), optional `googleGroupUrl`, optional `volunteerSheetUrl`,
+  `showDonate` (defaults true), optional `donateUrl` + `donateLabel` (a program's *own*
+  campaign button, used with `showDonate: false`; MBCG uses it), optional `googleGroupUrl`,
+  optional `volunteerSheetUrl`,
   optional `updatesFormUrl` + `updatesFormLabel` (a program-news sign-up form; MBCG uses it).
   The URL fields render buttons at the page bottom; `googleGroupUrl`/`volunteerSheetUrl` are
   **omitted for now** because the real URLs don't exist yet — adding the line back per
@@ -161,19 +163,37 @@ purpose; odd time cells safely degrade to all-day events. Frontmatter anchors:
 Every feed title is prefixed `MBCG:`.
 Full contract: [docs/mbcg-calendar-feed.md](docs/mbcg-calendar-feed.md).
 
-### Donation links — everything goes to `/bts`
+### Donation links — `/bts` for everything, `/donate-mbcg` for MBCG
 
-There is **one** donation destination: `/bts`, a Cloudflare Single Redirect rule (NOT in
-`_redirects`) pointing at the JotForm Back-to-School campaign. See
-[docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §7b. Always link to
-`/bts` — never the JotForm URL directly — so traffic stays on our own domain and the
-target can be changed in one place each year.
+There are **two** donation destinations, both Cloudflare Single Redirect rules (NOT in
+`_redirects`) pointing at JotForm forms — see
+[docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §7b:
+
+- `/bts` → the Back-to-School campaign. Every page except MBCG links here.
+- `/donate-mbcg` → the Marching Band & Color Guard campaign, which is separate from
+  Back-to-School. Only the MBCG page links here.
+
+Always link to the short path — never a JotForm URL directly — so traffic stays on our
+own domain and the target can be changed in one place each year.
 
 The old per-program `/donate/mbcg|instrumental|choir|drama` short links were removed;
 donors pick their program *on the form*. `public/_redirects` is now empty of rules.
 
-**Marching Band & Color Guard is the exception:** it runs its own campaign, separate from
-Back-to-School. Its program page sets `showDonate: false` and carries no donate button.
+**How the MBCG page carries its link:** `showDonate: false` (no `/bts` button) plus
+`donateUrl: /donate-mbcg` + `donateLabel:` in its frontmatter, which renders the primary
+button in the bottom action row. The "Support the 2026 season" section near the top of
+the page repeats the ask with an inline button — plain Markdown can't make a button, so
+that one line is raw HTML: `<a class="btn btn-primary btn-lg" href="/donate-mbcg">…</a>`.
+Refresh the section's amounts and what-it-funds list from the JotForm form each season.
+
+**Buttons are one shared component.** `.btn` (outline) / `.btn-primary` (filled royal
+blue) / `.btn-lg` (the one big call to action on a page — full-width on phones) live in
+`src/styles/global.css` and are the *only* button styles. Don't add per-component button
+CSS; the donate page's `<CTAButton>` and the MBCG ask both use `btn btn-primary btn-lg`.
+When you add or restyle a button, build and screenshot it (headless Chrome:
+`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new
+--screenshot=… --window-size=1280,4700 http://localhost:4321/…`) at desktop and 390px
+widths before committing.
 
 ### Who receives `donate@` email
 
@@ -202,6 +222,10 @@ permission. See `docs/cloudflare-configuration.md` §9.
   **Third exception: the Drama page** (`programs/drama.md`) carries a dated Broken Box
   season list ("Broken Box: the 2026–27 season", from the drama teacher) — bold-lead
   bullets with dates and a one-sentence description per show; refresh it each season.
+  **Fourth exception: the Home page** (`pages/home.mdx`) carries this year's Boosters
+  meeting dates ("Boosters meetings", linked from About) and the Fall Festival date —
+  refresh both each year. The Fall Festival date also appears in the Choir concert list
+  and as two rows (shortened rehearsal + festival) in the MBCG season table.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its
@@ -246,10 +270,12 @@ permission. See `docs/cloudflare-configuration.md` §9.
 - **Google Group + volunteer-sheet buttons — coming back.** Both were removed because only
   `PLACEHOLDER` URLs existed. The schema and template still support them: add
   `googleGroupUrl:` / `volunteerSheetUrl:` to a program's frontmatter and the button
-  returns. The MBCG volunteer sheet lands after band camp (Aug 8); Google Group links are
-  expected within a few weeks of that.
-- **MBCG campaign launch (Aug 8).** MBCG's own fundraising campaign and volunteer plans are
-  presented at the end of band camp. Its page currently tells families to wait.
+  returns. The MBCG volunteer sheet went out via the Marching Band Google Group in Aug 2026
+  (the page says so and points non-members to `president@`); Google Group links are still
+  pending.
+- **MBCG campaign — launched Aug 2026.** `/donate-mbcg` is live and the MBCG page carries
+  the ask (suggested $1,000/student, key-donor levels, what donations fund). Refresh from
+  the JotForm form each season.
 - **Hero photos — ongoing.** The first six shipped (2026 season). More originals will be
   dropped into `src/images/` for cropping; see [docs/hero-images.md](docs/hero-images.md).
   The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
