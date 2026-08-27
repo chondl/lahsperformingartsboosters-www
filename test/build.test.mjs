@@ -54,8 +54,28 @@ test('giving is funnelled to the single /bts campaign', () => {
   }
 });
 
-test('MBCG has no donate button (it runs a separate campaign)', () => {
-  assert.doesNotMatch(readFileSync('dist/programs/mbcg/index.html', 'utf8'), /href="\/bts"/);
+test('MBCG gives to its own campaign via /donate-mbcg, never /bts', () => {
+  const html = readFileSync('dist/programs/mbcg/index.html', 'utf8');
+  assert.doesNotMatch(html, /href="\/bts"/);
+  assert.match(html, /<a class="btn btn-primary" href="\/donate-mbcg"[^>]*>Give to the MBCG campaign</, 'MBCG donate button missing');
+  assert.match(html, /<a class="btn btn-primary btn-lg" href="\/donate-mbcg">Give to the MBCG campaign</, 'MBCG in-section donate button missing');
+  for (const p of ['instrumental-music', 'choir', 'drama']) {
+    assert.doesNotMatch(readFileSync(`dist/programs/${p}/index.html`, 'utf8'), /donate-mbcg/, `${p} links the MBCG campaign`);
+  }
+});
+
+test('the Fall Festival date is published everywhere it is mentioned', () => {
+  assert.match(readFileSync('dist/index.html', 'utf8'), /Saturday, October 31, 2026/);
+  assert.match(readFileSync('dist/programs/choir/index.html', 'utf8'), /Fall Festival<\/strong> — Saturday, October 31, 2026/);
+  assert.doesNotMatch(readFileSync('dist/programs/choir/index.html', 'utf8'), /date TBD/);
+});
+
+test('the home page lists the Boosters meeting dates', () => {
+  const html = readFileSync('dist/index.html', 'utf8');
+  assert.match(html, /id="boosters-meetings"/);
+  for (const d of ['September 1', 'September 29', 'October 27', 'December 1', 'February 9', 'April 13', 'May 25']) {
+    assert.match(html, new RegExp(`Tuesday, ${d}, 202[67]`), `meeting ${d} missing`);
+  }
 });
 
 // "Los Altos High Eagle Band Boosters" is the legal name; "…Performing Arts Boosters" is

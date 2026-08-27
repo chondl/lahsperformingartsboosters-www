@@ -45,6 +45,7 @@ volunteers — so your gift goes to the students. [Donate »](/donate)
 The Boosters meet monthly during the school year, on **Zoom**, and all parents are
 welcome. Meetings include updates from each program's director, a treasurer's report,
 and a chance to get involved. The Zoom link is shared through the program Google Groups.
+[This year's meeting dates are on the home page.](/#boosters-meetings)
 
 ## Board
 
