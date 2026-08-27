@@ -361,8 +361,10 @@ the `http_request_dynamic_redirect` ruleset), **not** in `public/_redirects`.
 | Path | Redirects to | Status |
 |------|--------------|--------|
 | `/bts` | `https://form.jotform.com/lahsmusictreasurer/bts-2026` (preserves query string) | 302 |
+| `/donate-mbcg` | `https://form.jotform.com/lahsmusictreasurer/mbcg-2026` (preserves query string) | 302 |
 
-Ruleset id `9afbdc4c0ace4da18463e51fb7dc4be1`; `/bts` rule id `2aff1a15efd64a7484ef0c9546d49403`.
+Ruleset id `9afbdc4c0ace4da18463e51fb7dc4be1`; `/bts` rule id `2aff1a15efd64a7484ef0c9546d49403`;
+`/donate-mbcg` rule id `cad88e69dd8a4ff3ab09059ea9f4e06f` (added 2026-08-27 via the API below).
 
 **Editing via API** requires the **Zone → Single Redirect → Edit** scope (labeled
 "Single Redirect" in the token UI, *not* "Dynamic Redirect"). This was added to the token
@@ -377,6 +379,20 @@ api -X PATCH "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/rulesets/9afbd
   "action_parameters":{"from_value":{"preserve_query_string":true,"status_code":302,
     "target_url":{"value":"https://form.jotform.com/lahsmusictreasurer/bts-2026"}}}
 }'
+```
+
+Add a new short link by POSTing a rule to the same ruleset (this is how `/donate-mbcg` was
+created); the response lists every rule with its id — record the new id in the table above:
+
+```bash
+api -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/rulesets/9afbdc4c0ace4da18463e51fb7dc4be1/rules" --data '{
+  "description":"/donate-mbcg campaign short link",
+  "expression":"(http.request.uri.path eq \"/donate-mbcg\")","action":"redirect",
+  "action_parameters":{"from_value":{"preserve_query_string":true,"status_code":302,
+    "target_url":{"value":"https://form.jotform.com/lahsmusictreasurer/mbcg-2026"}}}
+}'
+# verify
+curl -sI "https://lahsperformingartsboosters.org/donate-mbcg?x=1" | grep -i "^HTTP\|^location"
 ```
 
 **Or in the dashboard:** Domain → **Rules → Redirect Rules** → open the rule → fix the

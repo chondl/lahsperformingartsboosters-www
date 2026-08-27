@@ -82,6 +82,20 @@ test('homecoming splits into a parade and a game event', () => {
   assert.equal(game.end, '20261030T210000');
 });
 
+test('the Fall Festival Saturday is a shortened rehearsal then the festival', () => {
+  const oct31 = events.filter((ev) => ev.start.startsWith('20261031'));
+  assert.equal(oct31.length, 2, `expected rehearsal + festival, got: ${oct31.map((e) => e.summary).join('; ')}`);
+  const [rehearsal, festival] = oct31;
+  assert.match(rehearsal.summary, /Rehearsal/);
+  assert.equal(rehearsal.start, '20261031T090000');
+  assert.equal(rehearsal.end, '20261031T110000');
+  assert.match(festival.summary, /Fall Festival/);
+  assert.equal(festival.start, '20261031T110000');
+  assert.equal(festival.end, '20261031T170000');
+  // The table rows replace the generated 9-to-4 Saturday rehearsal that day.
+  assert.equal(feed.filter((ev) => ev.start.startsWith('20261031')).length, 2);
+});
+
 test('the Festival of Lights window parses with the meet/parade note kept', () => {
   const e = events.find((ev) => ev.summary.includes('Festival of Lights'));
   assert.equal(e.start, '20261129T150000');

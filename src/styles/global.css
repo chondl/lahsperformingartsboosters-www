@@ -80,8 +80,13 @@ a:hover { text-decoration: underline; }
   border: 2px solid var(--royal); color: var(--royal);
 }
 .btn:hover { background: var(--royal); color: #fff; text-decoration: none; }
-.btn-primary { background: var(--royal); color: #fff; }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn-primary { background: var(--royal); color: #fff; box-shadow: 0 2px 6px rgba(16, 58, 107, .25); }
 .btn-primary:hover { background: #3a86d6; border-color: #3a86d6; text-decoration: none; }
+/* The one call to action a page is built around (the donate page's button, the MBCG
+   campaign ask). Goes full-width on phones so it is an easy thumb target. */
+.btn-lg { padding: var(--space-sm) var(--space-lg); font-size: var(--fs-md); }
+@media (max-width: 520px) { .btn-lg { display: block; text-align: center; } }
 /* Markdown content styling */
 .prose h1 { font-size: var(--fs-2xl); margin: 0 0 .6em; }
 .prose h2 { margin: 1.8em 0 .5em; font-size: var(--fs-xl); }

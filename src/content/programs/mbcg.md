@@ -8,6 +8,8 @@ showDonate: false
 seasonYear: 2026
 rehearsalsFrom: 2026-08-10
 rehearsalsThrough: 2026-11-20
+donateUrl: /donate-mbcg
+donateLabel: Give to the MBCG campaign
 updatesFormUrl: https://docs.google.com/forms/d/e/1FAIpQLSfKPEEGyDl7_iVhjaRIJjVA1__C3pEfyIekrs4A_1RisLFgVQ/viewform
 updatesFormLabel: Sign up for MBCG updates
 ---
@@ -27,6 +29,26 @@ Ensemble, or Orchestra.
 
 *Directed by band director Ted Ferrucci and assistant director Tim McAfee, with the marching band and color guard
 instructional staff.*
+
+## Support the 2026 season
+
+Marching Band & Color Guard is our largest undertaking, so it runs **its own fundraising
+campaign, separate from the Boosters' Back-to-School campaign.** Donations pay for the
+parts of the season that nothing else covers:
+
+- **Marching band and color guard staff** — instructors with the expertise each
+  discipline needs, and enough of them to keep the student-to-instructor ratio low
+- **The mid-season band camp** at Camp Jones Gulch, September 25–27
+- **The trip to the WBA Class Championships**, November 20–22
+- **The show t-shirt** every student receives
+- **Meals** at after-school rehearsals, before football games, and at competitions
+
+The suggested donation is **$1,000 per student.** If you're able, please consider joining
+our circle of key donors at the **$3,000, $5,000, or $10,000** level — gifts at that scale
+are what let us keep the program open to every LAHS student. Gifts of any size are
+tax-deductible.
+
+<a class="btn btn-primary btn-lg" href="/donate-mbcg">Give to the MBCG campaign</a>
 
 ## This fall's show: *Metamorphosis*
 
@@ -97,6 +119,8 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Sat, Oct 24 | 9:00 AM – 9:00 PM at LAHS | [Cupertino TOB](https://www.westernbands.org/events/details.php?ID=1537) — WBA #2 |
 | Fri, Oct 30 | 1:00 – 2:00 PM | Homecoming parade |
 | Fri, Oct 30 | 4:00 PM – 9:00 PM | Rehearsal, dinner provided by boosters, then homecoming football game |
+| Sat, Oct 31 | 9:00 – 11:00 AM | Rehearsal, shortened before the Fall Festival |
+| Sat, Oct 31 | 11:00 AM – 5:00 PM at LAHS | Fall Festival — all ensembles perform; exact performance times coming soon |
 | **November** |  |  |
 | Sat, Nov 7 | 9:00 AM – 9:00 PM at LAHS | [Hollister Show](https://www.westernbands.org/events/details.php?ID=1527) — WBA #3 |
 | Wed, Nov 11 | 4:00 PM - 7:00 PM | Veterans Day — rehearsal as scheduled (no day off) |
@@ -115,9 +139,11 @@ your own, with any schedule changes flowing through automatically.
 ## Volunteer & calendar sheet
 
 We coordinate the full schedule and all volunteer sign-ups through a shared Google Sheet
-that lists every event and the roles we need filled. The sheet for this season goes out at
-the end of band camp on August 8th, along with the rest of our volunteer and fundraising
-plans.
+that lists every event and the roles we need filled. This season's sheet was sent out to
+the Marching Band Google Group. If you aren't receiving regular emails from the group,
+you're not signed up yet — email
+[president@lahsperformingartsboosters.org](mailto:president@lahsperformingartsboosters.org)
+and we'll add you.
 
 ## Get involved
 
@@ -130,23 +156,14 @@ MBCG depends on parent volunteers more than any other program. Families help wit
 - **Volunteer coordination** — leading and scheduling the parent crew
 
 To plug in, **join the Marching Band Google Group** for schedules and news, come to the
-MBCG portion of the monthly Boosters meeting, and watch for the volunteer sign-up sheet
-after band camp.
+MBCG portion of the monthly Boosters meeting, and pick a role on the volunteer sign-up
+sheet.
 
 ## Monthly meeting
 
 The Boosters hold a monthly Zoom meeting open to all parents, with a Marching Band &
 Color Guard segment that covers upcoming performances, travel logistics, and volunteer
 needs. The link is shared through the Google Group.
-
-## Support the program
-
-Marching Band & Color Guard is our largest undertaking — covering support staff, travel,
-and equipment for the full competitive season. Because of that, MBCG runs **its own
-fundraising campaign, separate from the Boosters' Back-to-School campaign.** That campaign
-hasn't launched yet: the volunteer and fundraising plans for the season will be presented
-at the end of band camp on **August 8th.** Please hold off until then — we'll share
-everything you need at that point.
 
 ## Stay in the loop
 

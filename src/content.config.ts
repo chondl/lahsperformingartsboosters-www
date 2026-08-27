@@ -11,8 +11,13 @@ const programs = defineCollection({
     // Home-page card photo, e.g. /images/programs/choir.jpg. Falls back to `icon` when
     // absent, so a program without a photo still builds. See docs/program-card-images.md.
     cardImage: z.string().optional(),
-    // false hides the Donate button (a program running its own separate campaign).
+    // false hides the Back-to-School (/bts) donate button.
     showDonate: z.boolean().default(true),
+    // A program running its own campaign (MBCG) sets showDonate: false and gives its own
+    // link here instead; it renders as the page's primary button. Site-relative paths are
+    // fine — /donate-mbcg is a Cloudflare redirect (docs/cloudflare-configuration.md §7b).
+    donateUrl: z.string().optional(),
+    donateLabel: z.string().default('Give to the campaign'),
     // The year the fall season starts. Required by pages that carry a "## Season calendar"
     // table: it anchors the table's year-less dates for the .ics feed (Jul–Dec = this year,
     // Jan–Jun = the next). Bump it with each season refresh. See docs/mbcg-calendar-feed.md.

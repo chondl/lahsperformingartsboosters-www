@@ -7,8 +7,4 @@ interface Props {
 }
 const { href, label } = Astro.props;
 ---
-<a class="btn btn-primary cta-button" href={href}>{label}</a>
-<style>
-  .cta-button { font-size: var(--fs-md); padding: var(--space-sm) var(--space-md); }
-  @media (max-width: 520px) { .cta-button { display: block; text-align: center; } }
-</style>
+<a class="btn btn-primary btn-lg" href={href}>{label}</a>
