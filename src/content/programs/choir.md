@@ -56,7 +56,7 @@ Our choirs perform throughout the school year, with a calendar that typically in
 Concerts are in the LAHS Eagle Theater; the Fall Festival is a campus-wide event with
 every ensemble performing.
 
-- **Fall Festival** — Saturday, October 31, 2026, 11:00 AM – 5:00 PM (Choir's
+- **Fall Festival** — Saturday, October 31, 2026, 12:30 – 3:30 PM (Choir's
   performance time coming soon)
 - **A Season of Song** — Monday, December 14, 2026, 7:00 PM
 - **Spring Sing** — Monday, March 15, 2027, 7:00 PM

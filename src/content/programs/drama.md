@@ -70,7 +70,7 @@ accompanist, while students and parents handle much of the rest.
 - **April 16–17, 2027, 7:00 PM** — *One Wife Too Many* by Tony Howell. TV star James
   Holden returns from his honeymoon with wife number four, only to find his first three
   wives are not nearly as gone as he thought.
-- **Thursday, May 14, 2027, 6:00 PM** — *Senior Showcase*. Broken Box seniors take the
+- **Friday, May 14, 2027, 6:00 PM** — *Senior Showcase*. Broken Box seniors take the
   stage one last time in a variety and awards show, welcoming new members and
   celebrating a year of hard work.
 
