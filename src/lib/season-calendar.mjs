@@ -1,7 +1,9 @@
 // Parses the "## Season calendar" Markdown table (and the weekly-rehearsal bullet list)
-// in a program page into calendar events, and renders them as an iCalendar (.ics) feed.
+// in a content page into calendar events, and renders them as an iCalendar (.ics) feed.
 // The page stays the single source of truth: editing it updates both the HTML page and
-// /calendar/mbcg.ics in the same build.
+// its feed (/calendar/mbcg.ics, /calendar/pab.ics) in the same build. The table has
+// three columns (Date | Time | Activity) or four (… | Where); the fourth becomes the
+// event's LOCATION.
 //
 // Contract (also documented for maintainers in docs/mbcg-calendar-feed.md):
 // - Date cells MUST parse and their weekday label must match the actual date, or the build
@@ -95,14 +97,14 @@ export function parseSeasonCalendar(markdown, seasonYear) {
   for (const line of section.split('\n')) {
     if (!line.trim().startsWith('|')) continue;
     const cells = line.split('|').slice(1, -1).map((c) => c.trim());
-    if (cells.length !== 3) continue;
-    const [dateCell, timeCell, activityCell] = cells;
+    if (cells.length !== 3 && cells.length !== 4) continue;
+    const [dateCell, timeCell, activityCell, whereCell] = cells;
     if (dateCell === 'Date' || /^[-: ]+$/.test(dateCell) || /^\*\*.+\*\*$/.test(dateCell)) continue;
 
     const { start, end } = parseDateCell(dateCell, seasonYear, line.trim());
     const { text: summary, url } = parseActivityCell(activityCell);
     const timeText = /^[-—]?$/.test(normalize(timeCell)) ? '' : timeCell.trim();
-    const base = { summary, url };
+    const base = { summary, url, location: whereCell || null };
 
     if (!end) {
       const time = parseTimeCell(timeCell);
@@ -122,16 +124,17 @@ export function parseSeasonCalendar(markdown, seasonYear) {
     const span = normalize(timeCell).match(
       /^[A-Z][a-z]{2} (\d{1,2}):(\d{2}) ?(AM|PM) ?- ?[A-Z][a-z]{2} (\d{1,2}):(\d{2}) ?(AM|PM)$/i,
     );
-    // "9:00 AM – 4:00 PM" → those hours repeated as one event per day.
+    // "9:00 AM – 4:00 PM" (or a bare start time) → those hours repeated once per day.
     const daily = span ? null : parseTimeCell(timeCell);
     if (span) {
       events.push({ ...base, description: describe('', url), allDay: false,
         start: atTime(start, { h: to24(span[1], span[3]), min: span[2] }),
         end: atTime(end, { h: to24(span[4], span[6]), min: span[5] }) });
-    } else if (daily?.end && !daily.note) {
+    } else if (daily && !daily.note) {
+      const endTime = daily.end ?? { h: Math.min(daily.start.h + 1, 23), min: daily.start.min }; // default 1 h
       for (let day = start; ymd(day) <= ymd(end); day = addDays(day, 1)) {
         events.push({ ...base, description: describe('', url), allDay: false,
-          start: atTime(day, daily.start), end: atTime(day, daily.end) });
+          start: atTime(day, daily.start), end: atTime(day, endTime) });
       }
     } else {
       events.push({ ...base, description: describe(timeText, url), allDay: true,
@@ -234,6 +237,7 @@ export function buildIcs(events, calName = 'LAHS Marching Band & Color Guard') {
       `UID:${e.start.replace('T', '-')}-${slug}@${DOMAIN}`,
       `DTSTAMP:${dtstamp}`,
       `SUMMARY:${escapeText(e.summary)}`,
+      ...(e.location ? [`LOCATION:${escapeText(e.location)}`] : []),
       e.allDay ? `DTSTART;VALUE=DATE:${e.start}` : `DTSTART;TZID=${TZID}:${e.start}`,
       e.allDay ? `DTEND;VALUE=DATE:${e.end}` : `DTEND;TZID=${TZID}:${e.end}`,
       ...(e.description ? [`DESCRIPTION:${escapeText(e.description)}`] : []),

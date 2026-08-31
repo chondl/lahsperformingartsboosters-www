@@ -42,9 +42,15 @@ If a deploy fails after a calendar edit, check the build log; the error names th
 - `6:00 PM` — timed event, one-hour block by default
 - `4:00 PM - 9:00 PM`, or `4:00 – 7:00 PM` (start inherits PM from the end) — timed event
 - `9:00 AM – 9:00 PM at LAHS` — trailing text moves to the event description
-- On a **date range**: `9:00 AM – 4:00 PM` repeats as one timed event per day (camps);
+- On a **date range**: `9:00 AM – 4:00 PM` (or a bare start time, one-hour default)
+  repeats as one timed event per day (camps, multi-night shows);
   `Fri 4:00 PM – Sun 4:00 PM` (weekday-prefixed) becomes one continuous event (overnight
   trips)
+
+**A fourth `Where` column is optional.** Three-column tables (this one) produce events
+with no location; a four-column table (the home page's — see
+[pab-calendar-feed.md](pab-calendar-feed.md)) turns the fourth cell into the event's
+`LOCATION`.
 
 Any other time text — `TBD`, `—`, prose — produces an **all-day event with the original
 time text in the description**. So a "weird" time never breaks the build; it just

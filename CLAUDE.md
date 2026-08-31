@@ -51,12 +51,13 @@ src/
     pages/{home,donate}.mdx  # singleton page bodies (Markdown + content blocks)
     pages/about.md           # plain Markdown — needs no blocks
     programs/{mbcg,instrumental-music,choir,drama}.md  # one file per program
-  lib/season-calendar.mjs    # parses mbcg.md's season table → iCalendar feed (docs/mbcg-calendar-feed.md)
+  lib/season-calendar.mjs    # parses season tables → iCalendar feeds (docs/{mbcg,pab}-calendar-feed.md)
   pages/
     index.astro              # Home — a thin shell; structure lives in home.mdx
     about.astro, donate.astro# render pages/*.{md,mdx}
     programs/[slug].astro     # ONE route renders all four program pages
     calendar/mbcg.ics.js      # static endpoint: builds /calendar/mbcg.ics from mbcg.md
+    calendar/pab.ics.js       # static endpoint: builds /calendar/pab.ics from home.mdx's season table
   layouts/BaseLayout.astro    # <head>, fonts, header+footer wrapper; renders <h1> per page
   components/                 # Header (nav), Footer, HeroCarousel, ProgramCard
     content/                  # THE BLOCK PALETTE — tags usable in content files
@@ -68,6 +69,7 @@ worker/index.js               # entry Worker: fetch=www→apex 301 + serve ASSET
 wrangler.jsonc                # deploy config (assets, workers_dev:false, run_worker_first)
 test/build.test.mjs           # asserts the 7 pages + _redirects build, and that no block dropped
 test/mbcg-calendar.test.mjs   # asserts the season table parses into the /calendar/mbcg.ics feed
+test/pab-calendar.test.mjs    # asserts home.mdx's season table parses into the /calendar/pab.ics feed
 test/content-purity.test.mjs  # asserts content files stay pure Markdown + palette tags
 test/email-worker.test.mjs    # asserts donate@ email fan-out (DONATE_FORWARD_TO)
 docs/                         # spec, plan, Cloudflare config record (see References)
@@ -163,6 +165,17 @@ purpose; odd time cells safely degrade to all-day events. Frontmatter anchors:
 Every feed title is prefixed `MBCG:`.
 Full contract: [docs/mbcg-calendar-feed.md](docs/mbcg-calendar-feed.md).
 
+### Home-page season calendar — the table feeds `/calendar/pab.ics`
+
+The home page's `## Season calendar` table (every concert, show, and Boosters meeting
+*except* MBCG's season) is parsed by the same library into a second feed,
+`/calendar/pab.ics` ("LAHS Performing Arts"). Same load-bearing contract, plus: a fourth
+`Where` column (`LAHS`/`MVHS`/`Zoom`) becomes the event `LOCATION`; titles are written in
+full and used verbatim, and every one must start with `LAHS` + who is performing (a test
+enforces it); time cells are start-only by design (one-hour default block, repeated
+per-night on date ranges); the year anchor is `seasonYear:` in `home.mdx` frontmatter.
+Full contract: [docs/pab-calendar-feed.md](docs/pab-calendar-feed.md).
+
 ### Donation links — `/bts` for everything, `/donate-mbcg` for MBCG
 
 There are **two** donation destinations, both Cloudflare Single Redirect rules (NOT in
@@ -223,9 +236,11 @@ permission. See `docs/cloudflare-configuration.md` §9.
   season list ("Broken Box: the 2026–27 season", from the drama teacher) — bold-lead
   bullets with dates and a one-sentence description per show; refresh it each season.
   **Fourth exception: the Home page** (`pages/home.mdx`) carries this year's Boosters
-  meeting dates ("Boosters meetings", linked from About) and the Fall Festival date —
-  refresh both each year. The Fall Festival date also appears in the Choir concert list
-  and as two rows (shortened rehearsal + festival) in the MBCG season table.
+  meeting dates ("Boosters meetings" prose, linked from About), the full "## Season
+  calendar" table (which feeds `/calendar/pab.ics` — the meeting dates appear in both
+  and must agree), and the Fall Festival date — refresh all each year. The Fall Festival
+  date also appears in the Choir concert list and as two rows (shortened rehearsal +
+  festival) in the MBCG season table.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its

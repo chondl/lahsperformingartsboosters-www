@@ -45,6 +45,10 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
+    // The year the fall season starts, for a page carrying a "## Season calendar" table
+    // (home.mdx → /calendar/pab.ics). Anchors the table's year-less dates: Jul–Dec = this
+    // year, Jan–Jun = the next. Bump it each season. See docs/pab-calendar-feed.md.
+    seasonYear: z.number().int().optional(),
   }),
 });
 

@@ -73,9 +73,10 @@ test('the Fall Festival date is published everywhere it is mentioned', () => {
 test('the home page lists the Boosters meeting dates', () => {
   const html = readFileSync('dist/index.html', 'utf8');
   assert.match(html, /id="boosters-meetings"/);
-  for (const d of ['September 1', 'September 29', 'October 27', 'December 1', 'February 9', 'April 13', 'May 25']) {
-    assert.match(html, new RegExp(`Tuesday, ${d}, 202[67]`), `meeting ${d} missing`);
-  }
+  assert.match(html, /Tuesdays at 7:00 PM on Zoom/);
+  // In prose in the meetings section, and again as table rows in the season calendar.
+  assert.match(html, /Sep 1, Sep 29, Oct 27, Dec 1, Feb 9, Apr 13, and May 25/, 'meeting-dates prose missing');
+  assert.equal((html.match(/LAHS Performing Arts Boosters Meeting/g) ?? []).length, 7, 'expected seven meeting rows');
 });
 
 // "Los Altos High Eagle Band Boosters" is the legal name; "…Performing Arts Boosters" is
