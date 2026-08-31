@@ -40,6 +40,21 @@ events — is the MBCG contract; read
 - **Years come from `seasonYear:`** in `home.mdx` frontmatter (Jul–Dec = that year,
   Jan–Jun = the next). Bump it each season.
 
+## Where the dates come from
+
+The 2026–27 table was compiled (Aug 2026) from, in order of authority:
+
+1. **The program teachers' own lists** on our pages — Broken Box season on
+   `programs/drama.md`, choir concerts on `programs/choir.md`.
+2. **The PAB board** — Boosters meeting dates on the home page.
+3. **The LAHS school calendar** — a single public Google Calendar behind
+   `lahs.mvla.net`; queryable as JSON at
+   `https://lahs.mvla.net/api/calendars/147995/events?start_date=…&end_date=…`. It
+   confirms dates but is sparse (spring events get added mid-year) and rarely carries
+   locations.
+4. **The MVHS calendar** (same API, calID `143691` on `mvhs.mvla.net`) — much more
+   complete, and the place where joint MVLA concerts show up with locations.
+
 ## Each season's refresh
 
 1. Rewrite the table in `home.mdx` for the new season (and the meeting dates in the
