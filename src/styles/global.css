@@ -99,6 +99,14 @@ a:hover { text-decoration: underline; }
 /* consistent column widths so the season calendar lines up the whole way down */
 .prose th:first-child, .prose td:first-child { width: 26%; }
 .prose th:nth-child(2), .prose td:nth-child(2) { width: 22%; }
+/* Home season calendar (the 4-column table after the "Season calendar" heading):
+   every row stays on one line — Date, Time, and Where shrink to their content
+   and Event takes the remaining width. */
+#season-calendar ~ table { table-layout: auto; }
+#season-calendar ~ table th, #season-calendar ~ table td { white-space: nowrap; }
+#season-calendar ~ table th:first-child, #season-calendar ~ table td:first-child,
+#season-calendar ~ table th:nth-child(2), #season-calendar ~ table td:nth-child(2),
+#season-calendar ~ table th:nth-child(4), #season-calendar ~ table td:nth-child(4) { width: 1%; }
 /* Section-illustration photos: a full spacing step above and below so they sit in the
    same vertical rhythm as headings, not tight against the previous paragraph. */
 .prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: var(--space-lg) 0; display: block; }
