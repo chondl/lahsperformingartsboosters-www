@@ -364,9 +364,12 @@ the `http_request_dynamic_redirect` ruleset), **not** in `public/_redirects`.
 |------|--------------|--------|
 | `/bts` | `https://form.jotform.com/lahsmusictreasurer/bts-2026` (preserves query string) | 302 |
 | `/donate-mbcg` | `https://form.jotform.com/lahsmusictreasurer/mbcg-2026` (preserves query string) | 302 |
+| `/sponsor-mbcg` | `https://square.link/u/2K1dNCeR` (preserves query string) | 302 |
 
 Ruleset id `9afbdc4c0ace4da18463e51fb7dc4be1`; `/bts` rule id `2aff1a15efd64a7484ef0c9546d49403`;
-`/donate-mbcg` rule id `cad88e69dd8a4ff3ab09059ea9f4e06f` (added 2026-08-27 via the API below).
+`/donate-mbcg` rule id `cad88e69dd8a4ff3ab09059ea9f4e06f` (added 2026-08-27 via the API below);
+`/sponsor-mbcg` rule id `1d8b2d3ffa36409bbbad3bdb4f35aefb` (added 2026-09-04, Square payment link
+for MBCG sponsorships).
 
 **Editing via API** requires the **Zone → Single Redirect → Edit** scope (labeled
 "Single Redirect" in the token UI, *not* "Dynamic Redirect"). This was added to the token
