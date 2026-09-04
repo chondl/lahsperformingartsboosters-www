@@ -96,6 +96,34 @@ Content lives in Markdown so non-technical maintainers can edit it in GitHub's w
 - **Nav** is generated from the `programs` collection ordered by `order` — change it in one
   place (`Header.astro` + frontmatter), never in 7 files.
 
+### Per-season content — the refresh map
+
+Most content is evergreen (see Conventions), but **current-season detail now lives in five
+content files and feeds two calendars.** Don't strip any of it thinking it violates
+"evergreen" — refresh it. Each new season, work through ALL of these together:
+
+| File | What's per-season in it |
+|---|---|
+| `programs/mbcg.md` | The whole current-season layer: fall show theme + images; the "Support the *year* season" ask (suggested amount, key-donor levels, what-it-funds — from the JotForm form); the season-calendar table (feeds `/calendar/mbcg.ics`); the weekly-rehearsal bullet list; frontmatter anchors `seasonYear:` / `rehearsalsFrom:` / `rehearsalsThrough:` |
+| `pages/home.mdx` | `seasonYear:` frontmatter; the "Boosters meetings" dates prose (linked from About); the `## Season calendar` table (feeds `/calendar/pab.ics`); the Fall Festival date |
+| `pages/donate.mdx` | The "Marching Band & Color Guard" section repeats the MBCG campaign ask — same amounts and what-it-funds as `mbcg.md` |
+| `programs/choir.md` | The dated concert list (from the choir teacher) |
+| `programs/drama.md` | The dated Broken Box season list (from the drama teacher) and the musical-status line (biennial — says which year is next) |
+
+**Facts that appear in more than one place must agree** (tests catch the parse-level
+problems, not disagreements):
+
+- **Boosters meeting dates** — home's prose *and* home's season table.
+- **Fall Festival date** — home's prose, home's season table, the choir concert list, and
+  two MBCG table rows (shortened rehearsal + festival).
+- **MBCG campaign amounts** — the `mbcg.md` ask and the donate page's MBCG section, both
+  refreshed from the JotForm form.
+- **Musical status** — the drama page and the "musical is biennial" convention bullet.
+
+Both season-calendar tables are **load-bearing** — dates must parse and weekday labels must
+match or the build fails (see the two calendar sections below). Hero photos can also carry
+show-specific content (see Roadmap).
+
 ### Content blocks — the MDX palette
 
 `home.mdx` and `donate.mdx` are Markdown *plus a small set of block tags*. The tags are the
@@ -178,16 +206,17 @@ Full contract: [docs/pab-calendar-feed.md](docs/pab-calendar-feed.md).
 
 ### Donation links — `/bts` for everything, `/donate-mbcg` for MBCG
 
-There are **two** donation destinations, both Cloudflare Single Redirect rules (NOT in
-`_redirects`) pointing at JotForm forms — see
+The donation short links are Cloudflare Single Redirect rules (NOT in `_redirects`) — see
 [docs/cloudflare-configuration.md](docs/cloudflare-configuration.md) §7b:
 
-- `/bts` → the Back-to-School campaign. Every page except MBCG links here.
-- `/donate-mbcg` → the Marching Band & Color Guard campaign, which is separate from
-  Back-to-School. Only the MBCG page links here.
+- `/bts` → the Back-to-School JotForm. Every page except MBCG links here.
+- `/donate-mbcg` → the Marching Band & Color Guard campaign JotForm, which is separate
+  from Back-to-School. The MBCG page and the donate page's MBCG section link here.
+- `/sponsor-mbcg` → a Square payment link for MBCG sponsorships (not linked from any
+  page; shared directly).
 
-Always link to the short path — never a JotForm URL directly — so traffic stays on our
-own domain and the target can be changed in one place each year.
+Always link to the short path — never a JotForm/Square URL directly — so traffic stays on
+our own domain and the target can be changed in one place each year.
 
 The old per-program `/donate/mbcg|instrumental|choir|drama` short links were removed;
 donors pick their program *on the form*. `public/_redirects` is now empty of rules.
@@ -225,22 +254,13 @@ permission. See `docs/cloudflare-configuration.md` §9.
 ## Conventions (don't regress these)
 
 **Content voice & accuracy**
-- Content is **evergreen** — describe what the org does in any year; avoid specific dates,
-  scores, or one-off show titles. **Exception: the Marching Band & Color Guard page**
-  (`programs/mbcg.md`) intentionally carries **current-season** detail — the fall show
-  theme + images and the full dated season calendar — refreshed each year. Don't strip that
-  dated content thinking it violates "evergreen"; just update it each season.
-  **Second exception: the Choir page** (`programs/choir.md`) carries a short dated
-  concert list ("2026–27 concerts", from the choir teacher) — refresh it each season too.
-  **Third exception: the Drama page** (`programs/drama.md`) carries a dated Broken Box
-  season list ("Broken Box: the 2026–27 season", from the drama teacher) — bold-lead
-  bullets with dates and a one-sentence description per show; refresh it each season.
-  **Fourth exception: the Home page** (`pages/home.mdx`) carries this year's Boosters
-  meeting dates ("Boosters meetings" prose, linked from About), the full "## Season
-  calendar" table (which feeds `/calendar/pab.ics` — the meeting dates appear in both
-  and must agree), and the Fall Festival date — refresh all each year. The Fall Festival
-  date also appears in the Choir concert list and as two rows (shortened rehearsal +
-  festival) in the MBCG season table.
+- Content is **evergreen by default** — describe what the org does in any year; avoid
+  specific dates, scores, or one-off show titles. But per-season detail is now a
+  deliberate, sizable layer of the site — five content files carry it and two calendar
+  feeds are built from it. The complete list of what's dated where, and the facts that
+  must agree across files, is **"Per-season content — the refresh map"** above. Don't
+  strip dated content from those places thinking it violates "evergreen"; refresh it
+  each season instead.
 - **The school runs the performances and curriculum; the Boosters _support_.** Never imply
   the Boosters run programs or "host" the Fall Festival (the school hosts it).
 - **Marching Band & Color Guard is organizationally part of Instrumental Music** but has its
@@ -288,9 +308,9 @@ permission. See `docs/cloudflare-configuration.md` §9.
   returns. The MBCG volunteer sheet went out via the Marching Band Google Group in Aug 2026
   (the page says so and points non-members to `president@`); Google Group links are still
   pending.
-- **MBCG campaign — launched Aug 2026.** `/donate-mbcg` is live and the MBCG page carries
-  the ask (suggested $1,000/student, key-donor levels, what donations fund). Refresh from
-  the JotForm form each season.
+- **MBCG campaign — launched Aug 2026.** `/donate-mbcg` is live; the MBCG page and the
+  donate page's MBCG section carry the ask (suggested $1,000/student, key-donor levels,
+  what donations fund). Refresh both from the JotForm form each season.
 - **Hero photos — ongoing.** The first six shipped (2026 season). More originals will be
   dropped into `src/images/` for cropping; see [docs/hero-images.md](docs/hero-images.md).
   The "Hexed" field shot is 2025-26 show content and should be swapped once a new show exists.
