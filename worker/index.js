@@ -31,7 +31,7 @@ const CANONICAL_HOST = "lahsperformingartsboosters.org";
  *   No other file needs to change. This is the single source of truth for the list.
  */
 const DONATE_FORWARD_TO = [
-  "gerribock@gmail.com",
+  "kleute@gmail.com",
   "chondl@gmail.com",
   "lahsmusictreasurer@gmail.com",
   "sangum_desai@hotmail.com",

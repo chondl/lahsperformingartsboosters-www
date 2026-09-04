@@ -188,6 +188,7 @@ done
 - `chondl@gmail.com` — verified by clicking the link Cloudflare emailed.
 - `gerribock@gmail.com` — added 2026-07-16 for the `donate@` alias; **verified 2026-07-17**.
 - `sangum_desai@hotmail.com` — added 2026-07-16 for the `donate@` alias; **verified 2026-07-19**.
+- `kleute@gmail.com` — added 2026-09-04 for the `donate@` alias (id `3167e07c63f24793aed2b698b5fb24c4`).
 
 **Verify:** `api ".../accounts/$ACCOUNT_ID/email/routing/addresses"` → all `verified=true`.
 **Undo:** `DELETE /accounts/$ACCOUNT_ID/email/routing/addresses/{id}`.
@@ -286,9 +287,10 @@ api -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/ru
   "actions":[{"type":"worker","value":["lahsperformingartsboosters-www"]}]
 }'
 ```
-**Recipients (as of 2026-07-19):** `gerribock@gmail.com`, `chondl@gmail.com`,
-`lahsmusictreasurer@gmail.com`, `sangum_desai@hotmail.com` — all four verified and in
-`DONATE_FORWARD_TO`.
+**Recipients (as of 2026-09-04):** `kleute@gmail.com`, `chondl@gmail.com`,
+`lahsmusictreasurer@gmail.com`, `sangum_desai@hotmail.com` — in `DONATE_FORWARD_TO`.
+(`gerribock@gmail.com` was removed from the list 2026-09-04; the destination address is
+still registered in Cloudflare, which is harmless.)
 
 ### 6e. Debugging `donate@` delivery (observability)
 
