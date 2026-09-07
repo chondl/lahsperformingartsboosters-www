@@ -27,7 +27,9 @@ events — is the MBCG contract; read
 [mbcg-calendar-feed.md](mbcg-calendar-feed.md) for the full rules. On top of that:
 
 - **The table has a fourth column, `Where`** (`LAHS`, `MVHS`, or `Zoom`), which becomes
-  each event's `LOCATION`.
+  each event's `LOCATION`. It names the school, not the room or the destination — an
+  off-campus field trip is still a `LAHS` row, with the destination in the title. A test
+  pins the three values.
 - **Event titles are written out in full in the table and used verbatim** — no automatic
   prefix. Every title starts with `LAHS` + who is performing
   (`LAHS Choir Concert – A Season of Song`, `LAHS Broken Box – Cinderella: A Dream Come
@@ -47,12 +49,14 @@ The 2026–27 table was compiled (Aug 2026) from, in order of authority:
 1. **The program teachers' own lists** on our pages — Broken Box season on
    `programs/drama.md`, choir concerts on `programs/choir.md`.
 2. **The PAB board** — Boosters meeting dates on the home page.
-3. **The LAHS school calendar** — a single public Google Calendar behind
+3. **The instrumental music teacher's own season list** — bands and orchestras (concerts,
+   field trips, graduation call times); sent by email, not published anywhere we can read.
+4. **The LAHS school calendar** — a single public Google Calendar behind
    `lahs.mvla.net`; queryable as JSON at
    `https://lahs.mvla.net/api/calendars/147995/events?start_date=…&end_date=…`. It
    confirms dates but is sparse (spring events get added mid-year) and rarely carries
    locations.
-4. **The MVHS calendar** (same API, calID `143691` on `mvhs.mvla.net`) — much more
+5. **The MVHS calendar** (same API, calID `143691` on `mvhs.mvla.net`) — much more
    complete, and the place where joint MVLA concerts show up with locations.
 
 ## Each season's refresh
@@ -60,5 +64,8 @@ The 2026–27 table was compiled (Aug 2026) from, in order of authority:
 1. Rewrite the table in `home.mdx` for the new season (and the meeting dates in the
    "Boosters meetings" prose above it — they must agree).
 2. Bump `seasonYear:` in the frontmatter.
-3. Push. Subscribers keep their subscription; events are identified by date + title, so
+3. An event whose date isn't known yet **cannot be a table row** — every date cell must
+   parse or the build fails. Note it in a short line under the table (the CMEA Festival is
+   there now) and move it into the table when the date lands.
+4. Push. Subscribers keep their subscription; events are identified by date + title, so
    edits update rather than duplicate.
