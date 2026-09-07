@@ -91,7 +91,7 @@ test('the Fall Festival Saturday is a shortened rehearsal then the festival', ()
   assert.equal(rehearsal.end, '20261031T120000');
   assert.match(festival.summary, /Fall Festival/);
   assert.equal(festival.start, '20261031T123000');
-  assert.equal(festival.end, '20261031T153000');
+  assert.equal(festival.end, '20261031T160000');
   // The table rows replace the generated 9-to-4 Saturday rehearsal that day.
   assert.equal(feed.filter((ev) => ev.start.startsWith('20261031')).length, 2);
 });

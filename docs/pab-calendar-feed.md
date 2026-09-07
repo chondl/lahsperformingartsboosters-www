@@ -35,9 +35,12 @@ events — is the MBCG contract; read
   (`LAHS Choir Concert – A Season of Song`, `LAHS Broken Box – Cinderella: A Dream Come
   True`, `LAHS Performing Arts Boosters Meeting`) so entries read clearly when truncated
   on a family calendar. A test enforces the `LAHS` prefix.
-- **Time cells carry start times only** (the page intentionally shows no end times);
-  timed events default to a one-hour block in the feed. A start time on a **date range**
-  (`Fri–Sat, Nov 6 – 7` + `7:00 PM`) repeats as one event per night.
+- **Performances carry a start and an end time** (`7:00 – 9:00 PM`) so they block out the
+  right span on a family calendar: concerts and Broken Box shows run two hours, the Fall
+  Festival 12:30 – 4:00 PM, graduation 3:30 – 8:30 PM. Rows left start-only — the Boosters
+  meetings, the Strictly Strings dress rehearsal — fall back to the parser's one-hour
+  default. A time range on a **date range** (`Fri–Sat, Nov 6 – 7` + `7:00 – 9:00 PM`)
+  repeats as one event per night.
 - **No generated rehearsals.** The feed is exactly the table rows.
 - **Years come from `seasonYear:`** in `home.mdx` frontmatter (Jul–Dec = that year,
   Jan–Jun = the next). Bump it each season.

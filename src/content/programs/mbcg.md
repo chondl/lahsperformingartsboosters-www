@@ -120,7 +120,7 @@ date; full details are shared through the Google Group and the volunteer sheet.
 | Fri, Oct 30 | 1:00 – 2:00 PM | Homecoming parade |
 | Fri, Oct 30 | 4:00 PM – 9:00 PM | Rehearsal, dinner provided by boosters, then homecoming football game |
 | Sat, Oct 31 | 9:00 AM – 12:00 PM | Rehearsal, shortened before the Fall Festival |
-| Sat, Oct 31 | 12:30 – 3:30 PM at LAHS | Fall Festival — all ensembles perform; exact performance times coming soon |
+| Sat, Oct 31 | 12:30 – 4:00 PM at LAHS | Fall Festival — all ensembles perform; exact performance times coming soon |
 | **November** |  |  |
 | Sat, Nov 7 | 9:00 AM – 9:00 PM at LAHS | [Hollister Show](https://www.westernbands.org/events/details.php?ID=1527) — WBA #3 |
 | Wed, Nov 11 | 4:00 PM - 7:00 PM | Veterans Day — rehearsal as scheduled (no day off) |
