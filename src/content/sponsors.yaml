@@ -1,0 +1,10 @@
+# Our sponsors. Every <Sponsors /> block on the site (home page, MBCG page) shows this list,
+# alphabetical by name.
+# To add a sponsor: drop a logo into public/images/sponsors/ and add an entry.
+# To remove one: delete its entry. `url` is optional — when set, the logo links there.
+- id: the-agency
+  name: The Agency
+  logo: /images/sponsors/the-agency.png
+- id: pandia-health
+  name: Pandia Health
+  logo: /images/sponsors/pandia-health.png

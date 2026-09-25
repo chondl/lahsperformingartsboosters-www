@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sponsors from '../../components/content/Sponsors.astro';
 
 export async function getStaticPaths() {
   const programs = await getCollection('programs');
@@ -14,7 +15,7 @@ const d = program.data;
 <BaseLayout title={d.title} description={d.summary}>
   <article class={`container section prose prose-${program.id}`}>
     <h1>{d.title}</h1>
-    <Content />
+    <Content components={{ Sponsors }} />
     {(d.donateUrl || d.updatesFormUrl || d.volunteerSheetUrl || d.googleGroupUrl || d.showDonate) && (
       <div class="program-actions">
         {d.donateUrl && <a class="btn btn-primary" href={d.donateUrl}>{d.donateLabel}</a>}

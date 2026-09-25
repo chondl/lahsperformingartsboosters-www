@@ -1,8 +1,9 @@
 import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 
 const programs = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/programs' }),
+  // {md,mdx}: a program page that needs a palette block (MBCG's <Sponsors />) is .mdx.
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/programs' }),
   schema: z.object({
     title: z.string(),
     order: z.number(),
@@ -52,4 +53,14 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { programs, pages };
+// Sponsor logos shown by every <Sponsors /> block. One list, one file — see sponsors.yaml.
+const sponsors = defineCollection({
+  loader: file('src/content/sponsors.yaml'),
+  schema: z.object({
+    name: z.string(),
+    logo: z.string(),
+    url: z.string().url().optional(),
+  }),
+});
+
+export const collections = { programs, pages, sponsors };

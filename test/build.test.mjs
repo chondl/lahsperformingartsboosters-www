@@ -185,3 +185,19 @@ test('the home hero has a single primary Donate call to action', () => {
   assert.match(html, /<a class="btn btn-primary" href="\/donate\/"[^>]*>Donate</);
   assert.doesNotMatch(html, /Find your program<\/a>/);
 });
+
+test('home and MBCG thank every sponsor with its logo, above the season calendar', () => {
+  const sponsors = readFileSync('src/content/sponsors.yaml', 'utf8');
+  const logos = [...sponsors.matchAll(/^\s*logo:\s*(\S+)/gm)].map((m) => m[1]);
+  assert.ok(logos.length > 0, 'sponsors.yaml lists no logos');
+  for (const page of ['dist/index.html', 'dist/programs/mbcg/index.html']) {
+    const html = readFileSync(page, 'utf8');
+    const block = html.indexOf('class="sponsors"');
+    assert.ok(block > -1, `${page} has no sponsors block`);
+    assert.ok(block < html.indexOf('Season calendar'), `${page}: sponsors block is not above the season calendar`);
+    for (const logo of logos) {
+      assert.ok(html.includes(`src="${logo}"`), `${page} is missing sponsor logo ${logo}`);
+      assert.ok(existsSync(`public${logo}`), `sponsor logo file public${logo} is missing`);
+    }
+  }
+});

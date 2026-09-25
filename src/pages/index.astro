@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/content/Hero.astro';
 import FindYourProgram from '../components/content/FindYourProgram.astro';
 import Prose from '../components/content/Prose.astro';
+import Sponsors from '../components/content/Sponsors.astro';
 
 // Page structure lives in src/content/pages/home.mdx; this route only supplies the palette.
 const home = await getEntry('pages', 'home');
@@ -11,5 +12,5 @@ if (!home) throw new Error('Missing content: pages/home');
 const { Content } = await render(home);
 ---
 <BaseLayout description="Parent-led nonprofit supporting the performing arts at Los Altos High School.">
-  <Content components={{ Hero, FindYourProgram, Prose }} />
+  <Content components={{ Hero, FindYourProgram, Prose, Sponsors }} />
 </BaseLayout>

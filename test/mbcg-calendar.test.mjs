@@ -5,13 +5,13 @@ import {
   parseSeasonCalendar, parseWeeklyRehearsals, buildSeasonEvents, buildIcs,
 } from '../src/lib/season-calendar.mjs';
 
-// The season-calendar table and rehearsal bullet list in mbcg.md are load-bearing: the
+// The season-calendar table and rehearsal bullet list in mbcg.mdx are load-bearing: the
 // /calendar/mbcg.ics feed is parsed out of them at build time (docs/mbcg-calendar-feed.md).
 // These tests pin the parsing contract against the real content file, so an edit the
 // parser cannot read fails here — and fails the build — instead of silently shipping a
 // wrong calendar.
 
-const source = readFileSync('src/content/programs/mbcg.md', 'utf8');
+const source = readFileSync('src/content/programs/mbcg.mdx', 'utf8');
 const seasonYear = Number(source.match(/^seasonYear:\s*(\d{4})\s*$/m)?.[1]);
 const frontDate = (key) => source.match(new RegExp(`^${key}:\\s*(\\S+)\\s*$`, 'm'))?.[1];
 const events = parseSeasonCalendar(source, seasonYear);
@@ -21,8 +21,8 @@ const feed = buildSeasonEvents(source, {
   rehearsalsThrough: frontDate('rehearsalsThrough'),
 });
 
-test('mbcg.md declares the frontmatter the feed needs', () => {
-  assert.ok(Number.isInteger(seasonYear), 'mbcg.md frontmatter is missing seasonYear');
+test('mbcg.mdx declares the frontmatter the feed needs', () => {
+  assert.ok(Number.isInteger(seasonYear), 'mbcg.mdx frontmatter is missing seasonYear');
   assert.ok(frontDate('rehearsalsFrom'), 'missing rehearsalsFrom');
   assert.ok(frontDate('rehearsalsThrough'), 'missing rehearsalsThrough');
 });

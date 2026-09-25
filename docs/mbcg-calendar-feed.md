@@ -1,7 +1,7 @@
 # The MBCG calendar feed (`/calendar/mbcg.ics`)
 
 The Marching Band & Color Guard page offers a **subscribable calendar** built from the
-season-calendar table in [src/content/programs/mbcg.md](../src/content/programs/mbcg.md),
+season-calendar table in [src/content/programs/mbcg.mdx](../src/content/programs/mbcg.mdx),
 plus the weekly rehearsals generated from the page's rehearsal bullet list (rehearsals are
 deliberately **not** table rows — that would overwhelm the page). There is no second copy
 of the schedule to maintain: at build time the page is parsed into an iCalendar feed, so
@@ -24,7 +24,7 @@ Every event title is prefixed `MBCG:` so entries are recognizable on a family ca
 
 ## The table is now load-bearing — what edits must respect
 
-Everything below `## Season calendar` in `mbcg.md` that is a 3-column table row becomes
+Everything below `## Season calendar` in `mbcg.mdx` that is a 3-column table row becomes
 one calendar event (month rows like `| **October** | | |` are skipped).
 
 **Date cells are strict.** Accepted shapes (any dash style works):
@@ -56,7 +56,7 @@ Any other time text — `TBD`, `—`, prose — produces an **all-day event with
 time text in the description**. So a "weird" time never breaks the build; it just
 degrades to all-day.
 
-**Years come from frontmatter.** The table's dates carry no year, so `mbcg.md` declares
+**Years come from frontmatter.** The table's dates carry no year, so `mbcg.mdx` declares
 `seasonYear: 2026`. Months July–December belong to that year, January–June to the next.
 
 ## Weekly rehearsals are generated, not listed
@@ -71,7 +71,7 @@ frontmatter dates turns rehearsal generation off entirely.
 
 ## Each season's refresh
 
-1. Update the table (and, if changed, the rehearsal bullet list) in `mbcg.md` as usual.
+1. Update the table (and, if changed, the rehearsal bullet list) in `mbcg.mdx` as usual.
 2. Bump `seasonYear:`, `rehearsalsFrom:`, and `rehearsalsThrough:` in the frontmatter.
 3. Push. The build regenerates the feed; subscribers keep their subscription — events are
    identified by date + title, so edits update rather than duplicate.

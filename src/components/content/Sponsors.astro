@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+
+// Sponsor thank-you strip. The logos come from src/content/sponsors.yaml — never hand-listed —
+// so adding a sponsor is one file edit and every page with this block picks it up. Alphabetical
+// by name, so no sponsor is ranked above another.
+interface Props {
+  title?: string;
+}
+const { title = 'Thank you to our sponsors' } = Astro.props;
+const sponsors = (await getCollection('sponsors')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+<section class="sponsors">
+  <h2>{title}</h2>
+  <ul class="sponsor-logos">
+    {sponsors.map(({ data: s }) => {
+      const img = <img src={s.logo} alt={s.name} loading="lazy" />;
+      return <li>{s.url ? <a href={s.url}>{img}</a> : img}</li>;
+    })}
+  </ul>
+</section>
+<style is:global>
+  /* is:global + the .prose prefix lift these over global.css's `.prose img` / `.prose ul`
+     rules (full-width block images with a big margin), which would otherwise win. */
+  .prose .sponsors { text-align: center; margin: var(--space-xl) 0; }
+  .prose .sponsor-logos {
+    list-style: none; padding: 0; margin: var(--space-md) 0 0;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: var(--space-lg) var(--space-xl);
+  }
+  .prose .sponsor-logos li { margin: 0; }
+  /* One height box for every logo: squares stay square, wide wordmarks stay wide, and the
+     max-width keeps a very wide logo from dominating the row. */
+  .prose .sponsor-logos img { height: 120px; width: auto; max-width: 280px; object-fit: contain; margin: 0; border-radius: 0; }
+</style>

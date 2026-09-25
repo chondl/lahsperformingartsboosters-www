@@ -1,5 +1,5 @@
 // Static endpoint: builds /calendar/mbcg.ics from the season-calendar table (plus the
-// generated weekly rehearsals) in src/content/programs/mbcg.md at build time. Editing the
+// generated weekly rehearsals) in src/content/programs/mbcg.mdx at build time. Editing the
 // page updates this feed and the HTML in the same deploy. See docs/mbcg-calendar-feed.md.
 import { getEntry } from 'astro:content';
 import { buildSeasonEvents, buildIcs } from '../../lib/season-calendar.mjs';

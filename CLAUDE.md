@@ -50,13 +50,15 @@ src/
   content/
     pages/{home,donate}.mdx  # singleton page bodies (Markdown + content blocks)
     pages/about.md           # plain Markdown — needs no blocks
-    programs/{mbcg,instrumental-music,choir,drama}.md  # one file per program
+    programs/{instrumental-music,choir,drama}.md  # one file per program
+    programs/mbcg.mdx         # MDX only because it carries a <Sponsors /> block
+    sponsors.yaml             # sponsor names + logos for every <Sponsors /> block
   lib/season-calendar.mjs    # parses season tables → iCalendar feeds (docs/{mbcg,pab}-calendar-feed.md)
   pages/
     index.astro              # Home — a thin shell; structure lives in home.mdx
     about.astro, donate.astro# render pages/*.{md,mdx}
     programs/[slug].astro     # ONE route renders all four program pages
-    calendar/mbcg.ics.js      # static endpoint: builds /calendar/mbcg.ics from mbcg.md
+    calendar/mbcg.ics.js      # static endpoint: builds /calendar/mbcg.ics from mbcg.mdx
     calendar/pab.ics.js       # static endpoint: builds /calendar/pab.ics from home.mdx's season table
   layouts/BaseLayout.astro    # <head>, fonts, header+footer wrapper; renders <h1> per page
   components/                 # Header (nav), Footer, HeroCarousel, ProgramCard
@@ -64,7 +66,7 @@ src/
   styles/global.css           # design tokens + base styles
 public/
   _redirects                  # /donate/* short links (see below)
-  images/                     # logos (logo-eagle.png, logo-seal.png); hero/ for photos
+  images/                     # logos (logo-eagle.png, logo-seal.png); hero/ for photos; sponsors/ for sponsor logos
 worker/index.js               # entry Worker: fetch=www→apex 301 + serve ASSETS; email=donate@ fan-out
 wrangler.jsonc                # deploy config (assets, workers_dev:false, run_worker_first)
 test/build.test.mjs           # asserts the 7 pages + _redirects build, and that no block dropped
@@ -104,9 +106,9 @@ content files and feeds two calendars.** Don't strip any of it thinking it viola
 
 | File | What's per-season in it |
 |---|---|
-| `programs/mbcg.md` | The whole current-season layer: fall show theme + images; the "Support the *year* season" ask (suggested amount, key-donor levels, what-it-funds — from the JotForm form); the season-calendar table (feeds `/calendar/mbcg.ics`); the weekly-rehearsal bullet list; frontmatter anchors `seasonYear:` / `rehearsalsFrom:` / `rehearsalsThrough:` |
+| `programs/mbcg.mdx` | The whole current-season layer: fall show theme + images; the "Support the *year* season" ask (suggested amount, key-donor levels, what-it-funds — from the JotForm form); the season-calendar table (feeds `/calendar/mbcg.ics`); the weekly-rehearsal bullet list; frontmatter anchors `seasonYear:` / `rehearsalsFrom:` / `rehearsalsThrough:` |
 | `pages/home.mdx` | `seasonYear:` frontmatter; the "Boosters meetings" dates prose (linked from About); the `## Season calendar` table (feeds `/calendar/pab.ics`); the Fall Festival date |
-| `pages/donate.mdx` | The "Marching Band & Color Guard" section repeats the MBCG campaign ask — same amounts and what-it-funds as `mbcg.md` |
+| `pages/donate.mdx` | The "Marching Band & Color Guard" section repeats the MBCG campaign ask — same amounts and what-it-funds as `mbcg.mdx` |
 | `programs/choir.md` | The dated concert list (from the choir teacher) |
 | `programs/drama.md` | The dated Broken Box season list (from the drama teacher) and the musical-status line (biennial — says which year is next) |
 
@@ -116,7 +118,7 @@ problems, not disagreements):
 - **Boosters meeting dates** — home's prose *and* home's season table.
 - **Fall Festival date** — home's prose, home's season table, the choir concert list, and
   two MBCG table rows (shortened rehearsal + festival).
-- **MBCG campaign amounts** — the `mbcg.md` ask and the donate page's MBCG section, both
+- **MBCG campaign amounts** — the `mbcg.mdx` ask and the donate page's MBCG section, both
   refreshed from the JotForm form.
 - **Musical status** — the drama page and the "musical is biennial" convention bullet.
 
@@ -140,6 +142,7 @@ of allowed tags:
 | `<Prose>` … `</Prose>` | A body-copy section. Wraps home's Markdown; other pages get it from their template. | none |
 | `<Reasons title="…">` … `</Reasons>` | The tinted "reasons to give" box on donate. Children are Markdown. | `title` |
 | `<CTAButton href="/bts" label="…" />` | The primary donate button. | `href`, `label` (both required) |
+| `<Sponsors title="…" />` | Centered row of sponsor logos from `src/content/sponsors.yaml`. On home and MBCG, above each season calendar. | `title` (defaults to "Thank you to our sponsors") |
 
 Rules for content files — a test ([test/content-purity.test.mjs](test/content-purity.test.mjs))
 enforces them:
@@ -154,6 +157,17 @@ enforces them:
 Adding a *new* block type is a developer task: create the component in `src/components/content/`,
 add it to the route's `components={{…}}` map, and document it in the table above. Design record:
 [docs/superpowers/specs/2026-07-24-content-blocks-mdx-design.md](docs/superpowers/specs/2026-07-24-content-blocks-mdx-design.md).
+
+### Sponsor logos
+
+Every `<Sponsors />` block (home and MBCG, each above its season calendar) renders the one
+list in `src/content/sponsors.yaml`, alphabetical by name. **To add a sponsor:** put the
+logo in `public/images/sponsors/<slug>.png` and add an entry (`id`, `name`, `logo`, optional
+`url` to make the logo a link). Prepare the logo first: trim transparent padding
+(`sharp(...).trim()`) and keep it web-sized (~800px wide, or 480px for a square). The block
+sizes every logo into one 120px-high, max 280px-wide box, so squares and wide wordmarks
+balance without per-logo CSS. `sharp` is already in `node_modules`; ImageMagick/ffmpeg are
+not in the agent container.
 
 ### Home hero photos
 
@@ -182,7 +196,7 @@ CSS filter. **Drama is a placeholder** pending photos from the drama teacher.
 
 ### MBCG season calendar — the table feeds `/calendar/mbcg.ics`
 
-The season-calendar table in `programs/mbcg.md` is parsed at build time into a
+The season-calendar table in `programs/mbcg.mdx` is parsed at build time into a
 subscribable iCalendar feed (the Google/Apple subscribe links below the table), and the
 weekly rehearsals are generated into the feed from the page's rehearsal bullet list —
 never listed as table rows. **The table's and bullet list's formats are load-bearing:**
