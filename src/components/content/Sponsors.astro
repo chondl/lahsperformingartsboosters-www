@@ -22,7 +22,14 @@ const sponsors = (await getCollection('sponsors')).sort((a, b) => a.data.name.lo
 <style is:global>
   /* is:global + the .prose prefix lift these over global.css's `.prose img` / `.prose ul`
      rules (full-width block images with a big margin), which would otherwise win. */
-  .prose .sponsors { text-align: center; margin: var(--space-xl) 0; }
+  /* Hairline rules above and below set the thank-you apart from the prose around it. */
+  .prose .sponsors {
+    text-align: center;
+    margin: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
+    border-block: 1px solid var(--line);
+  }
+  .prose .sponsors h2 { margin-top: 0; }
   .prose .sponsor-logos {
     list-style: none; padding: 0; margin: var(--space-md) 0 0;
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
